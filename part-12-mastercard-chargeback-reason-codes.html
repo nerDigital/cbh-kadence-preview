@@ -1,1276 +1,187 @@
-<!doctype html>
-<html lang="en-US" class="no-js" itemtype="https://schema.org/WebPage" itemscope>
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
-	<title>Mastercard Chargeback Reason Codes Explained &#8211; CBH-Kadence</title>
-<meta name='robots' content='max-image-preview:large' />
-<link rel='dns-prefetch' href='//localhost' />
-<link rel="alternate" type="application/rss+xml" title="CBH-Kadence &raquo; Feed" href="/feed/" />
-<link rel="alternate" type="application/rss+xml" title="CBH-Kadence &raquo; Comments Feed" href="/comments/feed/" />
-			
-			<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="/wp-json/oembed/1.0/embed?url=http%3A%2F%2Flocalhost%3A8888%2Fchargeback-guide%2Fpart-12-mastercard-chargeback-reason-codes%2F" />
-<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="/wp-json/oembed/1.0/embed?url=http%3A%2F%2Flocalhost%3A8888%2Fchargeback-guide%2Fpart-12-mastercard-chargeback-reason-codes%2F&#038;format=xml" />
-<style id="wp-img-auto-sizes-contain-inline-css">
-img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
-/*# sourceURL=wp-img-auto-sizes-contain-inline-css */
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Mastercard Chargeback Reason Codes Explained — ChargebackHelp Guide</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ============================ ChargebackHelp design layer (scoped to .cbh-guide) ============================ */
+body.cbh-guide{background:#f7f7f7;}
+.cbh-guide{
+  --cbh-black:#161818; --cbh-charcoal:#595959; --cbh-blue:#2890c8; --cbh-green:#4eae4c;
+  --cbh-orange:#ed5d31; --cbh-orange2:#e8832c; --cbh-mist:#f3f3f6; --cbh-border:#e3e3e8;
+  --cbh-grad:linear-gradient(to right,#ed5d31,#e8832c);
+}
+.cbh-guide :where(.cbh-hero,.cbh-choose,.cbh-allparts,.cbh-footer,.cbh-topbar,.cbh-crumb,.cbh-arthead,.cbh-definition,.cbh-cta,.cbh-related,.cbh-further,.cbh-prevnext,.cbh-sidebar) *{box-sizing:border-box;}
+.cbh-guide .cbh-wrap{max-width:1152px;margin:0 auto;padding:0 24px;width:100%;}
+
+/* per-track accent */
+.cbh-guide .cbh-accent-blue{--acc:#2890c8;--acc-bg:rgba(40,144,200,.10);--acc-bg2:rgba(40,144,200,.05);}
+.cbh-guide .cbh-accent-orange{--acc:#ed5d31;--acc-bg:rgba(237,93,49,.10);--acc-bg2:rgba(237,93,49,.05);}
+.cbh-guide .cbh-accent-green{--acc:#4eae4c;--acc-bg:rgba(78,174,76,.10);--acc-bg2:rgba(78,174,76,.05);}
+
+/* icons */
+.cbh-guide .cbh-ico{width:16px;height:16px;display:inline-block;vertical-align:middle;flex:0 0 auto;}
+.cbh-guide .cbh-ico-lg{width:24px;height:24px;}
+.cbh-guide .cbh-ico-sm{width:14px;height:14px;}
+.cbh-guide .cbh-ico-xs{width:12px;height:12px;}
+
+/* spinning brand logo (matches the original's animate-spin-slow) */
+@keyframes cbh-spin{to{transform:rotate(360deg);}}
+.cbh-guide .cbh-logo-img{height:96px;width:auto;display:block;transform-origin:center;animation:cbh-spin 9s linear infinite;}
+.cbh-guide .cbh-logo-img-sm{height:60px;}
+@media (prefers-reduced-motion:reduce){.cbh-guide .cbh-logo-img{animation:none;}}
+
+/* full-bleed bands — only on the single-column index (a two-column article mis-centers 100vw) */
+.cbh-index .cbh-hero,.cbh-index .cbh-footer{
+  width:100vw;max-width:100vw;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);
+}
+
+/* ---------------------------------------------------------------- HERO (index) */
+.cbh-guide .cbh-hero{background:var(--cbh-grad);color:#fff;margin-top:0;margin-bottom:40px;}
+.cbh-guide .cbh-hero-inner{display:flex;align-items:center;gap:28px;padding-top:56px;padding-bottom:56px;}
+.cbh-guide .cbh-hero-text{min-width:0;}
+.cbh-guide .cbh-hero-eyebrow{font-family:"Montserrat",sans-serif;color:rgba(255,255,255,.8);font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.22em;margin:0 0 6px;}
+.cbh-guide .cbh-hero-title{font-family:"Montserrat",sans-serif;color:#fff;font-size:40px;font-weight:700;line-height:1.12;letter-spacing:-1px;margin:0;}
+.cbh-guide .cbh-hero-sub{color:rgba(255,255,255,.85);font-size:15px;line-height:1.55;margin:10px 0 0;max-width:576px;}
+
+/* ---------------------------------------------------------------- CHOOSE YOUR LEVEL */
+.cbh-guide .cbh-choose{margin:0 0 8px;}
+.cbh-guide .cbh-choose-head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:24px;}
+.cbh-guide .cbh-section-h2{font-family:"Montserrat",sans-serif;color:var(--cbh-black);font-size:24px;font-weight:700;line-height:1.2;letter-spacing:-.24px;margin:0;}
+.cbh-guide .cbh-choose-sub{color:var(--cbh-charcoal);font-size:14px;margin:4px 0 0;}
+.cbh-guide .cbh-startlink{display:inline-flex;align-items:center;gap:6px;color:var(--cbh-orange);font-size:13px;font-weight:500;text-decoration:none;white-space:nowrap;}
+.cbh-guide .cbh-startlink:hover{text-decoration:underline;}
+.cbh-guide .cbh-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.cbh-guide .cbh-card{display:flex;flex-direction:column;background:#fff;border-radius:12px;padding:24px;text-decoration:none;
+  box-shadow:0 20px 60px -15px rgba(22,24,24,.15);transition:transform .15s ease,box-shadow .15s ease;}
+.cbh-guide .cbh-card:hover{transform:translateY(-2px);box-shadow:0 30px 80px -15px rgba(22,24,24,.2);}
+.cbh-guide .cbh-card-icon{display:inline-grid;place-items:center;height:48px;width:48px;border-radius:10px;background:var(--acc-bg);color:var(--acc);margin-bottom:16px;}
+.cbh-guide .cbh-card-titlerow{display:flex;align-items:center;gap:8px;margin-bottom:6px;}
+.cbh-guide .cbh-card-title{font-family:"Montserrat",sans-serif;font-size:18px;font-weight:700;color:var(--cbh-black);}
+.cbh-guide .cbh-card-count{font-size:11px;font-weight:500;color:var(--cbh-charcoal);background:var(--cbh-mist);border:1px solid var(--cbh-border);border-radius:999px;padding:2px 8px;}
+.cbh-guide .cbh-card-desc{font-size:13.5px;line-height:1.6;color:var(--cbh-charcoal);margin-bottom:16px;}
+.cbh-guide .cbh-card-explore{display:inline-flex;align-items:center;gap:6px;margin-top:auto;font-size:13px;font-weight:600;color:var(--acc);}
+
+/* ---------------------------------------------------------------- ALL 36 PARTS */
+.cbh-guide .cbh-allparts{margin:40px 0 8px;}
+.cbh-guide .cbh-allparts .cbh-section-h2{margin-bottom:24px;}
+.cbh-guide .cbh-track{margin-bottom:32px;}
+.cbh-guide .cbh-track-head{display:flex;align-items:center;gap:8px;margin-bottom:16px;color:var(--acc);}
+.cbh-guide .cbh-track-label{font-family:"Montserrat",sans-serif;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--acc);margin:0;}
+.cbh-guide .cbh-track-rule{height:1px;flex:1;background:var(--cbh-border);}
+.cbh-guide .cbh-part-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+.cbh-guide .cbh-part{display:flex;align-items:flex-start;gap:12px;background:#fff;border-radius:8px;padding:14px;text-decoration:none;
+  box-shadow:0 15px 40px -15px rgba(22,24,24,.15);transition:transform .15s ease,box-shadow .15s ease;}
+.cbh-guide .cbh-part:hover{transform:translateY(-2px);box-shadow:0 20px 50px -12px rgba(22,24,24,.2);}
+.cbh-guide .cbh-part-num{flex:0 0 auto;display:inline-grid;place-items:center;height:32px;width:32px;border-radius:6px;
+  font-family:"Montserrat",sans-serif;font-weight:700;font-size:12px;background:var(--acc-bg);color:var(--acc);}
+.cbh-guide .cbh-part-title{font-size:13.5px;line-height:1.35;color:var(--cbh-black);transition:color .15s ease;}
+.cbh-guide .cbh-part:hover .cbh-part-title{color:var(--cbh-orange);}
+
+/* ---------------------------------------------------------------- FOOTER */
+.cbh-guide .cbh-footer{border-top:1px solid var(--cbh-border);background:#fff;margin-top:48px;}
+.cbh-guide .cbh-footer-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-top:24px;padding-bottom:24px;}
+.cbh-guide .cbh-copy{font-size:12px;color:var(--cbh-charcoal);margin:0;}
+.cbh-guide .cbh-social{display:flex;align-items:center;gap:12px;}
+.cbh-guide .cbh-share{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;color:#fff;background:var(--cbh-orange);border-radius:6px;padding:8px 12px;text-decoration:none;transition:opacity .15s ease;}
+.cbh-guide .cbh-share:hover{opacity:.9;}
+.cbh-guide .cbh-foot-div{height:20px;width:1px;background:var(--cbh-border);}
+.cbh-guide .cbh-soc{display:inline-grid;place-items:center;height:32px;width:32px;border-radius:6px;color:var(--cbh-charcoal);text-decoration:none;transition:color .15s ease,background .15s ease;}
+.cbh-guide .cbh-soc:hover{color:var(--cbh-orange);background:var(--cbh-mist);}
+
+/* ---------------------------------------------------------------- ARTICLE: TOP BAR */
+.cbh-guide .cbh-topbar{background:var(--cbh-grad);color:#fff;margin-top:0;margin-bottom:28px;}
+.cbh-guide .cbh-topbar-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:72px;padding-top:8px;padding-bottom:8px;}
+.cbh-guide .cbh-topbar-brand{display:flex;align-items:center;gap:16px;text-decoration:none;}
+.cbh-guide .cbh-topbar-title{font-family:"Montserrat",sans-serif;color:#fff;font-size:16px;font-weight:600;text-transform:uppercase;letter-spacing:.18em;white-space:nowrap;}
+.cbh-guide .cbh-topbar-actions{display:flex;align-items:center;gap:28px;}
+.cbh-guide .cbh-topbar-link{display:inline-flex;align-items:center;gap:6px;color:rgba(255,255,255,.8);font-size:13px;font-weight:500;text-decoration:none;transition:color .15s ease;}
+.cbh-guide .cbh-topbar-link:hover{color:#fff;text-decoration:underline;text-underline-offset:4px;}
+
+/* ---------------------------------------------------------------- ARTICLE: HEAD */
+.cbh-guide .cbh-crumb{display:flex;flex-wrap:wrap;align-items:center;gap:8px;font-family:"Montserrat",sans-serif;font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--cbh-charcoal);margin:0 0 18px;}
+.cbh-guide .cbh-crumb a{color:var(--cbh-charcoal);text-decoration:none;}
+.cbh-guide .cbh-crumb a:hover{color:var(--cbh-black);}
+.cbh-guide .cbh-crumb-sep{color:rgba(89,89,89,.5);}
+.cbh-guide .cbh-arthead{margin:0 0 22px;}
+.cbh-guide .cbh-arttitle{font-family:"Montserrat",sans-serif;font-size:42px;font-weight:800;line-height:1.1;letter-spacing:-1.05px;color:var(--cbh-black);margin:0;}
+.cbh-guide .cbh-artmeta{font-size:13px;color:var(--cbh-charcoal);margin:10px 0 0;}
+
+/* ---------------------------------------------------------------- ARTICLE BODY typography */
+.cbh-guide .entry-content{font-family:"Work Sans",system-ui,sans-serif;color:var(--cbh-black);}
+.cbh-guide .entry-content p,.cbh-guide .cbh-article-main p{font-family:"Work Sans",system-ui,sans-serif;font-size:15px;line-height:1.75;color:rgba(22,24,24,.85);margin:0 0 16px;}
+.cbh-guide .entry-content a{color:var(--cbh-blue);text-decoration:none;}
+.cbh-guide .entry-content a:hover{text-decoration:underline;}
+.cbh-guide .entry-content h2,.cbh-guide .cbh-article-main h2{font-family:"Montserrat",sans-serif !important;font-size:20px !important;font-weight:700 !important;line-height:1.6;letter-spacing:-.2px;color:var(--cbh-black);margin:30px 0 8px;}
+.cbh-guide .entry-content h3{font-family:"Montserrat",sans-serif;font-size:15px;font-weight:700;color:var(--cbh-black);margin:24px 0 8px;}
+
+/* definition box */
+.cbh-guide .cbh-definition{background:rgba(78,174,76,.05);border-left:4px solid var(--cbh-green);border-radius:0 8px 8px 0;padding:20px 24px;margin:0 0 24px;}
+.cbh-guide .cbh-def-label{font-family:"Montserrat",sans-serif;font-size:10px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:rgba(33,69,34,.8);margin:0 0 8px;}
+.cbh-guide .cbh-def-body{font-size:15px;line-height:1.7;color:var(--cbh-black);}
+.cbh-guide .cbh-def-body p{margin:0;}
+
+/* in-content CTA */
+.cbh-guide .cbh-cta{background:#f0faf0;border-left:3px solid #4fad4c;border-radius:6px;padding:20px;margin:24px 0;}
+.cbh-guide .cbh-cta-title{font-family:"Montserrat",sans-serif;font-size:16px;font-weight:700;color:var(--cbh-black);margin:0 0 6px;}
+.cbh-guide .cbh-cta-body{font-size:13.5px;line-height:1.6;color:var(--cbh-charcoal);margin:0 0 10px;}
+.cbh-guide .cbh-cta-link{display:inline-flex;align-items:center;gap:4px;font-size:13px;font-weight:500;color:var(--cbh-green);text-decoration:none;}
+.cbh-guide .cbh-cta-link:hover{text-decoration:underline;}
+
+/* related entries */
+.cbh-guide .cbh-related{margin:48px 0 0;padding-top:28px;border-top:1px solid var(--cbh-border);}
+.cbh-guide .cbh-mini-label{font-family:"Montserrat",sans-serif;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--cbh-charcoal);margin:0 0 16px;}
+.cbh-guide .cbh-related-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px;}
+.cbh-guide .cbh-related-list a{display:inline-flex;align-items:center;gap:8px;font-size:14px;color:var(--cbh-blue);text-decoration:none;}
+.cbh-guide .cbh-related-list a:hover{text-decoration:underline;}
+
+/* further reading (blue callout) */
+.cbh-guide .cbh-further{margin:32px 0 0;border:1px solid rgba(40,144,200,.2);background:rgba(40,144,200,.05);border-radius:8px;padding:24px;}
+.cbh-guide .cbh-further-label{color:var(--cbh-blue);margin-bottom:12px;}
+.cbh-guide .cbh-further-list{list-style:none;margin:0 0 16px;padding:0;display:flex;flex-direction:column;gap:6px;}
+.cbh-guide .cbh-further-list a{font-size:14px;color:var(--cbh-blue);text-decoration:none;}
+.cbh-guide .cbh-further-list a:hover{text-decoration:underline;}
+.cbh-guide .cbh-further-note{font-size:13.5px;line-height:1.6;color:var(--cbh-charcoal);padding-top:16px;border-top:1px solid rgba(40,144,200,.15);}
+.cbh-guide .cbh-further-note a{color:var(--cbh-orange);font-weight:600;text-decoration:none;}
+.cbh-guide .cbh-further-note a:hover{text-decoration:underline;}
+
+/* prev / next */
+.cbh-guide .cbh-prevnext{display:flex;justify-content:space-between;gap:16px;margin:40px 0 0;padding-top:28px;border-top:1px solid var(--cbh-border);}
+.cbh-guide .cbh-pn{display:flex;flex-direction:column;gap:4px;max-width:48%;text-decoration:none;}
+.cbh-guide .cbh-pn-next{align-items:flex-end;text-align:right;margin-left:auto;}
+.cbh-guide .cbh-pn-label{display:inline-flex;align-items:center;gap:4px;font-family:"Montserrat",sans-serif;font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--cbh-charcoal);}
+.cbh-guide .cbh-pn-title{font-size:14px;font-weight:500;color:var(--cbh-black);transition:color .15s ease;}
+.cbh-guide .cbh-pn:hover .cbh-pn-title{color:var(--cbh-orange);}
+.cbh-guide .cbh-pn-spacer{flex:1;}
+
+/* ---------------------------------------------------------------- SIDEBAR (widget + preview) */
+.cbh-guide .cbh-sidebar,.cbh-guide .widget_cbh_sidebar{font-family:"Work Sans",sans-serif;}
+.cbh-guide .cbh-sidebar-inner{position:sticky;top:24px;}
+.cbh-guide .cbh-sidebar-brand{display:block;font-family:"Montserrat",sans-serif;font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--cbh-black);text-decoration:none;margin:0 0 18px;padding:0 20px;}
+.cbh-guide .cbh-side-group{margin-bottom:18px;}
+.cbh-guide .cbh-side-track{font-family:"Montserrat",sans-serif;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--acc);margin:0 0 8px;padding:0 20px;}
+.cbh-guide .cbh-side-link{display:flex;flex-direction:column;gap:2px;padding:8px 16px 8px 20px;border-left:3px solid transparent;color:var(--cbh-charcoal);text-decoration:none;transition:background .12s ease,color .12s ease,border-color .12s ease;}
+.cbh-guide .cbh-side-link:hover{background:var(--cbh-mist);color:var(--cbh-black);}
+.cbh-guide .cbh-side-part{font-family:"Montserrat",sans-serif;font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:rgba(89,89,89,.7);}
+.cbh-guide .cbh-side-title{display:block;font-size:13px;line-height:1.35;}
+.cbh-guide .cbh-side-link.is-active{background:rgba(40,144,200,.05);border-left-color:var(--cbh-blue);color:var(--cbh-black);font-weight:500;}
+.cbh-guide .cbh-side-link.is-active .cbh-side-title{font-weight:500;}
+
+/* responsive */
+@media (max-width:900px){
+  .cbh-guide .cbh-cards{grid-template-columns:1fr;}
+  .cbh-guide .cbh-part-grid{grid-template-columns:1fr 1fr;}
+  .cbh-guide .cbh-hero-title{font-size:30px;}
+  .cbh-guide .cbh-arttitle{font-size:32px;}
+}
+@media (max-width:600px){
+  .cbh-guide .cbh-part-grid{grid-template-columns:1fr;}
+  .cbh-guide .cbh-hero-inner{flex-direction:column;align-items:flex-start;gap:18px;padding-top:40px;padding-bottom:40px;}
+  .cbh-guide .cbh-startlink{display:none;}
+  .cbh-guide .cbh-topbar-title{font-size:13px;}
+  .cbh-guide .cbh-topbar-actions{gap:14px;}
+}
 </style>
-<style id="wp-emoji-styles-inline-css">
-
-	img.wp-smiley, img.emoji {
-		display: inline !important;
-		border: none !important;
-		box-shadow: none !important;
-		height: 1em !important;
-		width: 1em !important;
-		margin: 0 0.07em !important;
-		vertical-align: -0.1em !important;
-		background: none !important;
-		padding: 0 !important;
-	}
-/*# sourceURL=wp-emoji-styles-inline-css */
-</style>
-<style id="wp-block-library-inline-css">
-/**
- * Colors
- */
-/**
- * Typography
- */
-/**
- * SCSS Variables.
- *
- * Please use variables from this sheet to ensure consistency across the UI.
- * Don't add to this sheet unless you're pretty sure the value will be reused in many places.
- * For example, don't add rules to this sheet that affect block visuals. It's purely for UI.
- */
-/**
- * Fonts & basic variables.
- */
-/**
- * Typography
- */
-/**
- * Grid System.
- * https://make.wordpress.org/design/2019/10/31/proposal-a-consistent-spacing-system-for-wordpress/
- */
-/**
- * Radius scale.
- */
-/**
- * Elevation scale.
- */
-/**
- * Dimensions.
- */
-/**
- * Mobile specific styles
- */
-/**
- * Editor styles.
- */
-/**
- * Block & Editor UI.
- */
-/**
- * Block paddings.
- */
-/**
- * React Native specific.
- * These variables do not appear to be used anywhere else.
- */
-/**
- * Breakpoints & Media Queries
- */
-/**
-*  Converts a hex value into the rgb equivalent.
-*
-* @param {string} hex - the hexadecimal value to convert
-* @return {string} comma separated rgb values
-*/
-/**
- * Long content fade mixin
- *
- * Creates a fading overlay to signify that the content is longer
- * than the space allows.
- */
-/**
- * Breakpoint mixins
- */
-/**
- * Focus styles.
- */
-/**
- * Applies editor left position to the selector passed as argument
- */
-/**
- * Styles that are reused verbatim in a few places
- */
-/**
- * Allows users to opt-out of animations via OS-level preferences.
- */
-/**
- * Reset default styles for JavaScript UI based pages.
- * This is a WP-admin agnostic reset
- */
-/**
- * Reset the WP Admin page styles for Gutenberg-like pages.
- */
-/**
- * Creates a checkerboard pattern background to indicate transparency.
- * @param {String} $size - The size of the squares in the checkerboard pattern. Default is 12px.
- */
-:root {
-  --wp-block-synced-color: #7a00df;
-  --wp-block-synced-color--rgb: 122, 0, 223;
-  --wp-bound-block-color: var(--wp-block-synced-color);
-  --wp-editor-canvas-background: #ddd;
-  --wp-admin-theme-color: #007cba;
-  --wp-admin-theme-color--rgb: 0, 124, 186;
-  --wp-admin-theme-color-darker-10: rgb(0, 107, 160.5);
-  --wp-admin-theme-color-darker-10--rgb: 0, 107, 160.5;
-  --wp-admin-theme-color-darker-20: #005a87;
-  --wp-admin-theme-color-darker-20--rgb: 0, 90, 135;
-  --wp-admin-border-width-focus: 2px;
-}
-@media (min-resolution: 192dpi) {
-  :root {
-    --wp-admin-border-width-focus: 1.5px;
-  }
-}
-
-/**
- * Element styles.
- */
-.wp-element-button {
-  cursor: pointer;
-}
-
-:root .has-very-light-gray-background-color {
-  background-color: #eee;
-}
-:root .has-very-dark-gray-background-color {
-  background-color: #313131;
-}
-:root .has-very-light-gray-color {
-  color: #eee;
-}
-:root .has-very-dark-gray-color {
-  color: #313131;
-}
-:root {
-  /* stylelint-disable @stylistic/function-comma-space-after -- We can not use spacing because of WP multi site kses rule. */
-}
-:root .has-vivid-green-cyan-to-vivid-cyan-blue-gradient-background {
-  background: linear-gradient(135deg, rgb(0, 208, 132) 0%, rgb(6, 147, 227) 100%);
-}
-:root .has-purple-crush-gradient-background {
-  background: linear-gradient(135deg, rgb(52, 226, 228) 0%, rgb(71, 33, 251) 50%, rgb(171, 29, 254) 100%);
-}
-:root .has-hazy-dawn-gradient-background {
-  background: linear-gradient(135deg, rgb(250, 172, 168) 0%, rgb(218, 208, 236) 100%);
-}
-:root .has-subdued-olive-gradient-background {
-  background: linear-gradient(135deg, rgb(250, 250, 225) 0%, rgb(103, 166, 113) 100%);
-}
-:root .has-atomic-cream-gradient-background {
-  background: linear-gradient(135deg, rgb(253, 215, 154) 0%, rgb(0, 74, 89) 100%);
-}
-:root .has-nightshade-gradient-background {
-  background: linear-gradient(135deg, rgb(51, 9, 104) 0%, rgb(49, 205, 207) 100%);
-}
-:root .has-midnight-gradient-background {
-  background: linear-gradient(135deg, rgb(2, 3, 129) 0%, rgb(40, 116, 252) 100%);
-}
-:root {
-  /* stylelint-enable @stylistic/function-comma-space-after */
-  --wp--preset--font-size--normal: 16px;
-  --wp--preset--font-size--huge: 42px;
-}
-
-.has-regular-font-size {
-  font-size: 1em;
-}
-
-.has-larger-font-size {
-  font-size: 2.625em;
-}
-
-.has-normal-font-size {
-  font-size: var(--wp--preset--font-size--normal);
-}
-
-.has-huge-font-size {
-  font-size: var(--wp--preset--font-size--huge);
-}
-
-:root .has-text-align-center {
-  text-align: center;
-}
-
-:root .has-text-align-left {
-  /*rtl:ignore*/
-  text-align: left;
-}
-
-:root .has-text-align-right {
-  /*rtl:ignore*/
-  text-align: right;
-}
-
-.has-fit-text {
-  white-space: nowrap !important;
-}
-
-#end-resizable-editor-section {
-  display: none;
-}
-
-.aligncenter {
-  clear: both;
-}
-
-.items-justified-left {
-  justify-content: flex-start;
-}
-
-.items-justified-center {
-  justify-content: center;
-}
-
-.items-justified-right {
-  justify-content: flex-end;
-}
-
-.items-justified-space-between {
-  justify-content: space-between;
-}
-
-.screen-reader-text {
-  border: 0;
-  clip-path: inset(50%);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  width: 1px;
-  word-wrap: normal !important;
-}
-
-.screen-reader-text:focus {
-  background-color: #ddd;
-  clip-path: none;
-  color: #444;
-  display: block;
-  font-size: 1em;
-  height: auto;
-  left: 5px;
-  line-height: normal;
-  padding: 15px 23px 14px;
-  text-decoration: none;
-  top: 5px;
-  width: auto;
-  z-index: 100000;
-}
-
-/**
- * The following provide a simple means of applying a default border style when
- * a user first makes a selection in the border block support panel.
- * This prevents issues such as where the user could set a border width
- * and see no border due there being no border style set.
- *
- * This is intended to be removed once intelligent defaults can be set while
- * making border selections via the block support.
- *
- * See: https://github.com/WordPress/gutenberg/pull/33743
- */
-html :where(.has-border-color) {
-  border-style: solid;
-}
-
-html :where([style*=border-color]) {
-  border-style: solid;
-}
-
-html :where([style*=border-top-color]) {
-  border-top-style: solid;
-}
-
-html :where([style*=border-right-color]) {
-  /*rtl:ignore*/
-  border-right-style: solid;
-}
-
-html :where([style*=border-bottom-color]) {
-  border-bottom-style: solid;
-}
-
-html :where([style*=border-left-color]) {
-  /*rtl:ignore*/
-  border-left-style: solid;
-}
-
-html :where([style*=border-width]) {
-  border-style: solid;
-}
-
-html :where([style*=border-top-width]) {
-  border-top-style: solid;
-}
-
-html :where([style*=border-right-width]) {
-  /*rtl:ignore*/
-  border-right-style: solid;
-}
-
-html :where([style*=border-bottom-width]) {
-  border-bottom-style: solid;
-}
-
-html :where([style*=border-left-width]) {
-  /*rtl:ignore*/
-  border-left-style: solid;
-}
-
-/**
- * Provide baseline responsiveness for images.
- */
-html :where(img[class*=wp-image-]) {
-  height: auto;
-  max-width: 100%;
-}
-
-/**
- * Reset user agent styles for figure element margins.
- */
-:where(figure) {
-  margin: 0 0 1em 0;
-}
-
-html :where(.is-position-sticky) {
-  /* stylelint-disable length-zero-no-unit -- 0px is set explicitly so that it can be used in a calc value. */
-  --wp-admin--admin-bar--position-offset: var(--wp-admin--admin-bar--height, 0px);
-  /* stylelint-enable length-zero-no-unit */
-}
-
-@media screen and (max-width: 600px) {
-  html :where(.is-position-sticky) {
-    /* stylelint-disable length-zero-no-unit -- 0px is set explicitly so that it can be used in a calc value. */
-    --wp-admin--admin-bar--position-offset: 0px;
-    /* stylelint-enable length-zero-no-unit */
-  }
-}
-
-/*# sourceURL=/wp-includes/css/dist/block-library/common.css */
-</style>
-<style id="wp-block-heading-inline-css">
-/**
- * SCSS Variables.
- *
- * Please use variables from this sheet to ensure consistency across the UI.
- * Don't add to this sheet unless you're pretty sure the value will be reused in many places.
- * For example, don't add rules to this sheet that affect block visuals. It's purely for UI.
- */
-/**
- * Colors
- */
-/**
- * Fonts & basic variables.
- */
-/**
- * Typography
- */
-/**
- * Grid System.
- * https://make.wordpress.org/design/2019/10/31/proposal-a-consistent-spacing-system-for-wordpress/
- */
-/**
- * Radius scale.
- */
-/**
- * Elevation scale.
- */
-/**
- * Dimensions.
- */
-/**
- * Mobile specific styles
- */
-/**
- * Editor styles.
- */
-/**
- * Block & Editor UI.
- */
-/**
- * Block paddings.
- */
-/**
- * React Native specific.
- * These variables do not appear to be used anywhere else.
- */
-h1:where(.wp-block-heading).has-background,
-h2:where(.wp-block-heading).has-background,
-h3:where(.wp-block-heading).has-background,
-h4:where(.wp-block-heading).has-background,
-h5:where(.wp-block-heading).has-background,
-h6:where(.wp-block-heading).has-background {
-  padding: 1.25em 2.375em;
-}
-h1.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]), h1.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),
-h2.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),
-h2.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),
-h3.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),
-h3.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),
-h4.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),
-h4.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),
-h5.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),
-h5.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),
-h6.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),
-h6.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]) {
-  rotate: 180deg;
-}
-/*# sourceURL=/wp-includes/blocks/heading/style.css */
-</style>
-<style id="wp-block-list-inline-css">
-/**
- * SCSS Variables.
- *
- * Please use variables from this sheet to ensure consistency across the UI.
- * Don't add to this sheet unless you're pretty sure the value will be reused in many places.
- * For example, don't add rules to this sheet that affect block visuals. It's purely for UI.
- */
-/**
- * Colors
- */
-/**
- * Fonts & basic variables.
- */
-/**
- * Typography
- */
-/**
- * Grid System.
- * https://make.wordpress.org/design/2019/10/31/proposal-a-consistent-spacing-system-for-wordpress/
- */
-/**
- * Radius scale.
- */
-/**
- * Elevation scale.
- */
-/**
- * Dimensions.
- */
-/**
- * Mobile specific styles
- */
-/**
- * Editor styles.
- */
-/**
- * Block & Editor UI.
- */
-/**
- * Block paddings.
- */
-/**
- * React Native specific.
- * These variables do not appear to be used anywhere else.
- */
-ol,
-ul {
-  box-sizing: border-box;
-}
-
-:root :where(.wp-block-list.has-background) {
-  padding: 1.25em 2.375em;
-}
-/*# sourceURL=/wp-includes/blocks/list/style.css */
-</style>
-<style id="wp-block-paragraph-inline-css">
-/**
- * SCSS Variables.
- *
- * Please use variables from this sheet to ensure consistency across the UI.
- * Don't add to this sheet unless you're pretty sure the value will be reused in many places.
- * For example, don't add rules to this sheet that affect block visuals. It's purely for UI.
- */
-/**
- * Colors
- */
-/**
- * Fonts & basic variables.
- */
-/**
- * Typography
- */
-/**
- * Grid System.
- * https://make.wordpress.org/design/2019/10/31/proposal-a-consistent-spacing-system-for-wordpress/
- */
-/**
- * Radius scale.
- */
-/**
- * Elevation scale.
- */
-/**
- * Dimensions.
- */
-/**
- * Mobile specific styles
- */
-/**
- * Editor styles.
- */
-/**
- * Block & Editor UI.
- */
-/**
- * Block paddings.
- */
-/**
- * React Native specific.
- * These variables do not appear to be used anywhere else.
- */
-.is-small-text {
-  font-size: 0.875em;
-}
-
-.is-regular-text {
-  font-size: 1em;
-}
-
-.is-large-text {
-  font-size: 2.25em;
-}
-
-.is-larger-text {
-  font-size: 3em;
-}
-
-.has-drop-cap:not(:focus)::first-letter {
-  float: left;
-  font-size: 8.4em;
-  line-height: 0.68;
-  font-weight: 100;
-  margin: 0.05em 0.1em 0 0;
-  text-transform: uppercase;
-  font-style: normal;
-}
-
-body.rtl .has-drop-cap:not(:focus)::first-letter {
-  float: initial;
-  margin-left: 0.1em;
-}
-
-p.has-drop-cap.has-background {
-  overflow: hidden;
-}
-
-:root :where(p.has-background) {
-  padding: 1.25em 2.375em;
-}
-
-:where(p.has-text-color:not(.has-link-color)) a {
-  color: inherit;
-}
-
-p.has-text-align-right[style*="writing-mode:vertical-rl"],
-p.has-text-align-left[style*="writing-mode:vertical-lr"] {
-  rotate: 180deg;
-}
-/*# sourceURL=/wp-includes/blocks/paragraph/style.css */
-</style>
-
-<style id="classic-theme-styles-inline-css">
-/**
- * These rules are needed for backwards compatibility.
- * They should match the button element rules in the base theme.json file.
- */
-.wp-block-button__link {
-	color: #ffffff;
-	background-color: #32373c;
-	border-radius: 9999px; /* 100% causes an oval, but any explicit but really high value retains the pill shape. */
-
-	/* This needs a low specificity so it won't override the rules from the button element if defined in theme.json. */
-	box-shadow: none;
-	text-decoration: none;
-
-	/* The extra 2px are added to size solids the same as the outline versions.*/
-	padding: calc(0.667em + 2px) calc(1.333em + 2px);
-
-	font-size: 1.125em;
-}
-
-.wp-block-file__button {
-	background: #32373c;
-	color: #ffffff;
-	text-decoration: none;
-}
-
-/*# sourceURL=/wp-includes/css/classic-themes.css */
-</style>
-
-<style id="global-styles-inline-css">
-:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--color--theme-palette-1: var(--global-palette1);--wp--preset--color--theme-palette-2: var(--global-palette2);--wp--preset--color--theme-palette-3: var(--global-palette3);--wp--preset--color--theme-palette-4: var(--global-palette4);--wp--preset--color--theme-palette-5: var(--global-palette5);--wp--preset--color--theme-palette-6: var(--global-palette6);--wp--preset--color--theme-palette-7: var(--global-palette7);--wp--preset--color--theme-palette-8: var(--global-palette8);--wp--preset--color--theme-palette-9: var(--global-palette9);--wp--preset--color--theme-palette-10: var(--global-palette10);--wp--preset--color--theme-palette-11: var(--global-palette11);--wp--preset--color--theme-palette-12: var(--global-palette12);--wp--preset--color--theme-palette-13: var(--global-palette13);--wp--preset--color--theme-palette-14: var(--global-palette14);--wp--preset--color--theme-palette-15: var(--global-palette15);--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgb(6,147,227) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgb(252,185,0) 0%,rgb(255,105,0) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgb(255,105,0) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: var(--global-font-size-small);--wp--preset--font-size--medium: var(--global-font-size-medium);--wp--preset--font-size--large: var(--global-font-size-large);--wp--preset--font-size--x-large: 42px;--wp--preset--font-size--larger: var(--global-font-size-larger);--wp--preset--font-size--xxlarge: var(--global-font-size-xxlarge);--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgb(255, 255, 255), 6px 6px rgb(0, 0, 0);--wp--preset--shadow--crisp: 6px 6px 0px rgb(0, 0, 0);}:root { --wp--style--global--content-size: var(--global-calc-content-width);--wp--style--global--wide-size: var(--global-calc-wide-content-width); }:where(body) { margin: 0; }:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}body{padding-top: 0px;padding-right: 0px;padding-bottom: 0px;padding-left: 0px;}:root :where(.wp-element-button, .wp-block-button__link){font-style: inherit;font-weight: inherit;letter-spacing: inherit;text-transform: inherit;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-theme-palette-1-color{color: var(--wp--preset--color--theme-palette-1) !important;}.has-theme-palette-2-color{color: var(--wp--preset--color--theme-palette-2) !important;}.has-theme-palette-3-color{color: var(--wp--preset--color--theme-palette-3) !important;}.has-theme-palette-4-color{color: var(--wp--preset--color--theme-palette-4) !important;}.has-theme-palette-5-color{color: var(--wp--preset--color--theme-palette-5) !important;}.has-theme-palette-6-color{color: var(--wp--preset--color--theme-palette-6) !important;}.has-theme-palette-7-color{color: var(--wp--preset--color--theme-palette-7) !important;}.has-theme-palette-8-color{color: var(--wp--preset--color--theme-palette-8) !important;}.has-theme-palette-9-color{color: var(--wp--preset--color--theme-palette-9) !important;}.has-theme-palette-10-color{color: var(--wp--preset--color--theme-palette-10) !important;}.has-theme-palette-11-color{color: var(--wp--preset--color--theme-palette-11) !important;}.has-theme-palette-12-color{color: var(--wp--preset--color--theme-palette-12) !important;}.has-theme-palette-13-color{color: var(--wp--preset--color--theme-palette-13) !important;}.has-theme-palette-14-color{color: var(--wp--preset--color--theme-palette-14) !important;}.has-theme-palette-15-color{color: var(--wp--preset--color--theme-palette-15) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-theme-palette-1-background-color{background-color: var(--wp--preset--color--theme-palette-1) !important;}.has-theme-palette-2-background-color{background-color: var(--wp--preset--color--theme-palette-2) !important;}.has-theme-palette-3-background-color{background-color: var(--wp--preset--color--theme-palette-3) !important;}.has-theme-palette-4-background-color{background-color: var(--wp--preset--color--theme-palette-4) !important;}.has-theme-palette-5-background-color{background-color: var(--wp--preset--color--theme-palette-5) !important;}.has-theme-palette-6-background-color{background-color: var(--wp--preset--color--theme-palette-6) !important;}.has-theme-palette-7-background-color{background-color: var(--wp--preset--color--theme-palette-7) !important;}.has-theme-palette-8-background-color{background-color: var(--wp--preset--color--theme-palette-8) !important;}.has-theme-palette-9-background-color{background-color: var(--wp--preset--color--theme-palette-9) !important;}.has-theme-palette-10-background-color{background-color: var(--wp--preset--color--theme-palette-10) !important;}.has-theme-palette-11-background-color{background-color: var(--wp--preset--color--theme-palette-11) !important;}.has-theme-palette-12-background-color{background-color: var(--wp--preset--color--theme-palette-12) !important;}.has-theme-palette-13-background-color{background-color: var(--wp--preset--color--theme-palette-13) !important;}.has-theme-palette-14-background-color{background-color: var(--wp--preset--color--theme-palette-14) !important;}.has-theme-palette-15-background-color{background-color: var(--wp--preset--color--theme-palette-15) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-theme-palette-1-border-color{border-color: var(--wp--preset--color--theme-palette-1) !important;}.has-theme-palette-2-border-color{border-color: var(--wp--preset--color--theme-palette-2) !important;}.has-theme-palette-3-border-color{border-color: var(--wp--preset--color--theme-palette-3) !important;}.has-theme-palette-4-border-color{border-color: var(--wp--preset--color--theme-palette-4) !important;}.has-theme-palette-5-border-color{border-color: var(--wp--preset--color--theme-palette-5) !important;}.has-theme-palette-6-border-color{border-color: var(--wp--preset--color--theme-palette-6) !important;}.has-theme-palette-7-border-color{border-color: var(--wp--preset--color--theme-palette-7) !important;}.has-theme-palette-8-border-color{border-color: var(--wp--preset--color--theme-palette-8) !important;}.has-theme-palette-9-border-color{border-color: var(--wp--preset--color--theme-palette-9) !important;}.has-theme-palette-10-border-color{border-color: var(--wp--preset--color--theme-palette-10) !important;}.has-theme-palette-11-border-color{border-color: var(--wp--preset--color--theme-palette-11) !important;}.has-theme-palette-12-border-color{border-color: var(--wp--preset--color--theme-palette-12) !important;}.has-theme-palette-13-border-color{border-color: var(--wp--preset--color--theme-palette-13) !important;}.has-theme-palette-14-border-color{border-color: var(--wp--preset--color--theme-palette-14) !important;}.has-theme-palette-15-border-color{border-color: var(--wp--preset--color--theme-palette-15) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}.has-larger-font-size{font-size: var(--wp--preset--font-size--larger) !important;}.has-xxlarge-font-size{font-size: var(--wp--preset--font-size--xxlarge) !important;}
-/*# sourceURL=global-styles-inline-css */
-</style>
-
-<link rel='stylesheet' id='kadence-global-css' href='wp-content/themes/kadence/assets/css/global.min.css' media='all' />
-<style id="kadence-global-inline-css">
-/* Kadence Base CSS */
-:root{--global-palette1:#2B6CB0;--global-palette2:#215387;--global-palette3:#1A202C;--global-palette4:#2D3748;--global-palette5:#4A5568;--global-palette6:#718096;--global-palette7:#EDF2F7;--global-palette8:#F7FAFC;--global-palette9:#ffffff;--global-palette10:oklch(from var(--global-palette1) calc(l + 0.10 * (1 - l)) calc(c * 1.00) calc(h + 180) / 100%);--global-palette11:#13612e;--global-palette12:#1159af;--global-palette13:#b82105;--global-palette14:#f7630c;--global-palette15:#f5a524;--global-palette9rgb:255, 255, 255;--global-palette-highlight:var(--global-palette1);--global-palette-highlight-alt:var(--global-palette2);--global-palette-highlight-alt2:var(--global-palette9);--global-palette-btn-bg:var(--global-palette1);--global-palette-btn-bg-hover:var(--global-palette2);--global-palette-btn:var(--global-palette9);--global-palette-btn-hover:var(--global-palette9);--global-palette-btn-sec-bg:var(--global-palette7);--global-palette-btn-sec-bg-hover:var(--global-palette2);--global-palette-btn-sec:var(--global-palette3);--global-palette-btn-sec-hover:var(--global-palette9);--global-body-font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";--global-heading-font-family:inherit;--global-primary-nav-font-family:inherit;--global-fallback-font:sans-serif;--global-display-fallback-font:sans-serif;--global-content-width:1290px;--global-content-wide-width:calc(1290px + 230px);--global-content-narrow-width:842px;--global-content-edge-padding:1.5rem;--global-content-boxed-padding:2rem;--global-calc-content-width:calc(1290px - var(--global-content-edge-padding) - var(--global-content-edge-padding) );--wp--style--global--content-size:var(--global-calc-content-width);}.wp-site-blocks{--global-vw:calc( 100vw - ( 0.5 * var(--scrollbar-offset)));}body{background:var(--global-palette8);}body, input, select, optgroup, textarea{font-weight:400;font-size:17px;line-height:1.6;font-family:var(--global-body-font-family);color:var(--global-palette4);}.content-bg, body.content-style-unboxed .site{background:var(--global-palette9);}h1,h2,h3,h4,h5,h6{font-family:var(--global-heading-font-family);}h1{font-weight:700;font-size:32px;line-height:1.5;color:var(--global-palette3);}h2{font-weight:700;font-size:28px;line-height:1.5;color:var(--global-palette3);}h3{font-weight:700;font-size:24px;line-height:1.5;color:var(--global-palette3);}h4{font-weight:700;font-size:22px;line-height:1.5;color:var(--global-palette4);}h5{font-weight:700;font-size:20px;line-height:1.5;color:var(--global-palette4);}h6{font-weight:700;font-size:18px;line-height:1.5;color:var(--global-palette5);}.entry-hero .kadence-breadcrumbs{max-width:1290px;}.site-container, .site-header-row-layout-contained, .site-footer-row-layout-contained, .entry-hero-layout-contained, .comments-area, .alignfull > .wp-block-cover__inner-container, .alignwide > .wp-block-cover__inner-container{max-width:var(--global-content-width);}.content-width-narrow .content-container.site-container, .content-width-narrow .hero-container.site-container{max-width:var(--global-content-narrow-width);}@media all and (min-width: 1520px){.wp-site-blocks .content-container  .alignwide{margin-left:-115px;margin-right:-115px;width:unset;max-width:unset;}}@media all and (min-width: 1102px){.content-width-narrow .wp-site-blocks .content-container .alignwide{margin-left:-130px;margin-right:-130px;width:unset;max-width:unset;}}.content-style-boxed .wp-site-blocks .entry-content .alignwide{margin-left:calc( -1 * var( --global-content-boxed-padding ) );margin-right:calc( -1 * var( --global-content-boxed-padding ) );}.content-area{margin-top:5rem;margin-bottom:5rem;}@media all and (max-width: 1024px){.content-area{margin-top:3rem;margin-bottom:3rem;}}@media all and (max-width: 767px){.content-area{margin-top:2rem;margin-bottom:2rem;}}@media all and (max-width: 1024px){:root{--global-content-boxed-padding:2rem;}}@media all and (max-width: 767px){:root{--global-content-boxed-padding:1.5rem;}}.entry-content-wrap{padding:2rem;}@media all and (max-width: 1024px){.entry-content-wrap{padding:2rem;}}@media all and (max-width: 767px){.entry-content-wrap{padding:1.5rem;}}.entry.single-entry{box-shadow:0px 15px 15px -10px rgba(0,0,0,0.05);}.entry.loop-entry{box-shadow:0px 15px 15px -10px rgba(0,0,0,0.05);}.loop-entry .entry-content-wrap{padding:2rem;}@media all and (max-width: 1024px){.loop-entry .entry-content-wrap{padding:2rem;}}@media all and (max-width: 767px){.loop-entry .entry-content-wrap{padding:1.5rem;}}.primary-sidebar.widget-area .widget{margin-bottom:1.5em;color:var(--global-palette4);}.primary-sidebar.widget-area .widget-title{font-weight:700;font-size:20px;line-height:1.5;color:var(--global-palette3);}button, .button, .wp-block-button__link, input[type="button"], input[type="reset"], input[type="submit"], .fl-button, .elementor-button-wrapper .elementor-button, .wc-block-components-checkout-place-order-button, .wc-block-cart__submit{box-shadow:0px 0px 0px -7px rgba(0,0,0,0);}button:hover, button:focus, button:active, .button:hover, .button:focus, .button:active, .wp-block-button__link:hover, .wp-block-button__link:focus, .wp-block-button__link:active, input[type="button"]:hover, input[type="button"]:focus, input[type="button"]:active, input[type="reset"]:hover, input[type="reset"]:focus, input[type="reset"]:active, input[type="submit"]:hover, input[type="submit"]:focus, input[type="submit"]:active, .elementor-button-wrapper .elementor-button:hover, .elementor-button-wrapper .elementor-button:focus, .elementor-button-wrapper .elementor-button:active, .wc-block-cart__submit:hover{box-shadow:0px 15px 25px -7px rgba(0,0,0,0.1);}.kb-button.kb-btn-global-outline.kb-btn-global-inherit{padding-top:calc(px - 2px);padding-right:calc(px - 2px);padding-bottom:calc(px - 2px);padding-left:calc(px - 2px);}@media all and (min-width: 1025px){.transparent-header .entry-hero .entry-hero-container-inner{padding-top:80px;}}@media all and (max-width: 1024px){.mobile-transparent-header .entry-hero .entry-hero-container-inner{padding-top:80px;}}@media all and (max-width: 767px){.mobile-transparent-header .entry-hero .entry-hero-container-inner{padding-top:80px;}}.entry-hero.page-hero-section .entry-header{min-height:200px;}
-/* Kadence Header CSS */
-@media all and (max-width: 1024px){.mobile-transparent-header #masthead{position:absolute;left:0px;right:0px;z-index:100;}.kadence-scrollbar-fixer.mobile-transparent-header #masthead{right:var(--scrollbar-offset,0);}.mobile-transparent-header #masthead, .mobile-transparent-header .site-top-header-wrap .site-header-row-container-inner, .mobile-transparent-header .site-main-header-wrap .site-header-row-container-inner, .mobile-transparent-header .site-bottom-header-wrap .site-header-row-container-inner{background:transparent;}.site-header-row-tablet-layout-fullwidth, .site-header-row-tablet-layout-standard{padding:0px;}}@media all and (min-width: 1025px){.transparent-header #masthead{position:absolute;left:0px;right:0px;z-index:100;}.transparent-header.kadence-scrollbar-fixer #masthead{right:var(--scrollbar-offset,0);}.transparent-header #masthead, .transparent-header .site-top-header-wrap .site-header-row-container-inner, .transparent-header .site-main-header-wrap .site-header-row-container-inner, .transparent-header .site-bottom-header-wrap .site-header-row-container-inner{background:transparent;}}.site-branding{padding:0px 0px 0px 0px;}.site-branding .site-title{font-weight:700;font-size:26px;line-height:1.2;color:var(--global-palette3);}#masthead, #masthead .kadence-sticky-header.item-is-fixed:not(.item-at-start):not(.site-header-row-container):not(.site-main-header-wrap), #masthead .kadence-sticky-header.item-is-fixed:not(.item-at-start) > .site-header-row-container-inner{background:#ffffff;}.site-main-header-inner-wrap{min-height:80px;}.header-navigation[class*="header-navigation-style-underline"] .header-menu-container.primary-menu-container>ul>li>a:after{width:calc( 100% - 1.2em);}.main-navigation .primary-menu-container > ul > li.menu-item > a{padding-left:calc(1.2em / 2);padding-right:calc(1.2em / 2);padding-top:0.6em;padding-bottom:0.6em;color:var(--global-palette5);}.main-navigation .primary-menu-container > ul > li.menu-item .dropdown-nav-special-toggle{right:calc(1.2em / 2);}.main-navigation .primary-menu-container > ul > li.menu-item > a:hover{color:var(--global-palette-highlight);}.main-navigation .primary-menu-container > ul > li.menu-item.current-menu-item > a{color:var(--global-palette3);}.header-navigation .header-menu-container ul ul.sub-menu, .header-navigation .header-menu-container ul ul.submenu{background:var(--global-palette3);box-shadow:0px 2px 13px 0px rgba(0,0,0,0.1);}.header-navigation .header-menu-container ul ul li.menu-item, .header-menu-container ul.menu > li.kadence-menu-mega-enabled > ul > li.menu-item > a{border-bottom:1px solid rgba(255,255,255,0.1);border-radius:0px 0px 0px 0px;}.header-navigation .header-menu-container ul ul li.menu-item > a{width:200px;padding-top:1em;padding-bottom:1em;color:var(--global-palette8);font-size:12px;}.header-navigation .header-menu-container ul ul li.menu-item > a:hover{color:var(--global-palette9);background:var(--global-palette4);border-radius:0px 0px 0px 0px;}.header-navigation .header-menu-container ul ul li.menu-item.current-menu-item > a{color:var(--global-palette9);background:var(--global-palette4);border-radius:0px 0px 0px 0px;}.mobile-toggle-open-container .menu-toggle-open, .mobile-toggle-open-container .menu-toggle-open:focus{color:var(--global-palette5);padding:0.4em 0.6em 0.4em 0.6em;font-size:14px;}.mobile-toggle-open-container .menu-toggle-open.menu-toggle-style-bordered{border:1px solid currentColor;}.mobile-toggle-open-container .menu-toggle-open .menu-toggle-icon{font-size:20px;}.mobile-toggle-open-container .menu-toggle-open:hover, .mobile-toggle-open-container .menu-toggle-open:focus-visible{color:var(--global-palette-highlight);}.mobile-navigation ul li{font-size:14px;}.mobile-navigation ul li a{padding-top:1em;padding-bottom:1em;}.mobile-navigation ul li > a, .mobile-navigation ul li.menu-item-has-children > .drawer-nav-drop-wrap{color:var(--global-palette8);}.mobile-navigation ul li.current-menu-item > a, .mobile-navigation ul li.current-menu-item.menu-item-has-children > .drawer-nav-drop-wrap{color:var(--global-palette-highlight);}.mobile-navigation ul li.menu-item-has-children .drawer-nav-drop-wrap, .mobile-navigation ul li:not(.menu-item-has-children) a{border-bottom:1px solid rgba(255,255,255,0.1);}.mobile-navigation:not(.drawer-navigation-parent-toggle-true) ul li.menu-item-has-children .drawer-nav-drop-wrap button{border-left:1px solid rgba(255,255,255,0.1);}#mobile-drawer .drawer-header .drawer-toggle{padding:0.6em 0.15em 0.6em 0.15em;font-size:24px;}
-/* Kadence Footer CSS */
-.site-bottom-footer-inner-wrap{padding-top:30px;padding-bottom:30px;grid-column-gap:30px;}.site-bottom-footer-inner-wrap .widget{margin-bottom:30px;}.site-bottom-footer-inner-wrap .site-footer-section:not(:last-child):after{right:calc(-30px / 2);}
-/*# sourceURL=kadence-global-inline-css */
-</style>
-<link rel='stylesheet' id='kadence-header-css' href='wp-content/themes/kadence/assets/css/header.min.css' media='all' />
-<link rel='stylesheet' id='kadence-content-css' href='wp-content/themes/kadence/assets/css/content.min.css' media='all' />
-<link rel='stylesheet' id='kadence-sidebar-css' href='wp-content/themes/kadence/assets/css/sidebar.min.css' media='all' />
-<link rel='stylesheet' id='kadence-footer-css' href='wp-content/themes/kadence/assets/css/footer.min.css' media='all' />
-<style id="kadence-blocks-advancedheading-inline-css">
-	.wp-block-kadence-advancedheading mark{background:transparent;border-style:solid;border-width:0}
-	.wp-block-kadence-advancedheading mark.kt-highlight{color:#f76a0c;}
-	.kb-adv-heading-icon{display: inline-flex;justify-content: center;align-items: center;}
-	.is-layout-constrained > .kb-advanced-heading-link {display: block;}.wp-block-kadence-advancedheading.has-background{padding: 0;}	.single-content .kadence-advanced-heading-wrapper h1,
-	.single-content .kadence-advanced-heading-wrapper h2,
-	.single-content .kadence-advanced-heading-wrapper h3,
-	.single-content .kadence-advanced-heading-wrapper h4,
-	.single-content .kadence-advanced-heading-wrapper h5,
-	.single-content .kadence-advanced-heading-wrapper h6 {margin: 1.5em 0 .5em;}
-	.single-content .kadence-advanced-heading-wrapper+* { margin-top:0;}.kb-screen-reader-text{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);}
-/*# sourceURL=kadence-blocks-advancedheading-inline-css */
-</style>
-<link rel='stylesheet' id='kadence-blocks-infobox-css' href='wp-content/plugins/kadence-blocks/dist/style-blocks-infobox.css' media='all' />
-<link rel='stylesheet' id='kadence-blocks-tableofcontents-css' href='wp-content/plugins/kadence-blocks/dist/style-blocks-tableofcontents.css' media='all' />
-<link rel='stylesheet' id='kadence-blocks-rowlayout-css' href='wp-content/plugins/kadence-blocks/dist/style-blocks-rowlayout.css' media='all' />
-<link rel='stylesheet' id='kadence-blocks-column-css' href='wp-content/plugins/kadence-blocks/dist/style-blocks-column.css' media='all' />
-<link rel='stylesheet' id='kadence-blocks-advancedbtn-css' href='wp-content/plugins/kadence-blocks/dist/style-blocks-advancedbtn.css' media='all' />
-<link rel='stylesheet' id='kadence-blocks-iconlist-css' href='wp-content/plugins/kadence-blocks/dist/style-blocks-iconlist.css' media='all' />
-<style id="kadence-blocks-global-variables-inline-css">
-:root {--global-kb-font-size-sm:clamp(0.8rem, 0.73rem + 0.217vw, 0.9rem);--global-kb-font-size-md:clamp(1.1rem, 0.995rem + 0.326vw, 1.25rem);--global-kb-font-size-lg:clamp(1.75rem, 1.576rem + 0.543vw, 2rem);--global-kb-font-size-xl:clamp(2.25rem, 1.728rem + 1.63vw, 3rem);--global-kb-font-size-xxl:clamp(2.5rem, 1.456rem + 3.26vw, 4rem);--global-kb-font-size-xxxl:clamp(2.75rem, 0.489rem + 7.065vw, 6rem);}
-/*# sourceURL=kadence-blocks-global-variables-inline-css */
-</style>
-<style id="kadence_blocks_css-inline-css">
-.wp-block-kadence-advancedheading.kt-adv-heading1012_1 mark.kt-highlight, .wp-block-kadence-advancedheading.kt-adv-heading1012_1[data-kb-block="kb-adv-heading1012_1"] mark.kt-highlight{-webkit-box-decoration-break:clone;box-decoration-break:clone;}.wp-block-kadence-advancedheading.kt-adv-heading1012_1 img.kb-inline-image, .wp-block-kadence-advancedheading.kt-adv-heading1012_1[data-kb-block="kb-adv-heading1012_1"] img.kb-inline-image{width:150px;display:inline-block;}.wp-block-kadence-advancedheading.kt-adv-heading1012_2 mark.kt-highlight, .wp-block-kadence-advancedheading.kt-adv-heading1012_2[data-kb-block="kb-adv-heading1012_2"] mark.kt-highlight{-webkit-box-decoration-break:clone;box-decoration-break:clone;}.wp-block-kadence-advancedheading.kt-adv-heading1012_2 img.kb-inline-image, .wp-block-kadence-advancedheading.kt-adv-heading1012_2[data-kb-block="kb-adv-heading1012_2"] img.kb-inline-image{width:150px;display:inline-block;}.wp-block-kadence-column.kb-section-dir-horizontal > .kt-inside-inner-col > #kt-info-box1012_3 .kt-blocks-info-box-link-wrap{max-width:unset;}.wp-block-kadence-advancedheading.kt-adv-heading1012_5 mark.kt-highlight, .wp-block-kadence-advancedheading.kt-adv-heading1012_5[data-kb-block="kb-adv-heading1012_5"] mark.kt-highlight{-webkit-box-decoration-break:clone;box-decoration-break:clone;}.wp-block-kadence-advancedheading.kt-adv-heading1012_5 img.kb-inline-image, .wp-block-kadence-advancedheading.kt-adv-heading1012_5[data-kb-block="kb-adv-heading1012_5"] img.kb-inline-image{width:150px;display:inline-block;}.wp-block-kadence-advancedheading.kt-adv-heading1012_6 mark.kt-highlight, .wp-block-kadence-advancedheading.kt-adv-heading1012_6[data-kb-block="kb-adv-heading1012_6"] mark.kt-highlight{-webkit-box-decoration-break:clone;box-decoration-break:clone;}.wp-block-kadence-advancedheading.kt-adv-heading1012_6 img.kb-inline-image, .wp-block-kadence-advancedheading.kt-adv-heading1012_6[data-kb-block="kb-adv-heading1012_6"] img.kb-inline-image{width:150px;display:inline-block;}.wp-block-kadence-advancedheading.kt-adv-heading1012_7 mark.kt-highlight, .wp-block-kadence-advancedheading.kt-adv-heading1012_7[data-kb-block="kb-adv-heading1012_7"] mark.kt-highlight{-webkit-box-decoration-break:clone;box-decoration-break:clone;}.wp-block-kadence-advancedheading.kt-adv-heading1012_7 img.kb-inline-image, .wp-block-kadence-advancedheading.kt-adv-heading1012_7[data-kb-block="kb-adv-heading1012_7"] img.kb-inline-image{width:150px;display:inline-block;}.kb-row-layout-id1012_11 > .kt-row-column-wrap{padding-top:var( --global-kb-row-default-top, var(--global-kb-spacing-sm, 1.5rem) );padding-bottom:var( --global-kb-row-default-bottom, var(--global-kb-spacing-sm, 1.5rem) );grid-template-columns:minmax(0, 1fr);}@media all and (max-width: 767px){.kb-row-layout-id1012_11 > .kt-row-column-wrap{grid-template-columns:minmax(0, 1fr);}}.kadence-column1012_12 > .kt-inside-inner-col{column-gap:var(--global-kb-gap-sm, 1rem);}.kadence-column1012_12 > .kt-inside-inner-col{flex-direction:column;}.kadence-column1012_12 > .kt-inside-inner-col > .aligncenter{width:100%;}@media all and (max-width: 1024px){.kadence-column1012_12 > .kt-inside-inner-col{flex-direction:column;justify-content:center;}}@media all and (max-width: 767px){.kadence-column1012_12 > .kt-inside-inner-col{flex-direction:column;justify-content:center;}}.wp-block-kadence-advancedheading.kt-adv-heading1012_8 mark.kt-highlight, .wp-block-kadence-advancedheading.kt-adv-heading1012_8[data-kb-block="kb-adv-heading1012_8"] mark.kt-highlight{-webkit-box-decoration-break:clone;box-decoration-break:clone;}.wp-block-kadence-advancedheading.kt-adv-heading1012_8 img.kb-inline-image, .wp-block-kadence-advancedheading.kt-adv-heading1012_8[data-kb-block="kb-adv-heading1012_8"] img.kb-inline-image{width:150px;display:inline-block;}.wp-block-kadence-advancedbtn.kb-btns1012_9{justify-content:flex-start;}ul.menu .wp-block-kadence-advancedbtn .kb-btn1012_10.kb-button{width:initial;}.wp-block-kadence-advancedheading.kt-adv-heading1012_13 mark.kt-highlight, .wp-block-kadence-advancedheading.kt-adv-heading1012_13[data-kb-block="kb-adv-heading1012_13"] mark.kt-highlight{-webkit-box-decoration-break:clone;box-decoration-break:clone;}.wp-block-kadence-advancedheading.kt-adv-heading1012_13 img.kb-inline-image, .wp-block-kadence-advancedheading.kt-adv-heading1012_13[data-kb-block="kb-adv-heading1012_13"] img.kb-inline-image{width:150px;display:inline-block;}.wp-block-kadence-advancedheading.kt-adv-heading1012_14 mark.kt-highlight, .wp-block-kadence-advancedheading.kt-adv-heading1012_14[data-kb-block="kb-adv-heading1012_14"] mark.kt-highlight{-webkit-box-decoration-break:clone;box-decoration-break:clone;}.wp-block-kadence-advancedheading.kt-adv-heading1012_14 img.kb-inline-image, .wp-block-kadence-advancedheading.kt-adv-heading1012_14[data-kb-block="kb-adv-heading1012_14"] img.kb-inline-image{width:150px;display:inline-block;}.wp-block-kadence-advancedheading.kt-adv-heading1012_15 mark.kt-highlight, .wp-block-kadence-advancedheading.kt-adv-heading1012_15[data-kb-block="kb-adv-heading1012_15"] mark.kt-highlight{-webkit-box-decoration-break:clone;box-decoration-break:clone;}.wp-block-kadence-advancedheading.kt-adv-heading1012_15 img.kb-inline-image, .wp-block-kadence-advancedheading.kt-adv-heading1012_15[data-kb-block="kb-adv-heading1012_15"] img.kb-inline-image{width:150px;display:inline-block;}.wp-block-kadence-advancedheading.kt-adv-heading1012_16 mark.kt-highlight, .wp-block-kadence-advancedheading.kt-adv-heading1012_16[data-kb-block="kb-adv-heading1012_16"] mark.kt-highlight{-webkit-box-decoration-break:clone;box-decoration-break:clone;}.wp-block-kadence-advancedheading.kt-adv-heading1012_16 img.kb-inline-image, .wp-block-kadence-advancedheading.kt-adv-heading1012_16[data-kb-block="kb-adv-heading1012_16"] img.kb-inline-image{width:150px;display:inline-block;}.wp-block-kadence-advancedheading.kt-adv-heading1012_17 mark.kt-highlight, .wp-block-kadence-advancedheading.kt-adv-heading1012_17[data-kb-block="kb-adv-heading1012_17"] mark.kt-highlight{-webkit-box-decoration-break:clone;box-decoration-break:clone;}.wp-block-kadence-advancedheading.kt-adv-heading1012_17 img.kb-inline-image, .wp-block-kadence-advancedheading.kt-adv-heading1012_17[data-kb-block="kb-adv-heading1012_17"] img.kb-inline-image{width:150px;display:inline-block;}.wp-block-kadence-iconlist.kt-svg-icon-list-items1012_18:not(.this-stops-third-party-issues){margin-bottom:var(--global-kb-spacing-sm, 1.5rem);}.wp-block-kadence-iconlist.kt-svg-icon-list-items1012_18 ul.kt-svg-icon-list{grid-row-gap:5px;}.kt-svg-icon-list-item-1012_19 .kt-svg-icon-list-text mark.kt-highlight{background-color:unset;color:#f76a0c;-webkit-box-decoration-break:clone;box-decoration-break:clone;}.kt-svg-icon-list-item-1012_20 .kt-svg-icon-list-text mark.kt-highlight{background-color:unset;color:#f76a0c;-webkit-box-decoration-break:clone;box-decoration-break:clone;}.kt-svg-icon-list-item-1012_21 .kt-svg-icon-list-text mark.kt-highlight{background-color:unset;color:#f76a0c;-webkit-box-decoration-break:clone;box-decoration-break:clone;}.kt-svg-icon-list-item-1012_22 .kt-svg-icon-list-text mark.kt-highlight{background-color:unset;color:#f76a0c;-webkit-box-decoration-break:clone;box-decoration-break:clone;}.wp-block-kadence-advancedheading.kt-adv-heading1012_23 mark.kt-highlight, .wp-block-kadence-advancedheading.kt-adv-heading1012_23[data-kb-block="kb-adv-heading1012_23"] mark.kt-highlight{-webkit-box-decoration-break:clone;box-decoration-break:clone;}.wp-block-kadence-advancedheading.kt-adv-heading1012_23 img.kb-inline-image, .wp-block-kadence-advancedheading.kt-adv-heading1012_23[data-kb-block="kb-adv-heading1012_23"] img.kb-inline-image{width:150px;display:inline-block;}.wp-block-kadence-iconlist.kt-svg-icon-list-items1012_24:not(.this-stops-third-party-issues){margin-bottom:var(--global-kb-spacing-sm, 1.5rem);}.wp-block-kadence-iconlist.kt-svg-icon-list-items1012_24 ul.kt-svg-icon-list{grid-row-gap:5px;}.kt-svg-icon-list-item-1012_25 .kt-svg-icon-list-text mark.kt-highlight{background-color:unset;color:#f76a0c;-webkit-box-decoration-break:clone;box-decoration-break:clone;}.kt-svg-icon-list-item-1012_26 .kt-svg-icon-list-text mark.kt-highlight{background-color:unset;color:#f76a0c;-webkit-box-decoration-break:clone;box-decoration-break:clone;}.kt-svg-icon-list-item-1012_27 .kt-svg-icon-list-text mark.kt-highlight{background-color:unset;color:#f76a0c;-webkit-box-decoration-break:clone;box-decoration-break:clone;}.kb-row-layout-id1012_32 > .kt-row-column-wrap{padding-top:var( --global-kb-row-default-top, var(--global-kb-spacing-sm, 1.5rem) );padding-bottom:var( --global-kb-row-default-bottom, var(--global-kb-spacing-sm, 1.5rem) );grid-template-columns:repeat(2, minmax(0, 1fr));}@media all and (max-width: 767px){.kb-row-layout-id1012_32 > .kt-row-column-wrap{grid-template-columns:minmax(0, 1fr);}}.kadence-column1012_33 > .kt-inside-inner-col{column-gap:var(--global-kb-gap-sm, 1rem);}.kadence-column1012_33 > .kt-inside-inner-col{flex-direction:column;}.kadence-column1012_33 > .kt-inside-inner-col > .aligncenter{width:100%;}@media all and (max-width: 1024px){.kadence-column1012_33 > .kt-inside-inner-col{flex-direction:column;justify-content:center;}}@media all and (max-width: 767px){.kadence-column1012_33 > .kt-inside-inner-col{flex-direction:column;justify-content:center;}}.wp-block-kadence-advancedbtn.kb-btns1012_28{justify-content:flex-start;}ul.menu .wp-block-kadence-advancedbtn .kb-btn1012_29.kb-button{width:initial;}.kadence-column1012_34 > .kt-inside-inner-col{column-gap:var(--global-kb-gap-sm, 1rem);}.kadence-column1012_34 > .kt-inside-inner-col{flex-direction:column;}.kadence-column1012_34 > .kt-inside-inner-col > .aligncenter{width:100%;}@media all and (max-width: 1024px){.kadence-column1012_34 > .kt-inside-inner-col{flex-direction:column;justify-content:center;}}@media all and (max-width: 767px){.kadence-column1012_34 > .kt-inside-inner-col{flex-direction:column;justify-content:center;}}.wp-block-kadence-advancedbtn.kb-btns1012_30{justify-content:flex-end;}ul.menu .wp-block-kadence-advancedbtn .kb-btn1012_31.kb-button{width:initial;}
-/*# sourceURL=kadence_blocks_css-inline-css */
-</style>
-<link rel="https://api.w.org/" href="/wp-json/" /><link rel="alternate" title="JSON" type="application/json" href="/wp-json/wp/v2/pages/1012" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="/xmlrpc.php?rsd" />
-<meta name="generator" content="WordPress 7.1-alpha-62472" />
-<link rel="canonical" href="part-12-mastercard-chargeback-reason-codes.html" />
-<link rel='shortlink' href='/?p=1012' />
-<style id="core-block-supports-inline-css">
-/**
- * Core styles: block-supports
- */
-
-/*# sourceURL=core-block-supports-inline-css */
-</style>
-
-</head>
-
-<body class="wp-singular page-template-default page page-id-1012 page-child parent-pageid-1000 wp-embed-responsive wp-theme-kadence footer-on-bottom hide-focus-outline link-style-standard has-sidebar cbh-guide content-title-style-hide content-width-right content-style-boxed content-vertical-padding-show non-transparent-header mobile-non-transparent-header">
-<div id="wrapper" class="site wp-site-blocks">
-			<a class="skip-link screen-reader-text scroll-ignore" href="#main">Skip to content</a>
-		<header id="masthead" class="site-header" role="banner" itemtype="https://schema.org/WPHeader" itemscope>
-	<div id="main-header" class="site-header-wrap">
-		<div class="site-header-inner-wrap">
-			<div class="site-header-upper-wrap">
-				<div class="site-header-upper-inner-wrap">
-					<div class="site-main-header-wrap site-header-row-container site-header-focus-item site-header-row-layout-standard" data-section="kadence_customizer_header_main">
-	<div class="site-header-row-container-inner">
-				<div class="site-container">
-			<div class="site-main-header-inner-wrap site-header-row site-header-row-has-sides site-header-row-no-center">
-									<div class="site-header-main-section-left site-header-section site-header-section-left">
-						<div class="site-header-item site-header-focus-item" data-section="title_tagline">
-	<div class="site-branding branding-layout-standard"><a class="brand" href="index.html" rel="home"><div class="site-title-wrap"><p class="site-title">CBH-Kadence</p></div></a></div></div><!-- data-section="title_tagline" -->
-					</div>
-																	<div class="site-header-main-section-right site-header-section site-header-section-right">
-						<div class="site-header-item site-header-focus-item site-header-item-main-navigation header-navigation-layout-stretch-false header-navigation-layout-fill-stretch-false" data-section="kadence_customizer_primary_navigation">
-		<nav id="site-navigation" class="main-navigation header-navigation hover-to-open nav--toggle-sub header-navigation-style-standard header-navigation-dropdown-animation-none" role="navigation" aria-label="Primary">
-			<div class="primary-menu-container header-menu-container">
-	<ul id="primary-menu" class="menu"><li id="menu-item-1117" class="menu-item menu-item-type-post_type menu-item-object-page current-page-ancestor current-menu-ancestor current-page-parent current_page_ancestor menu-item-has-children menu-item-1117"><a href="index.html"><span class="nav-drop-title-wrap">Chargeback Guide<span class="dropdown-nav-toggle"><span class="kadence-svg-iconset svg-baseline"><svg aria-hidden="true" class="kadence-svg-icon kadence-arrow-down-svg" fill="currentColor" version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><title>Expand</title><path d="M5.293 9.707l6 6c0.391 0.391 1.024 0.391 1.414 0l6-6c0.391-0.391 0.391-1.024 0-1.414s-1.024-0.391-1.414 0l-5.293 5.293-5.293-5.293c-0.391-0.391-1.024-0.391-1.414 0s-0.391 1.024 0 1.414z"></path>
-				</svg></span></span></span></a>
-<ul class="sub-menu">
-	<li id="menu-item-1118" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1118"><a href="index.html"><span class="nav-drop-title-wrap">Beginner<span class="dropdown-nav-toggle"><span class="kadence-svg-iconset svg-baseline"><svg aria-hidden="true" class="kadence-svg-icon kadence-arrow-down-svg" fill="currentColor" version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><title>Expand</title><path d="M5.293 9.707l6 6c0.391 0.391 1.024 0.391 1.414 0l6-6c0.391-0.391 0.391-1.024 0-1.414s-1.024-0.391-1.414 0l-5.293 5.293-5.293-5.293c-0.391-0.391-1.024-0.391-1.414 0s-0.391 1.024 0 1.414z"></path>
-				</svg></span></span></span></a>
-	<ul class="sub-menu">
-		<li id="menu-item-1121" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1121"><a href="part-1-what-is-a-chargeback.html">Part 1: What Is a Chargeback?</a></li>
-		<li id="menu-item-1122" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1122"><a href="part-2-parties-in-a-chargeback.html">Part 2: Who Are the Parties in a Chargeback?</a></li>
-		<li id="menu-item-1123" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1123"><a href="part-3-how-the-chargeback-process-works.html">Part 3: How the Chargeback Process Works</a></li>
-		<li id="menu-item-1124" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1124"><a href="part-4-where-disputes-end-and-chargebacks-begin.html">Part 4: Where Disputes End and Chargebacks Begin</a></li>
-		<li id="menu-item-1125" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1125"><a href="part-5-chargeback-timelines-and-deadlines.html">Part 5: Chargeback Timelines and Deadlines</a></li>
-		<li id="menu-item-1126" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1126"><a href="part-6-why-merchants-receive-chargebacks.html">Part 6: Why Merchants Receive Chargebacks</a></li>
-		<li id="menu-item-1127" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1127"><a href="part-7-what-a-chargeback-costs-a-merchant.html">Part 7: What a Chargeback Costs a Merchant</a></li>
-		<li id="menu-item-1128" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1128"><a href="part-8-chargeback-ratios-explained.html">Part 8: Chargeback Ratios Explained</a></li>
-		<li id="menu-item-1129" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1129"><a href="part-9-what-happens-if-you-ignore-chargebacks.html">Part 9: What Happens If You Ignore Chargebacks</a></li>
-	</ul>
-</li>
-	<li id="menu-item-1119" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children menu-item-1119"><a href="index.html"><span class="nav-drop-title-wrap">Intermediate<span class="dropdown-nav-toggle"><span class="kadence-svg-iconset svg-baseline"><svg aria-hidden="true" class="kadence-svg-icon kadence-arrow-down-svg" fill="currentColor" version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><title>Expand</title><path d="M5.293 9.707l6 6c0.391 0.391 1.024 0.391 1.414 0l6-6c0.391-0.391 0.391-1.024 0-1.414s-1.024-0.391-1.414 0l-5.293 5.293-5.293-5.293c-0.391-0.391-1.024-0.391-1.414 0s-0.391 1.024 0 1.414z"></path>
-				</svg></span></span></span></a>
-	<ul class="sub-menu">
-		<li id="menu-item-1130" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1130"><a href="part-10-chargeback-reason-codes-overview.html">Part 10: Chargeback Reason Codes Overview</a></li>
-		<li id="menu-item-1131" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1131"><a href="part-11-visa-chargeback-reason-codes-explained.html">Part 11: Visa Chargeback Reason Codes Explained</a></li>
-		<li id="menu-item-1132" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-1012 current_page_item menu-item-1132"><a href="part-12-mastercard-chargeback-reason-codes.html" aria-current="page">Part 12: Mastercard Chargeback Reason Codes Explained</a></li>
-		<li id="menu-item-1133" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1133"><a href="part-13-what-is-friendly-fraud.html">Part 13: What Is Friendly Fraud?</a></li>
-		<li id="menu-item-1134" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1134"><a href="part-14-what-is-first-party-fraud.html">Part 14: What Is First-Party Fraud?</a></li>
-		<li id="menu-item-1135" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1135"><a href="part-15-chargeback-alerts-explained.html">Part 15: Chargeback Alerts Explained</a></li>
-		<li id="menu-item-1136" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1136"><a href="part-16-ethoca-alerts.html">Part 16: Ethoca Alerts</a></li>
-		<li id="menu-item-1137" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1137"><a href="part-17-verifi-cdrn.html">Part 17: Verifi CDRN</a></li>
-		<li id="menu-item-1138" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1138"><a href="part-18-visa-rdr.html">Part 18: Visa RDR</a></li>
-		<li id="menu-item-1139" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1139"><a href="part-19-chargeback-prevention-strategies.html">Part 19: Chargeback Prevention Strategies</a></li>
-		<li id="menu-item-1140" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1140"><a href="part-20-billing-descriptors-and-prevention.html">Part 20: Billing Descriptors and Chargeback Prevention</a></li>
-		<li id="menu-item-1141" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1141"><a href="part-21-fraud-screening-and-prevention.html">Part 21: Fraud Screening and Chargeback Prevention</a></li>
-		<li id="menu-item-1142" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1142"><a href="part-22-what-is-chargeback-representment.html">Part 22: What Is Chargeback Representment?</a></li>
-		<li id="menu-item-1143" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1143"><a href="part-23-build-a-strong-representment-case.html">Part 23: How to Build a Strong Representment Case</a></li>
-		<li id="menu-item-1144" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1144"><a href="part-24-compelling-evidence-3-0.html">Part 24: Compelling Evidence 3.0 (CE3.0) Explained</a></li>
-		<li id="menu-item-1145" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1145"><a href="part-25-mastercard-first-party-trust.html">Part 25: Mastercard First-Party Trust Explained</a></li>
-		<li id="menu-item-1146" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1146"><a href="part-26-high-risk-industries-and-exposure.html">Part 26: High-Risk Industries and Chargeback Exposure</a></li>
-		<li id="menu-item-1147" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1147"><a href="part-27-subscription-saas-chargeback-challenges.html">Part 27: Subscription and SaaS Chargeback Challenges</a></li>
-	</ul>
-</li>
-	<li id="menu-item-1120" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1120"><a href="index.html"><span class="nav-drop-title-wrap">Advanced<span class="dropdown-nav-toggle"><span class="kadence-svg-iconset svg-baseline"><svg aria-hidden="true" class="kadence-svg-icon kadence-arrow-down-svg" fill="currentColor" version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><title>Expand</title><path d="M5.293 9.707l6 6c0.391 0.391 1.024 0.391 1.414 0l6-6c0.391-0.391 0.391-1.024 0-1.414s-1.024-0.391-1.414 0l-5.293 5.293-5.293-5.293c-0.391-0.391-1.024-0.391-1.414 0s-0.391 1.024 0 1.414z"></path>
-				</svg></span></span></span></a>
-	<ul class="sub-menu">
-		<li id="menu-item-1148" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1148"><a href="part-28-visa-vamp-explained.html">Part 28: Visa VAMP Explained</a></li>
-		<li id="menu-item-1149" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1149"><a href="part-29-mastercard-ecms-explained.html">Part 29: Mastercard ECMS Explained</a></li>
-		<li id="menu-item-1150" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1150"><a href="part-30-fraud-liability-shift-and-3ds.html">Part 30: The Fraud Liability Shift and 3-D Secure</a></li>
-		<li id="menu-item-1151" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1151"><a href="part-31-automating-chargeback-alerts.html">Part 31: Automating Chargeback Alerts</a></li>
-		<li id="menu-item-1152" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1152"><a href="part-32-automating-representment.html">Part 32: Automating Representment</a></li>
-		<li id="menu-item-1153" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1153"><a href="part-33-transaction-data-as-defense.html">Part 33: Transaction Data as a Chargeback Defense</a></li>
-		<li id="menu-item-1154" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1154"><a href="part-34-chargeback-management-framework.html">Part 34: Building a Chargeback Management Framework</a></li>
-		<li id="menu-item-1155" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1155"><a href="part-35-chargeback-management-msps-isos.html">Part 35: Chargeback Management for MSPs and ISOs</a></li>
-		<li id="menu-item-1156" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1156"><a href="part-36-the-future-of-dispute-resolution.html">Part 36: The Future of Dispute Resolution</a></li>
-	</ul>
-</li>
-</ul>
-</li>
-</ul>		</div>
-	</nav><!-- #site-navigation -->
-	</div><!-- data-section="primary_navigation" -->
-					</div>
-							</div>
-		</div>
-	</div>
-</div>
-				</div>
-			</div>
-					</div>
-	</div>
-	
-<div id="mobile-header" class="site-mobile-header-wrap">
-	<div class="site-header-inner-wrap">
-		<div class="site-header-upper-wrap">
-			<div class="site-header-upper-inner-wrap">
-			<div class="site-main-header-wrap site-header-focus-item site-header-row-layout-standard site-header-row-tablet-layout-default site-header-row-mobile-layout-default ">
-	<div class="site-header-row-container-inner">
-		<div class="site-container">
-			<div class="site-main-header-inner-wrap site-header-row site-header-row-has-sides site-header-row-no-center">
-									<div class="site-header-main-section-left site-header-section site-header-section-left">
-						<div class="site-header-item site-header-focus-item" data-section="title_tagline">
-	<div class="site-branding mobile-site-branding branding-layout-standard branding-tablet-layout-inherit branding-mobile-layout-inherit"><a class="brand" href="index.html" rel="home"><div class="site-title-wrap"><div class="site-title vs-md-false">CBH-Kadence</div></div></a></div></div><!-- data-section="title_tagline" -->
-					</div>
-																	<div class="site-header-main-section-right site-header-section site-header-section-right">
-						<div class="site-header-item site-header-focus-item site-header-item-navgation-popup-toggle" data-section="kadence_customizer_mobile_trigger">
-		<div class="mobile-toggle-open-container">
-						<button id="mobile-toggle" class="menu-toggle-open drawer-toggle menu-toggle-style-default" aria-label="Open menu" data-toggle-target="#mobile-drawer" data-toggle-body-class="showing-popup-drawer-from-right" aria-expanded="false" data-set-focus=".menu-toggle-close"
-					>
-						<span class="menu-toggle-icon"><span class="kadence-svg-iconset"><svg aria-hidden="true" class="kadence-svg-icon kadence-menu-svg" fill="currentColor" version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><title>Toggle Menu</title><path d="M3 13h18c0.552 0 1-0.448 1-1s-0.448-1-1-1h-18c-0.552 0-1 0.448-1 1s0.448 1 1 1zM3 7h18c0.552 0 1-0.448 1-1s-0.448-1-1-1h-18c-0.552 0-1 0.448-1 1s0.448 1 1 1zM3 19h18c0.552 0 1-0.448 1-1s-0.448-1-1-1h-18c-0.552 0-1 0.448-1 1s0.448 1 1 1z"></path>
-				</svg></span></span>
-		</button>
-	</div>
-	</div><!-- data-section="mobile_trigger" -->
-					</div>
-							</div>
-		</div>
-	</div>
-</div>
-			</div>
-		</div>
-			</div>
-</div>
-</header><!-- #masthead -->
-
-	<main id="inner-wrap" class="wrap kt-clear" role="main">
-		<div id="primary" class="content-area">
-	<div class="content-container site-container">
-		<div id="main" class="site-main">
-						<div class="content-wrap">
-				<article id="post-1012" class="entry content-bg single-entry post-1012 page type-page status-publish hentry">
-	<div class="entry-content-wrap">
-		
-<div class="entry-content single-content">
-	
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&#038;family=Work+Sans:wght@400;500;600;700&#038;display=swap" rel="stylesheet">
-<style>/* ---- ChargebackHelp design layer (scoped to .cbh-guide) ---- */body.cbh-guide{background:#f7f7f7;}.cbh-guide .entry-content,.cbh-guide .content-container .entry-content{font-family:"Work Sans",system-ui,sans-serif;color:#161818;}.cbh-guide .entry-content p,.cbh-guide .entry-content li{font-family:"Work Sans",system-ui,sans-serif;font-size:15px;line-height:1.75;color:rgba(22,24,24,.85);}.cbh-guide .entry-content p{margin:0 0 1.1em;}.cbh-guide .entry-content a{color:#2890c8;text-decoration:none;}.cbh-guide .entry-content a:hover{text-decoration:underline;}/* headings */.cbh-guide .entry-content h1,.cbh-guide .entry-content h2,.cbh-guide .entry-content h3,.cbh-guide .entry-content h4{font-family:"Montserrat",system-ui,sans-serif;color:#161818;}.cbh-guide .entry-content h1{font-size:40px;font-weight:800;line-height:1.12;letter-spacing:-1px;margin:.1em 0 .5em;}.cbh-guide .entry-content h2{font-size:24px;font-weight:700;line-height:1.3;letter-spacing:-.24px;margin:1.9em 0 .55em;}.cbh-guide .entry-content h3{font-size:11px;font-weight:700;line-height:1.6;letter-spacing:1.1px;text-transform:uppercase;color:#595959;margin:2.2em 0 .8em;}/* eyebrow: "Beginner · Part 1 of 36 · 4 min read" */.cbh-guide .cbh-eyebrow,.cbh-guide .cbh-eyebrow h4{font-size:11px!important;font-weight:600!important;letter-spacing:.9px;text-transform:uppercase;color:#2890c8!important;margin:0 0 .6em!important;}/* definition box */.cbh-guide .cbh-definition{background:rgba(78,174,76,.06);border-left:4px solid #4eae4c;border-radius:0 8px 8px 0;padding:20px 24px;margin:1.4em 0 1.8em;}.cbh-guide .cbh-definition .kt-blocks-info-box-title{font-family:"Montserrat",sans-serif;font-size:10px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:#214522;margin:0 0 .5em;}.cbh-guide .cbh-definition .kt-blocks-info-box-text{font-size:15px;line-height:1.7;color:#161818;margin:0;}/* in-content CTA: light-green callout + blue text link */.cbh-guide .cbh-cta{background:#f0faf0!important;border-left:4px solid #4fad4c;border-radius:6px;padding:20px 24px!important;margin:1.8em 0;}.cbh-guide .cbh-cta .kt-inside-inner-col{padding:0!important;}.cbh-guide .cbh-cta h3{font-family:"Montserrat",sans-serif;font-size:15px!important;font-weight:700;letter-spacing:0;text-transform:none;color:#161818!important;margin:0 0 .35em;}.cbh-guide .cbh-cta p{font-size:13.5px;color:#595959!important;margin:0 0 .6em;}.cbh-guide .cbh-cta .kb-button{background:transparent!important;color:#2890c8!important;padding:0!important;font-weight:600;font-size:13.5px;border:0!important;box-shadow:none!important;}.cbh-guide .cbh-cta .kb-button:hover{text-decoration:underline;}/* index hero (orange gradient) */.cbh-guide .cbh-hero{background:linear-gradient(120deg,#ed5d31,#e8832c)!important;border-radius:14px;padding:54px 32px!important;text-align:center;margin:0 0 40px;}.cbh-guide .cbh-hero .kt-inside-inner-col{padding:0!important;}.cbh-guide .cbh-hero h1{color:#fff!important;font-size:42px;font-weight:700;letter-spacing:-1px;margin:0 0 .35em;}.cbh-guide .cbh-hero p{color:rgba(255,255,255,.92)!important;font-size:16px;max-width:640px;margin:0 auto;line-height:1.6;}/* centered section titles on the index */.cbh-guide .cbh-section-title{text-align:center;margin:1.6em 0 1.1em;}/* track cards */.cbh-guide .cbh-cards .kt-row-column-wrap{align-items:stretch;}.cbh-guide .cbh-card{background:#fff;border:1px solid #e8e8ee;border-radius:12px;padding:26px 24px!important;height:100%;box-shadow:0 1px 3px rgba(0,0,0,.04);}.cbh-guide .cbh-card .kt-blocks-info-box-title{font-family:"Montserrat",sans-serif;font-size:18px;font-weight:700;color:#161818;margin:0 0 .5em;}.cbh-guide .cbh-card .kt-blocks-info-box-text{font-size:13.5px;line-height:1.6;color:#595959;}.cbh-guide .cbh-card .kt-blocks-info-box-text{display:flex;flex-direction:column;}.cbh-guide .cbh-card .cbh-explore{margin-top:14px;color:#ed5d31;font-weight:700;font-size:13.5px;text-decoration:none;}.cbh-guide .cbh-card .cbh-explore:hover{text-decoration:underline;}/* index full TOC */.cbh-guide .entry-content h3.cbh-toc{font-family:"Montserrat",sans-serif;font-size:15px;font-weight:700;letter-spacing:.2px;text-transform:none;color:#161818;margin:1.8em 0 .6em;}.cbh-guide .kt-svg-icon-list-item-wrap a,.cbh-guide .kt-svg-icon-list-text a{color:#2890c8;}/* on-page TOC block */.cbh-guide .kb-table-of-content-nav{background:#fff;border:1px solid #e8e8ee;border-radius:10px;padding:6px 4px;}.cbh-guide .kb-table-of-contents-title{font-family:"Montserrat",sans-serif;font-size:11px;text-transform:uppercase;letter-spacing:1px;color:#595959;}/* prev/next */.cbh-guide .cbh-prevnext .kb-button{background:#fff!important;color:#161818!important;border:1px solid #e3e3e8!important;border-radius:8px;font-weight:600;font-size:13.5px;}.cbh-guide .cbh-prevnext .kb-button:hover{border-color:#2890c8!important;color:#2890c8!important;}/* sidebar widget (block widget) */.cbh-guide #secondary .widget,.cbh-guide .sidebar-inner-wrap .widget,.cbh-guide .primary-sidebar .widget{font-family:"Work Sans",sans-serif;}.cbh-guide .widget_block h3{font-family:"Montserrat",sans-serif;font-size:13px;text-transform:uppercase;letter-spacing:.6px;color:#161818;}.cbh-guide .widget_block h4{font-family:"Montserrat",sans-serif;font-size:11px;text-transform:uppercase;letter-spacing:.8px;color:#595959;margin:1.2em 0 .4em;}.cbh-guide .widget_block ul{list-style:none;margin:0;padding:0;}.cbh-guide .widget_block li{margin:.28em 0;}.cbh-guide .widget_block li a{color:#2890c8;font-size:13.5px;text-decoration:none;}.cbh-guide .widget_block li a:hover{text-decoration:underline;}</style>
-
-
-
-<h4 class="kt-adv-heading1012_1 wp-block-kadence-advancedheading cbh-eyebrow" data-kb-block="kb-adv-heading1012_1">Intermediate &middot; Part 12 of 36 &middot; 4 min read</h4>
-
-
-
-<h1 class="kt-adv-heading1012_2 wp-block-kadence-advancedheading" data-kb-block="kb-adv-heading1012_2">Mastercard Chargeback Reason Codes Explained</h1>
-
-
-
-<div id="kt-info-box1012_3" class="wp-block-kadence-infobox cbh-definition"><div class="kt-blocks-info-box-link-wrap kt-blocks-info-box-media-align-top kt-info-halign-left"><div class="kt-infobox-textcontent"><h3 class="kt-blocks-info-box-title">Definition</h3><p class="kt-blocks-info-box-text">A chargeback is a forced reversal of a payment transaction, initiated by a cardholder&#8217;s issuing bank on the cardholder&#8217;s behalf. Unlike a standard refund, which is processed voluntarily by the merchant, a chargeback bypasses the merchant entirely and returns funds directly to the cardholder through the card network. Chargebacks exist as a consumer protection mechanism and are governed by the rules of the card networks, primarily Visa and Mastercard.</p></div></div></div>
-
-
-<nav class="wp-block-kadence-tableofcontents kb-table-of-content-nav kb-table-of-content-id1012_4 kb-toc-smooth-scroll" role="navigation" aria-label="Table of Contents" data-scroll-offset="70" data-scroll-spy="true"><div class="kb-table-of-content-wrap"><div class="kb-table-of-contents-title-wrap kb-toggle-icon-style-arrow"><span class="kb-table-of-contents-title">In This Article</span></div><ul class="kb-table-of-content-list kb-table-of-content-list-columns-1 kb-table-of-content-list-style-disc kb-table-of-content-link-style-underline"><li><a class="kb-table-of-contents__entry" href="#how-a-chargeback-differs-from-a-refund">How a Chargeback Differs From a Refund</a></li><li><a class="kb-table-of-contents__entry" href="#why-chargebacks-exist">Why Chargebacks Exist</a></li><li><a class="kb-table-of-contents__entry" href="#the-difference-between-a-dispute-and-a-chargeback">The Difference Between a Dispute and a Chargeback</a></li><li><a class="kb-table-of-contents__entry" href="#when-chargebacks-are-legitimate">When Chargebacks Are Legitimate</a></li><li><a class="kb-table-of-contents__entry" href="#when-chargebacks-are-not-legitimate">When Chargebacks Are Not Legitimate</a></li><li><a class="kb-table-of-contents__entry" href="#the-scope-of-chargeback-liability">The Scope of Chargeback Liability</a></li><li><a class="kb-table-of-contents__entry" href="#chargebacks-across-card-networks">Chargebacks Across Card Networks</a></li></ul></div></nav>
-
-
-<h2 class="kt-adv-heading1012_5 wp-block-kadence-advancedheading" data-kb-block="kb-adv-heading1012_5" id="how-a-chargeback-differs-from-a-refund">How a Chargeback Differs From a Refund</h2>
-
-
-
-<p class="wp-block-paragraph">The distinction between a chargeback and a refund is not merely procedural. It has meaningful consequences for the merchant.</p>
-
-
-
-<p class="wp-block-paragraph">A refund is a merchant-initiated transaction. When a customer contacts a merchant directly to report a problem, and the merchant agrees to return the funds, that refund is processed through normal payment channels. The merchant retains control over the decision, the timing, and the amount. No third party is involved.</p>
-
-
-
-<p class="wp-block-paragraph">A chargeback follows a different path entirely. The cardholder contacts their issuing bank rather than the merchant. The issuing bank reviews the claim and, if it meets the applicable criteria, initiates a reversal of the original transaction. The merchant is notified after the fact and given the opportunity to respond, but the funds are typically held or returned to the cardholder while the dispute is under review.</p>
-
-
-
-<p class="wp-block-paragraph">The financial impact of a chargeback extends beyond the transaction amount. Merchants are assessed a chargeback fee by their acquiring bank each time a chargeback is filed, regardless of the outcome. That fee is not recovered if the merchant wins the dispute. Additionally, chargebacks are recorded against the merchant&#8217;s account and factor into chargeback ratio calculations, which card networks monitor closely.</p>
-
-
-
-<p class="wp-block-paragraph">So while a refund and a chargeback may produce the same result from the cardholder&#8217;s perspective, they are fundamentally different events from the merchant&#8217;s.</p>
-
-
-
-<h2 class="kt-adv-heading1012_6 wp-block-kadence-advancedheading" data-kb-block="kb-adv-heading1012_6" id="why-chargebacks-exist">Why Chargebacks Exist</h2>
-
-
-
-<p class="wp-block-paragraph">Chargebacks were introduced as a consumer protection measure. The underlying rationale is straightforward: cardholders need a mechanism to recover funds when a transaction goes wrong and the merchant either cannot or will not resolve the issue directly.</p>
-
-
-
-<p class="wp-block-paragraph">The most common scenarios that chargebacks were designed to address include unauthorized use of a payment card, merchants who fail to deliver goods or services as described, and processing errors that result in incorrect charges. In these cases, the chargeback process provides cardholders with a formal recourse path that does not require them to resolve the issue through the merchant.</p>
-
-
-
-<p class="wp-block-paragraph">This protection is a condition of card network participation. Merchants who accept Visa or Mastercard agree to the networks&#8217; dispute rules as part of their merchant agreements. That includes the chargeback process and all associated obligations.</p>
-
-
-
-<h2 class="kt-adv-heading1012_7 wp-block-kadence-advancedheading" data-kb-block="kb-adv-heading1012_7" id="the-difference-between-a-dispute-and-a-chargeback">The Difference Between a Dispute and a Chargeback</h2>
-
-
-
-<p class="wp-block-paragraph">These two terms are often used interchangeably, but they refer to different stages in the same process.</p>
-
-
-
-<p class="wp-block-paragraph">A dispute is the initial claim filed by a cardholder. When a cardholder contacts their issuing bank to report a problem with a transaction, that action creates a dispute. At this stage, the issue has not yet become a formal chargeback. Depending on the card network and the nature of the claim, there may be an opportunity for the dispute to be resolved before it progresses further.</p>
-
-
-
-<p class="wp-block-paragraph">A chargeback occurs when the dispute is not resolved at the earlier stage and the issuing bank proceeds with a formal reversal. At that point, the transaction is officially classified as a chargeback, fees are assessed, and the event is recorded against the merchant&#8217;s account.</p>
-
-
-
-<p class="wp-block-paragraph">The distinction matters operationally. Merchants and service providers who can identify and act on disputes before they become chargebacks have more options available to them, and fewer consequences to manage. Much of modern chargeback management strategy is built around this gap between the dispute stage and the chargeback stage.</p>
-
-
-<div class="kb-row-layout-wrap kb-row-layout-id1012_11 alignnone cbh-cta wp-block-kadence-rowlayout"><div class="kt-row-column-wrap kt-has-1-columns kt-row-layout-equal kt-tab-layout-inherit kt-mobile-layout-row kt-row-valign-top">
-
-<div class="wp-block-kadence-column kadence-column1012_12"><div class="kt-inside-inner-col">
-
-<h3 class="kt-adv-heading1012_8 wp-block-kadence-advancedheading" data-kb-block="kb-adv-heading1012_8">Is your chargeback ratio putting you at risk?</h3>
-
-
-<p class="wp-block-paragraph">ChargebackHelp monitors your dispute activity and helps you respond before ratios escalate. Talk to our team.</p>
-
-
-<div class="wp-block-kadence-advancedbtn kb-buttons-wrap kb-btns1012_9">
-<a class="kb-button kt-button button kb-btn1012_10 kt-btn-size-standard kt-btn-width-type-auto kb-btn-global-fill kt-btn-has-text-true kt-btn-has-svg-false wp-block-kadence-singlebtn" href="https://www.chargebackhelp.com" target="_blank" rel="noreferrer noopener"><span class="kt-btn-inner-text">Talk to an expert</span></a>
-</div>
-
-</div></div>
-
-</div></div>
-
-
-<h2 class="kt-adv-heading1012_13 wp-block-kadence-advancedheading" data-kb-block="kb-adv-heading1012_13" id="when-chargebacks-are-legitimate">When Chargebacks Are Legitimate</h2>
-
-
-
-<p class="wp-block-paragraph">Not all chargebacks represent wrongful behavior by the cardholder. Many are the result of genuine problems: a package that never arrived, a charge that did not match the authorized amount, a subscription that was cancelled but continued to bill, or a card that was used without the cardholder&#8217;s knowledge.</p>
-
-
-
-<p class="wp-block-paragraph">In these cases, the chargeback process functions as intended. The cardholder has a legitimate grievance and uses the available channel to recover their funds. Merchants who experience chargebacks of this type are often better served by addressing the underlying operational issue than by challenging the individual transaction.</p>
-
-
-
-<h2 class="kt-adv-heading1012_14 wp-block-kadence-advancedheading" data-kb-block="kb-adv-heading1012_14" id="when-chargebacks-are-not-legitimate">When Chargebacks Are Not Legitimate</h2>
-
-
-
-<p class="wp-block-paragraph">Chargebacks are not always filed in good faith. A cardholder may dispute a transaction they authorized and received in full, either because they do not recognize the charge, have forgotten the purchase, or are attempting to retain both the goods and the refund. This category of chargeback is commonly referred to as friendly fraud or first-party fraud, and it represents a growing share of overall dispute activity across many merchant categories.</p>
-
-
-
-<p class="wp-block-paragraph">From the card network&#8217;s perspective, these cases are indistinguishable from legitimate disputes at the point of filing. The burden falls on the merchant to provide evidence that the transaction was authorized and fulfilled as described.</p>
-
-
-
-<h2 class="kt-adv-heading1012_15 wp-block-kadence-advancedheading" data-kb-block="kb-adv-heading1012_15" id="the-scope-of-chargeback-liability">The Scope of Chargeback Liability</h2>
-
-
-
-<p class="wp-block-paragraph">Merchants bear significant financial and operational exposure from chargebacks. Beyond the individual transaction amount and the associated fee, chargebacks accumulate over time and are measured as a ratio against total transaction volume. Card networks set thresholds for acceptable chargeback ratios. Merchants who exceed those thresholds can be placed into monitoring programs, face increased fees and restrictions, or in serious cases, lose the ability to accept card payments altogether.</p>
-
-
-
-<p class="wp-block-paragraph">This is why chargeback management is not simply a billing or customer service function. It is a risk management discipline that touches fraud prevention, operational processes, dispute response, and network compliance.</p>
-
-
-
-<h2 class="kt-adv-heading1012_16 wp-block-kadence-advancedheading" data-kb-block="kb-adv-heading1012_16" id="chargebacks-across-card-networks">Chargebacks Across Card Networks</h2>
-
-
-
-<p class="wp-block-paragraph">The chargeback process exists across all major card networks, but the specific rules, timelines, reason code structures, and thresholds differ between Visa and Mastercard. American Express and Discover operate their own dispute frameworks as well, though Visa and Mastercard account for the majority of card payment volume and are the primary focus of most chargeback management programs.</p>
-
-
-
-<p class="wp-block-paragraph">Understanding which network governs a given transaction is relevant because it determines which rules apply, what evidence is required, and what deadlines must be met.</p>
-
-
-
-<h3 class="kt-adv-heading1012_17 wp-block-kadence-advancedheading" data-kb-block="kb-adv-heading1012_17">Related Entries in This Guide</h3>
-
-
-
-<div class="wp-block-kadence-iconlist kt-svg-icon-list-items kt-svg-icon-list-items1012_18 kt-svg-icon-list-columns-1 alignnone"><ul class="kt-svg-icon-list">
-
-<li class="wp-block-kadence-listitem kt-svg-icon-list-item-wrap kt-svg-icon-list-item-1012_19 kt-svg-icon-list-level-0"><a href="part-2-parties-in-a-chargeback.html" class="kt-svg-icon-link"><span class="kt-svg-icon-list-text">Part 2: Who Are the Parties in a Chargeback?</span></a></li>
-
-
-<li class="wp-block-kadence-listitem kt-svg-icon-list-item-wrap kt-svg-icon-list-item-1012_20 kt-svg-icon-list-level-0"><a href="part-3-how-the-chargeback-process-works.html" class="kt-svg-icon-link"><span class="kt-svg-icon-list-text">Part 3: How the Chargeback Process Works</span></a></li>
-
-
-<li class="wp-block-kadence-listitem kt-svg-icon-list-item-wrap kt-svg-icon-list-item-1012_21 kt-svg-icon-list-level-0"><a href="part-4-where-disputes-end-and-chargebacks-begin.html" class="kt-svg-icon-link"><span class="kt-svg-icon-list-text">Part 4: Where Disputes End and Chargebacks Begin</span></a></li>
-
-
-<li class="wp-block-kadence-listitem kt-svg-icon-list-item-wrap kt-svg-icon-list-item-1012_22 kt-svg-icon-list-level-0"><a href="part-8-chargeback-ratios-explained.html" class="kt-svg-icon-link"><span class="kt-svg-icon-list-text">Part 8: Chargeback Ratios Explained</span></a></li>
-
-</ul></div>
-
-
-
-<h3 class="kt-adv-heading1012_23 wp-block-kadence-advancedheading" data-kb-block="kb-adv-heading1012_23">Further Reading</h3>
-
-
-
-<div class="wp-block-kadence-iconlist kt-svg-icon-list-items kt-svg-icon-list-items1012_24 kt-svg-icon-list-columns-1 alignnone"><ul class="kt-svg-icon-list">
-
-<li class="wp-block-kadence-listitem kt-svg-icon-list-item-wrap kt-svg-icon-list-item-1012_25 kt-svg-icon-list-level-0"><a href="part-3-how-the-chargeback-process-works.html" class="kt-svg-icon-link"><span class="kt-svg-icon-list-text">The Complete Chargeback Process Explained</span></a></li>
-
-
-<li class="wp-block-kadence-listitem kt-svg-icon-list-item-wrap kt-svg-icon-list-item-1012_26 kt-svg-icon-list-level-0"><a href="part-13-what-is-friendly-fraud.html" class="kt-svg-icon-link"><span class="kt-svg-icon-list-text">What Is Friendly Fraud?</span></a></li>
-
-
-<li class="wp-block-kadence-listitem kt-svg-icon-list-item-wrap kt-svg-icon-list-item-1012_27 kt-svg-icon-list-level-0"><a href="part-14-what-is-first-party-fraud.html" class="kt-svg-icon-link"><span class="kt-svg-icon-list-text">What Is First-Party Fraud?</span></a></li>
-
-</ul></div>
-
-
-
-<p class="wp-block-paragraph">If you would like help managing chargebacks within your operation, <a href="https://www.chargebackhelp.com">contact our team at chargebackhelp.com</a>.</p>
-
-
-<div class="kb-row-layout-wrap kb-row-layout-id1012_32 alignnone cbh-prevnext wp-block-kadence-rowlayout"><div class="kt-row-column-wrap kt-has-2-columns kt-row-layout-equal kt-tab-layout-inherit kt-mobile-layout-row kt-row-valign-top">
-
-<div class="wp-block-kadence-column kadence-column1012_33"><div class="kt-inside-inner-col">
-
-<div class="wp-block-kadence-advancedbtn kb-buttons-wrap kb-btns1012_28">
-<a class="kb-button kt-button button kb-btn1012_29 kt-btn-size-standard kt-btn-width-type-auto kb-btn-global-outline kt-btn-has-text-true kt-btn-has-svg-false wp-block-kadence-singlebtn" href="part-11-visa-chargeback-reason-codes-explained.html"><span class="kt-btn-inner-text">&larr; Part 11: Visa Chargeback Reason Codes Explained</span></a>
-</div>
-
-</div></div>
-
-
-<div class="wp-block-kadence-column kadence-column1012_34"><div class="kt-inside-inner-col">
-
-<div class="wp-block-kadence-advancedbtn kb-buttons-wrap kb-btns1012_30">
-<a class="kb-button kt-button button kb-btn1012_31 kt-btn-size-standard kt-btn-width-type-auto kb-btn-global-outline kt-btn-has-text-true kt-btn-has-svg-false wp-block-kadence-singlebtn" href="part-13-what-is-friendly-fraud.html"><span class="kt-btn-inner-text">Part 13: What Is Friendly Fraud? &rarr;</span></a>
-</div>
-
-</div></div>
-
-</div></div>
-
-
-
-</div><!-- .entry-content -->
-	</div>
-</article><!-- #post-1012 -->
-
-			</div>
-					</div><!-- #main -->
-		<aside id="secondary" role="complementary" class="primary-sidebar widget-area sidebar-slug-sidebar-primary sidebar-link-style-normal">
-	<div class="sidebar-inner-wrap">
-		<section id="block-7" class="widget widget_block"><!-- cbh-guide-sidebar -->
-
-<h3 class="wp-block-heading">Chargeback Guide</h3>
-
-
-<h4 class="wp-block-heading">Beginner</h4>
-
-
-<ul class="wp-block-list">
-
-<li><a href="part-1-what-is-a-chargeback.html">Part 1: What Is a Chargeback?</a></li>
-
-
-<li><a href="part-2-parties-in-a-chargeback.html">Part 2: Who Are the Parties in a Chargeback?</a></li>
-
-
-<li><a href="part-3-how-the-chargeback-process-works.html">Part 3: How the Chargeback Process Works</a></li>
-
-
-<li><a href="part-4-where-disputes-end-and-chargebacks-begin.html">Part 4: Where Disputes End and Chargebacks Begin</a></li>
-
-
-<li><a href="part-5-chargeback-timelines-and-deadlines.html">Part 5: Chargeback Timelines and Deadlines</a></li>
-
-
-<li><a href="part-6-why-merchants-receive-chargebacks.html">Part 6: Why Merchants Receive Chargebacks</a></li>
-
-
-<li><a href="part-7-what-a-chargeback-costs-a-merchant.html">Part 7: What a Chargeback Costs a Merchant</a></li>
-
-
-<li><a href="part-8-chargeback-ratios-explained.html">Part 8: Chargeback Ratios Explained</a></li>
-
-
-<li><a href="part-9-what-happens-if-you-ignore-chargebacks.html">Part 9: What Happens If You Ignore Chargebacks</a></li>
-
-</ul>
-
-
-<h4 class="wp-block-heading">Intermediate</h4>
-
-
-<ul class="wp-block-list">
-
-<li><a href="part-10-chargeback-reason-codes-overview.html">Part 10: Chargeback Reason Codes Overview</a></li>
-
-
-<li><a href="part-11-visa-chargeback-reason-codes-explained.html">Part 11: Visa Chargeback Reason Codes Explained</a></li>
-
-
-<li><a href="part-12-mastercard-chargeback-reason-codes.html">Part 12: Mastercard Chargeback Reason Codes Explained</a></li>
-
-
-<li><a href="part-13-what-is-friendly-fraud.html">Part 13: What Is Friendly Fraud?</a></li>
-
-
-<li><a href="part-14-what-is-first-party-fraud.html">Part 14: What Is First-Party Fraud?</a></li>
-
-
-<li><a href="part-15-chargeback-alerts-explained.html">Part 15: Chargeback Alerts Explained</a></li>
-
-
-<li><a href="part-16-ethoca-alerts.html">Part 16: Ethoca Alerts</a></li>
-
-
-<li><a href="part-17-verifi-cdrn.html">Part 17: Verifi CDRN</a></li>
-
-
-<li><a href="part-18-visa-rdr.html">Part 18: Visa RDR</a></li>
-
-
-<li><a href="part-19-chargeback-prevention-strategies.html">Part 19: Chargeback Prevention Strategies</a></li>
-
-
-<li><a href="part-20-billing-descriptors-and-prevention.html">Part 20: Billing Descriptors and Chargeback Prevention</a></li>
-
-
-<li><a href="part-21-fraud-screening-and-prevention.html">Part 21: Fraud Screening and Chargeback Prevention</a></li>
-
-
-<li><a href="part-22-what-is-chargeback-representment.html">Part 22: What Is Chargeback Representment?</a></li>
-
-
-<li><a href="part-23-build-a-strong-representment-case.html">Part 23: How to Build a Strong Representment Case</a></li>
-
-
-<li><a href="part-24-compelling-evidence-3-0.html">Part 24: Compelling Evidence 3.0 (CE3.0) Explained</a></li>
-
-
-<li><a href="part-25-mastercard-first-party-trust.html">Part 25: Mastercard First-Party Trust Explained</a></li>
-
-
-<li><a href="part-26-high-risk-industries-and-exposure.html">Part 26: High-Risk Industries and Chargeback Exposure</a></li>
-
-
-<li><a href="part-27-subscription-saas-chargeback-challenges.html">Part 27: Subscription and SaaS Chargeback Challenges</a></li>
-
-</ul>
-
-
-<h4 class="wp-block-heading">Advanced</h4>
-
-
-<ul class="wp-block-list">
-
-<li><a href="part-28-visa-vamp-explained.html">Part 28: Visa VAMP Explained</a></li>
-
-
-<li><a href="part-29-mastercard-ecms-explained.html">Part 29: Mastercard ECMS Explained</a></li>
-
-
-<li><a href="part-30-fraud-liability-shift-and-3ds.html">Part 30: The Fraud Liability Shift and 3-D Secure</a></li>
-
-
-<li><a href="part-31-automating-chargeback-alerts.html">Part 31: Automating Chargeback Alerts</a></li>
-
-
-<li><a href="part-32-automating-representment.html">Part 32: Automating Representment</a></li>
-
-
-<li><a href="part-33-transaction-data-as-defense.html">Part 33: Transaction Data as a Chargeback Defense</a></li>
-
-
-<li><a href="part-34-chargeback-management-framework.html">Part 34: Building a Chargeback Management Framework</a></li>
-
-
-<li><a href="part-35-chargeback-management-msps-isos.html">Part 35: Chargeback Management for MSPs and ISOs</a></li>
-
-
-<li><a href="part-36-the-future-of-dispute-resolution.html">Part 36: The Future of Dispute Resolution</a></li>
-
-</ul>
-
-</section>	</div>
-</aside><!-- #secondary -->
-	</div>
-</div><!-- #primary -->
-	</main><!-- #inner-wrap -->
-	<footer id="colophon" class="site-footer" role="contentinfo">
-	<div class="site-footer-wrap">
-		<div class="site-bottom-footer-wrap site-footer-row-container site-footer-focus-item site-footer-row-layout-standard site-footer-row-tablet-layout-default site-footer-row-mobile-layout-default" data-section="kadence_customizer_footer_bottom">
-	<div class="site-footer-row-container-inner">
-				<div class="site-container">
-			<div class="site-bottom-footer-inner-wrap site-footer-row site-footer-row-columns-1 site-footer-row-column-layout-row site-footer-row-tablet-column-layout-default site-footer-row-mobile-column-layout-row ft-ro-dir-row ft-ro-collapse-normal ft-ro-t-dir-default ft-ro-m-dir-default ft-ro-lstyle-plain">
-									<div class="site-footer-bottom-section-1 site-footer-section footer-section-inner-items-1">
-						
-<div class="footer-widget-area site-info site-footer-focus-item content-align-default content-tablet-align-default content-mobile-align-default content-valign-default content-tablet-valign-default content-mobile-valign-default" data-section="kadence_customizer_footer_html">
-	<div class="footer-widget-area-inner site-info-inner">
-		<div class="footer-html inner-link-style-normal"><div class="footer-html-inner"><p>&copy; 2026 CBH-Kadence - WordPress Theme by <a href="https://www.kadencewp.com/" rel="nofollow noopener">Kadence WP</a></p>
-</div></div>	</div>
-</div><!-- .site-info -->
-					</div>
-								</div>
-		</div>
-	</div>
-</div>
-	</div>
-</footer><!-- #colophon -->
-
-</div><!-- #wrapper -->
-
-			
-			
-	<div id="mobile-drawer" class="popup-drawer popup-drawer-layout-sidepanel popup-drawer-animation-fade popup-drawer-side-right" data-drawer-target-string="#mobile-drawer"
-			>
-		<div class="drawer-overlay" data-drawer-target-string="#mobile-drawer"></div>
-		<div class="drawer-inner">
-						<div class="drawer-header">
-				<button class="menu-toggle-close drawer-toggle" aria-label="Close menu"  data-toggle-target="#mobile-drawer" data-toggle-body-class="showing-popup-drawer-from-right" aria-expanded="false" data-set-focus=".menu-toggle-open"
-							>
-					<span class="toggle-close-bar"></span>
-					<span class="toggle-close-bar"></span>
-				</button>
-			</div>
-			<div class="drawer-content mobile-drawer-content content-align-left content-valign-top">
-								<div class="site-header-item site-header-focus-item site-header-item-mobile-navigation mobile-navigation-layout-stretch-false" data-section="kadence_customizer_mobile_navigation">
-		<nav id="mobile-site-navigation" class="mobile-navigation drawer-navigation drawer-navigation-parent-toggle-false" role="navigation" aria-label="Primary Mobile">
-				<div class="mobile-menu-container drawer-menu-container">
-			<ul id="mobile-menu" class="menu has-collapse-sub-nav"><li class="menu-item menu-item-type-post_type menu-item-object-page current-page-ancestor current-menu-ancestor current-page-parent current_page_ancestor menu-item-has-children menu-item-1117"><div class="drawer-nav-drop-wrap"><a href="index.html">Chargeback Guide</a><button class="drawer-sub-toggle" data-toggle-duration="10" data-toggle-target="#mobile-menu .menu-item-1117 &gt; .sub-menu" aria-expanded="false"><span class="screen-reader-text">Toggle child menu</span><span class="kadence-svg-iconset"><svg aria-hidden="true" class="kadence-svg-icon kadence-arrow-down-svg" fill="currentColor" version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><title>Expand</title><path d="M5.293 9.707l6 6c0.391 0.391 1.024 0.391 1.414 0l6-6c0.391-0.391 0.391-1.024 0-1.414s-1.024-0.391-1.414 0l-5.293 5.293-5.293-5.293c-0.391-0.391-1.024-0.391-1.414 0s-0.391 1.024 0 1.414z"></path>
-				</svg></span></button></div>
-<ul class="sub-menu">
-	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1118"><div class="drawer-nav-drop-wrap"><a href="index.html">Beginner</a><button class="drawer-sub-toggle" data-toggle-duration="10" data-toggle-target="#mobile-menu .menu-item-1118 &gt; .sub-menu" aria-expanded="false"><span class="screen-reader-text">Toggle child menu</span><span class="kadence-svg-iconset"><svg aria-hidden="true" class="kadence-svg-icon kadence-arrow-down-svg" fill="currentColor" version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><title>Expand</title><path d="M5.293 9.707l6 6c0.391 0.391 1.024 0.391 1.414 0l6-6c0.391-0.391 0.391-1.024 0-1.414s-1.024-0.391-1.414 0l-5.293 5.293-5.293-5.293c-0.391-0.391-1.024-0.391-1.414 0s-0.391 1.024 0 1.414z"></path>
-				</svg></span></button></div>
-	<ul class="sub-menu">
-		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1121"><a href="part-1-what-is-a-chargeback.html">Part 1: What Is a Chargeback?</a></li>
-		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1122"><a href="part-2-parties-in-a-chargeback.html">Part 2: Who Are the Parties in a Chargeback?</a></li>
-		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1123"><a href="part-3-how-the-chargeback-process-works.html">Part 3: How the Chargeback Process Works</a></li>
-		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1124"><a href="part-4-where-disputes-end-and-chargebacks-begin.html">Part 4: Where Disputes End and Chargebacks Begin</a></li>
-		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1125"><a href="part-5-chargeback-timelines-and-deadlines.html">Part 5: Chargeback Timelines and Deadlines</a></li>
-		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1126"><a href="part-6-why-merchants-receive-chargebacks.html">Part 6: Why Merchants Receive Chargebacks</a></li>
-		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1127"><a href="part-7-what-a-chargeback-costs-a-merchant.html">Part 7: What a Chargeback Costs a Merchant</a></li>
-		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1128"><a href="part-8-chargeback-ratios-explained.html">Part 8: Chargeback Ratios Explained</a></li>
-		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1129"><a href="part-9-what-happens-if-you-ignore-chargebacks.html">Part 9: What Happens If You Ignore Chargebacks</a></li>
-	</ul>
-</li>
-	<li class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children menu-item-1119"><div class="drawer-nav-drop-wrap"><a href="index.html">Intermediate</a><button class="drawer-sub-toggle" data-toggle-duration="10" data-toggle-target="#mobile-menu .menu-item-1119 &gt; .sub-menu" aria-expanded="false"><span class="screen-reader-text">Toggle child menu</span><span class="kadence-svg-iconset"><svg aria-hidden="true" class="kadence-svg-icon kadence-arrow-down-svg" fill="currentColor" version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><title>Expand</title><path d="M5.293 9.707l6 6c0.391 0.391 1.024 0.391 1.414 0l6-6c0.391-0.391 0.391-1.024 0-1.414s-1.024-0.391-1.414 0l-5.293 5.293-5.293-5.293c-0.391-0.391-1.024-0.391-1.414 0s-0.391 1.024 0 1.414z"></path>
-				</svg></span></button></div>
-	<ul class="sub-menu">
-		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1130"><a href="part-10-chargeback-reason-codes-overview.html">Part 10: Chargeback Reason Codes Overview</a></li>
-		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1131"><a href="part-11-visa-chargeback-reason-codes-explained.html">Part 11: Visa Chargeback Reason Codes Explained</a></li>
-		<li class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-1012 current_page_item menu-item-1132"><a href="part-12-mastercard-chargeback-reason-codes.html" aria-current="page">Part 12: Mastercard Chargeback Reason Codes Explained</a></li>
-		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1133"><a href="part-13-what-is-friendly-fraud.html">Part 13: What Is Friendly Fraud?</a></li>
-		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1134"><a href="part-14-what-is-first-party-fraud.html">Part 14: What Is First-Party Fraud?</a></li>
-		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1135"><a href="part-15-chargeback-alerts-explained.html">Part 15: Chargeback Alerts Explained</a></li>
-		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1136"><a href="part-16-ethoca-alerts.html">Part 16: Ethoca Alerts</a></li>
-		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1137"><a href="part-17-verifi-cdrn.html">Part 17: Verifi CDRN</a></li>
-		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1138"><a href="part-18-visa-rdr.html">Part 18: Visa RDR</a></li>
-		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1139"><a href="part-19-chargeback-prevention-strategies.html">Part 19: Chargeback Prevention Strategies</a></li>
-		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1140"><a href="part-20-billing-descriptors-and-prevention.html">Part 20: Billing Descriptors and Chargeback Prevention</a></li>
-		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1141"><a href="part-21-fraud-screening-and-prevention.html">Part 21: Fraud Screening and Chargeback Prevention</a></li>
-		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1142"><a href="part-22-what-is-chargeback-representment.html">Part 22: What Is Chargeback Representment?</a></li>
-		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1143"><a href="part-23-build-a-strong-representment-case.html">Part 23: How to Build a Strong Representment Case</a></li>
-		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1144"><a href="part-24-compelling-evidence-3-0.html">Part 24: Compelling Evidence 3.0 (CE3.0) Explained</a></li>
-		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1145"><a href="part-25-mastercard-first-party-trust.html">Part 25: Mastercard First-Party Trust Explained</a></li>
-		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1146"><a href="part-26-high-risk-industries-and-exposure.html">Part 26: High-Risk Industries and Chargeback Exposure</a></li>
-		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1147"><a href="part-27-subscription-saas-chargeback-challenges.html">Part 27: Subscription and SaaS Chargeback Challenges</a></li>
-	</ul>
-</li>
-	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1120"><div class="drawer-nav-drop-wrap"><a href="index.html">Advanced</a><button class="drawer-sub-toggle" data-toggle-duration="10" data-toggle-target="#mobile-menu .menu-item-1120 &gt; .sub-menu" aria-expanded="false"><span class="screen-reader-text">Toggle child menu</span><span class="kadence-svg-iconset"><svg aria-hidden="true" class="kadence-svg-icon kadence-arrow-down-svg" fill="currentColor" version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><title>Expand</title><path d="M5.293 9.707l6 6c0.391 0.391 1.024 0.391 1.414 0l6-6c0.391-0.391 0.391-1.024 0-1.414s-1.024-0.391-1.414 0l-5.293 5.293-5.293-5.293c-0.391-0.391-1.024-0.391-1.414 0s-0.391 1.024 0 1.414z"></path>
-				</svg></span></button></div>
-	<ul class="sub-menu">
-		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1148"><a href="part-28-visa-vamp-explained.html">Part 28: Visa VAMP Explained</a></li>
-		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1149"><a href="part-29-mastercard-ecms-explained.html">Part 29: Mastercard ECMS Explained</a></li>
-		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1150"><a href="part-30-fraud-liability-shift-and-3ds.html">Part 30: The Fraud Liability Shift and 3-D Secure</a></li>
-		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1151"><a href="part-31-automating-chargeback-alerts.html">Part 31: Automating Chargeback Alerts</a></li>
-		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1152"><a href="part-32-automating-representment.html">Part 32: Automating Representment</a></li>
-		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1153"><a href="part-33-transaction-data-as-defense.html">Part 33: Transaction Data as a Chargeback Defense</a></li>
-		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1154"><a href="part-34-chargeback-management-framework.html">Part 34: Building a Chargeback Management Framework</a></li>
-		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1155"><a href="part-35-chargeback-management-msps-isos.html">Part 35: Chargeback Management for MSPs and ISOs</a></li>
-		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1156"><a href="part-36-the-future-of-dispute-resolution.html">Part 36: The Future of Dispute Resolution</a></li>
-	</ul>
-</li>
-</ul>
-</li>
-</ul>		</div>
-	</nav><!-- #site-navigation -->
-	</div><!-- data-section="mobile_navigation" -->
-							</div>
-		</div>
-	</div>
-	
-
-
-
-
-
-
-
-</body>
-</html>
+<script>(function(){try{var p=location.pathname.replace(/\/+$/,"").toLowerCase();var best=null,bl=0;document.querySelectorAll(".cbh-side-link").forEach(function(a){var h=(a.getAttribute("href")||"").replace(/\.html$/,"").replace(/\/+$/,"").toLowerCase();if(h&&p.indexOf(h.split("/").pop())>-1&&h.length>bl){best=a;bl=h.length;}});if(best){best.classList.add("is-active");}}catch(e){}})();</script><style>
+*{box-sizing:border-box}html,body{margin:0;padding:0}
+.cbh-art-layout{display:flex;gap:44px;max-width:1152px;margin:0 auto;padding:24px;align-items:flex-start}
+.cbh-art-layout .cbh-sidebar{flex:0 0 280px}
+.cbh-article-main{flex:1;min-width:0;max-width:760px}
+.cbh-index .cbh-choose,.cbh-index .cbh-allparts{margin-left:0;margin-right:0}
+</style></head><body class="cbh-guide cbh-article"><header class="cbh-topbar"><div class="cbh-wrap cbh-topbar-inner"><a class="cbh-topbar-brand" href="index.html"><span class="cbh-logo cbh-logo-sm"><img class="cbh-logo-img cbh-logo-img-sm" src="data:image/svg+xml;base64,PHN2ZyBpZD0iTGF5ZXJfMiIgZGF0YS1uYW1lPSJMYXllciAyIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgMjM0IDIwMi4yMyI+PGRlZnM+PHN0eWxlPiAuY2xzLTEsIC5jbHMtMiB7IGZpbGw6IG5vbmU7IH0gLmNscy0zIHsgZmlsbDogdXJsKCNsaW5lYXItZ3JhZGllbnQtNSk7IH0gLmNscy00IHsgZmlsbDogdXJsKCNsaW5lYXItZ3JhZGllbnQtNik7IH0gLmNscy01IHsgZmlsbDogdXJsKCNsaW5lYXItZ3JhZGllbnQtNCk7IH0gLmNscy02IHsgZmlsbDogdXJsKCNsaW5lYXItZ3JhZGllbnQtMyk7IH0gLmNscy03IHsgZmlsbDogdXJsKCNsaW5lYXItZ3JhZGllbnQtMik7IH0gLmNscy04IHsgZmlsbDogdXJsKCNsaW5lYXItZ3JhZGllbnQpOyB9IC5jbHMtOSB7IGZpbGw6ICNhNDI5MzE7IH0gLmNscy0xMCB7IGNsaXAtcGF0aDogdXJsKCNjbGlwcGF0aC0xKTsgfSAuY2xzLTExIHsgY2xpcC1wYXRoOiB1cmwoI2NsaXBwYXRoLTMpOyB9IC5jbHMtMTIgeyBjbGlwLXBhdGg6IHVybCgjY2xpcHBhdGgtNCk7IH0gLmNscy0xMyB7IGNsaXAtcGF0aDogdXJsKCNjbGlwcGF0aC0yKTsgfSAuY2xzLTE0IHsgY2xpcC1wYXRoOiB1cmwoI2NsaXBwYXRoLTUpOyB9IC5jbHMtMTUgeyBmaWxsOiAjZmZmOyB9IC5jbHMtMTYgeyBmaWxsOiAjNGZhZDRjOyB9IC5jbHMtMTcgeyBmaWxsOiAjMjA0NTI0OyB9IC5jbHMtMTggeyBmaWxsOiAjMjA0NTIzOyB9IC5jbHMtMiB7IHN0cm9rZTogI2VlNWMzMDsgc3Ryb2tlLW1pdGVybGltaXQ6IDk7IHN0cm9rZS13aWR0aDogNS45MXB4OyB9IC5jbHMtMTkgeyBjbGlwLXBhdGg6IHVybCgjY2xpcHBhdGgpOyB9IC5jbHMtMjAgeyBmaWxsOiAjZWU1YzMwOyB9IDwvc3R5bGU+PGNsaXBQYXRoIGlkPSJjbGlwcGF0aCI+PHBhdGggY2xhc3M9ImNscy0xIiBkPSJNMTAxLjgyLDI3Ljg4YzEwLjYzLTIuMTksMjEuNjUtMi4wMiwzMi4yMy4zOCwxNy44OCw0LjA2LDMzLjcxLDE0Ljc3LDQ0LjM1LDI5LjUxLjQxLS45My43Ny0xLjksMS4wMy0yLjg2LTEwLjgxLTE0LjAxLTI2LjE5LTI0LjI0LTQzLjM5LTI4LjM0LTkuNjQtMi4zLTE5LjYxLTIuNzYtMjkuMzItMS4yNi0uNjMuMS0yLjY2LjQyLTQuMzcuN2wtLjUzLDEuODlaIi8+PC9jbGlwUGF0aD48bGluZWFyR3JhZGllbnQgaWQ9ImxpbmVhci1ncmFkaWVudCIgeDE9Ii01MjM5LjU1IiB5MT0iMzAwMy45NiIgeDI9Ii01MjM4LjUyIiB5Mj0iMzAwMy45NiIgZ3JhZGllbnRUcmFuc2Zvcm09InRyYW5zbGF0ZSgtMTc0MDgwLjQxIDMwMzkwNS4yOCkgcm90YXRlKDkwKSBzY2FsZSg1OCAtNTgpIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjZjc5ZDIwIi8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjZjI4MzIwIi8+PC9saW5lYXJHcmFkaWVudD48Y2xpcFBhdGggaWQ9ImNsaXBwYXRoLTEiPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTEwMS44MiwyNy44OGM5LjQzLTEuOTUsMTkuMTctMi4wMiwyOC42NC0uMzQuMDktLjY5LjIzLTEuMzcuNDEtMi4wMy04LjAxLTEuMzUtMTYuMTctMS40NC0yNC4xNS0uMjEtLjYzLjEtMi42Ni40Mi00LjM3LjdsLS41MywxLjg5WiIvPjwvY2xpcFBhdGg+PGxpbmVhckdyYWRpZW50IGlkPSJsaW5lYXItZ3JhZGllbnQtMiIgeDE9Ii01MTQwLjQiIHkxPSIzMTIzLjU5IiB4Mj0iLTUxMzkuMzgiIHkyPSIzMTIzLjU5IiBncmFkaWVudFRyYW5zZm9ybT0idHJhbnNsYXRlKC05MDI3NC4zNCAxNDg3NTcuNTEpIHJvdGF0ZSg5MCkgc2NhbGUoMjguOTQgLTI4Ljk0KSIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPjxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iI2Y3OWQyMCIvPjxzdG9wIG9mZnNldD0iLjUxIiBzdG9wLWNvbG9yPSIjZjc5ZDIwIi8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjZjI4MzIwIi8+PC9saW5lYXJHcmFkaWVudD48Y2xpcFBhdGggaWQ9ImNsaXBwYXRoLTIiPjxwb2x5Z29uIGNsYXNzPSJjbHMtMSIgcG9pbnRzPSIxNzcuMDEgOTguNTggMTgxLjI4IDk5LjUyIDE4MS4yNSA5OS40OCAxOTUuNTMgOTguMjMgMTkyLjQ5IDk3LjY5IDE5Mi40OSA5Ny43IDE3Ny4wMSA5OC41OCAxNzcuMDEgOTguNTgiLz48L2NsaXBQYXRoPjxsaW5lYXJHcmFkaWVudCBpZD0ibGluZWFyLWdyYWRpZW50LTMiIHgxPSItNTU5NC45IiB5MT0iMTk3MC4yNSIgeDI9Ii01NTkzLjg3IiB5Mj0iMTk3MC4yNSIgZ3JhZGllbnRUcmFuc2Zvcm09InRyYW5zbGF0ZSgtNDAyMjEuNzQgLTE0MTM2LjEpIHJvdGF0ZSgtMTgwKSBzY2FsZSg3LjIyIC03LjIyKSIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPjxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iI2Y3OWQyMCIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI2Y0NzUyMSIvPjwvbGluZWFyR3JhZGllbnQ+PGNsaXBQYXRoIGlkPSJjbGlwcGF0aC0zIj48cG9seWdvbiBjbGFzcz0iY2xzLTEiIHBvaW50cz0iMjA3LjUzIDEyOS43NyAyMDcuNTggMTI5LjcgMTgxLjI4IDk5LjUyIDE3Ny4wMSA5OC41OCAyMDcuNTMgMTI5Ljc3Ii8+PC9jbGlwUGF0aD48bGluZWFyR3JhZGllbnQgaWQ9ImxpbmVhci1ncmFkaWVudC00IiB4MT0iLTQ5ODQuOTkiIHkxPSIyNDk0LjE4IiB4Mj0iLTQ5ODMuOTciIHkyPSIyNDk0LjE4IiBncmFkaWVudFRyYW5zZm9ybT0idHJhbnNsYXRlKDQwMDQ2LjA4IC03OTUzMS42Nykgcm90YXRlKC05MCkgc2NhbGUoMTUuOTggLTE1Ljk4KSIgeGxpbms6aHJlZj0iI2xpbmVhci1ncmFkaWVudC0yIi8+PGNsaXBQYXRoIGlkPSJjbGlwcGF0aC00Ij48cGF0aCBjbGFzcz0iY2xzLTEiIGQ9Ik0xOTEuOTUsMTEzLjg1Yy4xMy0uNTcuMjQtMS4xNC4zMy0xLjcxbC0xMC45OS0xMi42Mi00LjI3LS45MywxNC45MywxNS4yNloiLz48L2NsaXBQYXRoPjxsaW5lYXJHcmFkaWVudCBpZD0ibGluZWFyLWdyYWRpZW50LTUiIHgxPSItNDk1My4wNyIgeTE9IjI0NDQuNzEiIHgyPSItNDk1Mi4wNSIgeTI9IjI0NDQuNzEiIGdyYWRpZW50VHJhbnNmb3JtPSJ0cmFuc2xhdGUoMzQ3MjQuMDUgLTY5ODU1LjU3KSByb3RhdGUoLTkwKSBzY2FsZSgxNC4xMyAtMTQuMTMpIiB4bGluazpocmVmPSIjbGluZWFyLWdyYWRpZW50LTMiLz48Y2xpcFBhdGggaWQ9ImNsaXBwYXRoLTUiPjxwb2x5Z29uIGNsYXNzPSJjbHMtMSIgcG9pbnRzPSIyNi40MiA3Mi41MyA1Mi43MiAxMDIuNzEgNTYuOTkgMTAzLjY1IDI2LjQ4IDcyLjQ2IDI2LjQyIDcyLjUzIi8+PC9jbGlwUGF0aD48bGluZWFyR3JhZGllbnQgaWQ9ImxpbmVhci1ncmFkaWVudC02IiB4MT0iLTU0MjguODUiIHkxPSIzMjc0LjkyIiB4Mj0iLTU0MjcuODMiIHkyPSIzMjc0LjkyIiBncmFkaWVudFRyYW5zZm9ybT0idHJhbnNsYXRlKC01MjI4OS44MyA4NjgyNS41OSkgcm90YXRlKDkwKSBzY2FsZSgxNS45OCAtMTUuOTgpIiB4bGluazpocmVmPSIjbGluZWFyLWdyYWRpZW50LTIiLz48L2RlZnM+PGcgaWQ9IkxheWVyXzEtMiIgZGF0YS1uYW1lPSJMYXllciAxIj48Zz48cGF0aCBjbGFzcz0iY2xzLTE2IiBkPSJNMTc0LjI1LDE3LjQ5Yy02LjY0LTQuNTEtMTMuODEtOC4yLTIxLjMyLTExLjAyaDBjLS4xNy0uMDctLjM0LS4xMy0uNTEtLjE5LS4yMy0uMDktLjQ2LS4xOC0uNy0uMjYtLjE2LS4wNi0uMzMtLjExLS41MS0uMTYtNy41NS0yLjY4LTE1LjQtNC40OS0yMy4zNy01LjMyLTE4LjQ5LTEuOTEtMzcuNDEsMS4zMS01NC4yLDkuMjktMTIuNDgsNS45My0yMy43MSwxNC40NS0zMi44MiwyNC44NC01Ljg3LDYuNy0xMC44NywxNC4xNi0xNC44NCwyMi4yMWwxOS45NiwyMC42N2MzLjQ5LTEwLjI4LDkuMjEtMTkuNjksMTYuNjQtMjcuNjEsMTEuODktMTIuNjcsMjguMDItMjAuNzQsNDUuMDgtMjMuMDEuMzktLjA1Ljc4LS4xLDEuMTgtLjE0LjM4LS4wNC43Ni0uMDksMS4xNC0uMTMsOC4wNC0uNzUsMTYuMTctLjIsMjQuMDYsMS41OSwyMS44MSw0Ljk1LDQwLjU5LDE5LjgsNTAuNTksMzkuNzgsNC4yMyw4LjQ0LDYuODYsMTcuNjYsNy42NywyNy4wNi4wNy44Ny4xMywxLjczLjE4LDIuNmwtMTUuNDguODgsMzAuNTIsMzEuMTksMjYuNDctMzQuNDQtMTUuMzUuODhjLS42Ni0xMi42NS0zLjcxLTI1LjE0LTguOTYtMzYuNjctNy43MS0xNi45Mi0yMC4wNi0zMS42LTM1LjQ0LTQyLjA1Ii8+PHBhdGggY2xhc3M9ImNscy05IiBkPSJNMTExLjc3LDMzLjI3YzIuOTUtLjE5LDUuOTEtLjE5LDguODUsMCw0LjYxLjMxLDkuMTgsMS4wOCwxMy42MywyLjMuMDQuMDEuMDcuMDIuMTEuMDMsNC40OCwxLjI0LDguODMsMi45NCwxMi45Nyw1LjA4bDQuODktNi4xN2MtLjc2LS4zOS0xLjU2LS43OS0yLjMzLTEuMTYtOC41Mi00LjA1LTE3LjgxLTYuNDUtMjcuMjItNy4wOC00LjA1LS4yNy04LjEtLjItMTIuMTEuMTkuMzcsMi4yNy44NCw0LjUyLDEuMjIsNi44Ii8+PHBvbHlnb24gY2xhc3M9ImNscy0xNyIgcG9pbnRzPSIxNzAuNzYgOTcuNjMgMTk4LjM2IDEyNS44MyAyMDcuNTMgMTI5Ljc3IDE3Ny4xMiA5OC43IDE3MC43NiA5Ny42MyIvPjxwYXRoIGNsYXNzPSJjbHMtMTciIGQ9Ik0yMzQsOTUuMzNsLTExLjYzLS43NS0zLjgyLjIycy4wMi0uMDIuMDksMS40MWwxNS4zNS0uODhaIi8+PHBhdGggY2xhc3M9ImNscy0xOCIgZD0iTTE1MS45MSwzNC44N2wuMTUtLjE5Yy0uNzYtLjM5LTEuNTUtLjc5LTIuMzMtMS4xNi04LjUyLTQuMDUtMTcuODEtNi40NS0yNy4yMy03LjA4LTQuMTktLjI4LTguMzctLjItMTIuNTEuMjItLjM4LjA0LS43Ni4wOS0xLjE0LjEzLS4zOS4wNS0uNzkuMDktMS4xOC4xNC0xLjk2LjI0LTMuOTEuNTQtNS44NS45NHYuMDdjLTE0Ljg2LDMuMTgtMjguNywxMC43OS0zOS4yMywyMi03LjQzLDcuOTEtMTMuMTUsMTcuMzMtMTYuNjMsMjcuNmw1LjMsMi4zNWMyLjItNi40OCw1LjEyLTEyLjYyLDkuMDUtMTguMDksNy45MS0xMC45OSwxOS4wNS0xOS41NCwzMS43Ni0yNC4yNiw5LjAzLTMuMzUsMTguOC00Ljc1LDI4LjQxLTQuMTIsNC42MS4zMSw5LjE4LDEuMDgsMTMuNjMsMi4zLjA0LjAxLjA3LjAyLjExLjAzLDQuNDgsMS4yNCw4LjgzLDIuOTQsMTIuOTcsNS4wOGwuODUtMS4wN2M0LjEyLDIuMTQsOC4wMyw0LjY5LDExLjYzLDcuNjMsNy40Niw2LjA5LDEzLjYxLDEzLjgxLDE3LjkzLDIyLjQyLDIuMDcsNC4xMywzLjcxLDguNDYsNC45MSwxMi45MiwwLC4wNC4wMi4wNy4wMy4xMSwxLjIsNC40OSwxLjkzLDkuMTEsMi4xOCwxMy43Nmw3Ljc5LDEuMDljLS4wNC0uODUtLjEtMS43NC0uMTgtMi42LS44Mi05LjQtMy40NS0xOC42My03LjY3LTI3LjA2LTcuMTQtMTQuMjUtMTguNzUtMjUuODctMzIuNzMtMzMuMTciLz48cG9seWdvbiBjbGFzcz0iY2xzLTE3IiBwb2ludHM9IjE3Ny4xMiA5OC43IDE3Ny4wMSA5OC41OCAxOTIuNDkgOTcuNyAxODQuNyA5Ni42IDE3MC42NiA5Ny41MyAxNzAuNzYgOTcuNjMgMTc3LjEyIDk4LjciLz48ZyBjbGFzcz0iY2xzLTE5Ij48cmVjdCBjbGFzcz0iY2xzLTgiIHg9IjExNC44IiB5PSItLjYxIiB3aWR0aD0iNTMuNDgiIGhlaWdodD0iODIuNjIiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDMwLjkzIDEzNy45NSkgcm90YXRlKC01Ny4zNikiLz48L2c+PGcgY2xhc3M9ImNscy0xMCI+PHJlY3QgY2xhc3M9ImNscy03IiB4PSIxMDEuMTMiIHk9IjExLjUiIHdpZHRoPSIzMC41NSIgaGVpZ2h0PSIzMC41IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg4Ni4xIDE0Mi4yOSkgcm90YXRlKC04OC4yNCkiLz48L2c+PGcgY2xhc3M9ImNscy0xMyI+PHJlY3QgY2xhc3M9ImNscy02IiB4PSIxNzcuMDQiIHk9Ijg5LjIxIiB3aWR0aD0iMTguNDYiIGhlaWdodD0iMTguMzkiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC04LjgzIDE4LjkzKSByb3RhdGUoLTUuNjgpIi8+PC9nPjxnIGNsYXNzPSJjbHMtMTEiPjxyZWN0IGNsYXNzPSJjbHMtNSIgeD0iMTkwLjk1IiB5PSI5MS40OSIgd2lkdGg9IjQuMyIgaGVpZ2h0PSI0My43IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtMjUuMzYgMTYyLjQ0KSByb3RhdGUoLTQzLjA4KSIvPjwvZz48ZyBjbGFzcz0iY2xzLTEyIj48cmVjdCBjbGFzcz0iY2xzLTMiIHg9IjE4My41OSIgeT0iOTQuNjYiIHdpZHRoPSIzLjQ0IiBoZWlnaHQ9IjIxLjQ0IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtMjIuMzQgMTUzLjYyKSByb3RhdGUoLTQyLjcxKSIvPjwvZz48cGF0aCBjbGFzcz0iY2xzLTE2IiBkPSJNMTUzLjY2LDMyLjgybC0uMzQtLjE4Yy0uMjQtLjEzLS40Ny0uMjUtLjcxLS4zOC0uOTMtLjQ4LTEuODgtLjk0LTIuODQtMS4zOC0uMjYtLjEyLS41Mi0uMjQtLjc4LS4zNWwtLjMxLS4xNGMtLjcyLS4zMi0xLjQ1LS42My0yLjE4LS45MywwLDAtLjc3LS4zMi0xLjA1LS40Mi0xLjEtLjQzLTIuMTEtLjgtMy4xMS0xLjE0LS4xNi0uMDUtLjcxLS4yMy0uNzEtLjIzLS44OS0uMjktMS43OC0uNTctMi42OC0uODMtLjMyLS4wOS0uNjMtLjE4LS45NC0uMjctMS4yOC0uMzUtMi4zNS0uNjMtMy4zOC0uODYtMS4xMS0uMjUtMi4zMi0uNDktMy43LS43NC0uMjktLjA1LS41OS0uMS0uODgtLjE1bC0uMjQtLjA0Yy0uOS0uMTUtMS44MS0uMjgtMi43Mi0uNCwwLDAtLjg3LS4xMS0xLjE2LS4xNS0xLjM2LS4xNS0yLjU2LS4yNy0zLjY4LS4zNGwtLjUxLS4wMmMtMS4wOC0uMDctMi4xNS0uMTEtMy4yMy0uMTMtLjQsMC0uOC0uMDEtMS4yLS4wMWgtLjE0Yy0uODMsMC0xLjY3LjAxLTIuNS4wM2gtLjI5Yy0uMzUuMDItLjcxLjAzLTEuMDYuMDQtMS4zMi4wNi0yLjQ5LjE0LTMuNi4yNS0uMjguMDMtLjU2LjA2LS44My4wOWwtMS41Ny4xOWMtMTcuMDMsMi4yNy0zMywxMC4xMi00NC45OCwyMi4xLS41Ni41Ni0xLjEyLDEuMTMtMS42NiwxLjcxLTcuMzksNy44OC0xMy4xNSwxNy4zLTE2Ljc0LDI3LjMxbDIuMDIsMi4wOWMzLjQ5LTEwLjI4LDkuMjEtMTkuNjksMTYuNjQtMjcuNjEsMTEuODktMTIuNjcsMjguMDItMjAuNzQsNDUuMDgtMjMuMDEuMzQtLjA0LjY5LS4wOSwxLjAzLS4xMy4wNSwwLC4xLS4wMS4xNS0uMDIuMzgtLjA0Ljc2LS4wOSwxLjE0LS4xMy45My0uMDksMS44Ni0uMTQsMi43OS0uMTkuMjItLjAxLjQ1LS4wMy42Ny0uMDUuNDQtLjAyLjg3LS4wMywxLjMtLjA0LjM2LS4wMS43Mi0uMDEsMS4wOC0uMDIuNDUsMCwuODktLjAyLDEuMzQtLjAyLjQzLDAsLjg3LDAsMS4zLDAsLjY0LjAxLDEuMjcuMDUsMS45LjA3LjQxLjAyLjgxLjAyLDEuMjIuMDUuMTYuMDEuMzIuMDEuNDkuMDIsMS4xOS4wOCwyLjM3LjE5LDMuNTYuMzMuMzcuMDQuNzUuMDksMS4xMi4xNC44OC4xMSwxLjc2LjI0LDIuNjMuMzguMzYuMDYuNzMuMTIsMS4wOS4xOCwxLjIuMjEsMi4zOS40NSwzLjU4LjcxLDEuMjEuMjcsMi40MS41OSwzLjYuOTIuMTkuMDUuMzguMTEuNTcuMTYuMzIuMS42NC4yLjk3LjMuODUuMjYsMS43LjUyLDIuNTMuODEuNS4xNy45OS4zNiwxLjQ4LjU0LjczLjI3LDEuNDYuNTQsMi4xOS44NC4wNC4wMi4wOC4wMy4xMy4wNS40OS4yLjk4LjQxLDEuNDcuNjMuNzEuMywxLjQxLjYxLDIuMS45NC41Mi4yNCwxLjAzLjQ5LDEuNTQuNzUuNjcuMzMsMS4zNC42NywxLjk5LDEuMDMuNTguMzEsMS4xNi42MywxLjczLjk2LjQzLjI1Ljg2LjUsMS4yOC43Ni44Ni41MSwxLjcxLDEuMDQsMi41NSwxLjU5LjQzLjI4Ljg2LjU2LDEuMjguODUuNTEuMzUsMS4wMi42OSwxLjUyLDEuMDUuNzUuNTQsMS40OCwxLjA4LDIuMjEsMS42NS40NS4zNC44OS43LDEuMzMsMS4wNS41Ni40NSwxLjEuOSwxLjY0LDEuMzcuNS40MywxLC44NywxLjQ5LDEuMzEuNTkuNTMsMS4xNywxLjA3LDEuNzQsMS42MS4zMy4zMS42NS42Mi45Ny45NC43NS43NCwxLjQ5LDEuNSwyLjIxLDIuMjguMjYuMjguNTEuNTYuNzYuODQuNjUuNzMsMS4zLDEuNDcsMS45MiwyLjIyLjE0LjE3LjI5LjMzLjQzLjUxLjczLjksMS40NCwxLjgyLDIuMTMsMi43NS4xOS4yNS4zOC41LjU2Ljc2LjY4Ljk0LDEuMzUsMS45LDEuOTgsMi44Ny4xNC4yMS4yNy40Mi40LjYzLDEuNDEsMi4yLDIuNzIsNC40NywzLjg5LDYuODIsNC4yMyw4LjQ0LDYuODYsMTcuNjYsNy42NywyNy4wNi4wNy44Ni4xMywxLjczLjE4LDIuNmwtMTUuNDguODgsMzAuNTIsMzEuMTkuMDUtLjA3LTI2LjMzLTMwLjIyLDE0LjMxLTEuMjVjLS4wOC0xLjQxLS4xNy0yLjc1LS4yMS0zLjE2LS45MS05LjU2LTMuNjYtMTguOTYtNy45OS0yNy41OC0xLjM3LTIuNzMtMi45Mi01LjM2LTQuNTktNy45LDAtLjAyLjAyLS4wNC4wMi0uMDUtNy4yNC0xMS4yLTE3LjI3LTIwLjQxLTI5LjEyLTI2LjczIi8+PHBhdGggY2xhc3M9ImNscy0xNiIgZD0iTTU5Ljc1LDE4NC43NGM2LjY0LDQuNTEsMTMuODIsOC4yLDIxLjMyLDExLjAyaDBjLjE3LjA3LjM0LjEzLjUxLjE5LjIzLjA5LjQ2LjE4LjcuMjYuMTYuMDYuMzQuMTEuNS4xNiw3LjU1LDIuNjgsMTUuNCw0LjQ5LDIzLjM3LDUuMzIsMTguNDksMS45MSwzNy40MS0xLjMxLDU0LjItOS4yOSwxMi40OC01LjkzLDIzLjcxLTE0LjQ1LDMyLjgyLTI0Ljg0LDUuODctNi43LDEwLjg3LTE0LjE2LDE0Ljg0LTIyLjIxbC0xOS45Ni0yMC42N2MtMy40OSwxMC4yOC05LjIxLDE5LjY5LTE2LjY0LDI3LjYxLTExLjg5LDEyLjY3LTI4LjAyLDIwLjc0LTQ1LjA4LDIzLjAxLS4zOS4wNS0uNzguMS0xLjE4LjE0LS4zOC4wNC0uNzYuMDktMS4xNS4xMy04LjAzLjc1LTE2LjE3LjItMjQuMDYtMS41OS0yMS44MS00Ljk1LTQwLjU5LTE5LjgtNTAuNTktMzkuNzgtNC4yMi04LjQ0LTYuODYtMTcuNjYtNy42Ny0yNy4wNi0uMDgtLjg3LS4xMy0xLjczLS4xOC0yLjZsMTUuNDgtLjg4LTMwLjUyLTMxLjE5TDAsMTA2LjlsMTUuMzUtLjg4Yy42NiwxMi42NSwzLjcxLDI1LjE0LDguOTYsMzYuNjcsNy43MSwxNi45MiwyMC4wNiwzMS42LDM1LjQ0LDQyLjA1Ii8+PHBvbHlnb24gY2xhc3M9ImNscy0xNyIgcG9pbnRzPSI2My4yNCAxMDQuNiAzNS42NSA3Ni40IDI2LjQ4IDcyLjQ2IDU2Ljg4IDEwMy41MyA2My4yNCAxMDQuNiIvPjxwYXRoIGNsYXNzPSJjbHMtMTciIGQ9Ik0wLDEwNi45bDExLjYzLjc1LDMuODItLjIycy0uMDIuMDItLjEtMS40MWwtMTUuMzUuODhaIi8+PHBhdGggY2xhc3M9ImNscy0xOCIgZD0iTTgyLjA5LDE2Ny4zN2wtLjE1LjE5Yy43Ni4zOSwxLjU1Ljc5LDIuMzMsMS4xNiw4LjUyLDQuMDUsMTcuODEsNi40NSwyNy4yMyw3LjA4LDQuMTkuMjgsOC4zNy4yLDEyLjUxLS4yMi4zOC0uMDQuNzYtLjA5LDEuMTQtLjEzLjM5LS4wNS43OS0uMDksMS4xOC0uMTQsMS45Ni0uMjQsMy45MS0uNTQsNS44NS0uOTR2LS4wN2MxNC44Ni0zLjE4LDI4LjctMTAuNzksMzkuMjMtMjIsNy40My03LjkxLDEzLjE1LTE3LjMzLDE2LjYzLTI3LjYxbC01LjA5LTIuMjZjLTIuMiw2LjQ4LTUuMzQsMTIuNTQtOS4yNywxOC03LjkxLDExLTE5LjA1LDE5LjU0LTMxLjc2LDI0LjI1LTkuMDMsMy4zNS0xOC44LDQuNzUtMjguNCw0LjEyLTQuNjEtLjMxLTkuMTgtMS4wOC0xMy42My0yLjMtLjA0LDAtLjA3LS4wMi0uMTEtLjAzLTQuNDgtMS4yNC04LjgzLTIuOTQtMTIuOTctNS4wOGwtLjg1LDEuMDdjLTQuMTItMi4xNC04LjAzLTQuNjktMTEuNjMtNy42My03LjQ2LTYuMDktMTMuNjEtMTMuODEtMTcuOTMtMjIuNDItMi4wNy00LjEzLTMuNzEtOC40Ni00LjkxLTEyLjkyLDAtLjA0LS4wMi0uMDctLjAzLS4xMS0xLjItNC41LTEuOTMtOS4xMS0yLjE4LTEzLjc2bC03Ljc5LTEuMDljLjA0Ljg1LjEsMS43NC4xOCwyLjYuODIsOS40LDMuNDUsMTguNjMsNy42NywyNy4wNiw3LjE0LDE0LjI2LDE4Ljc1LDI1Ljg3LDMyLjczLDMzLjE3Ii8+PHBvbHlnb24gY2xhc3M9ImNscy0xNyIgcG9pbnRzPSI1Ni44OCAxMDMuNTMgNTYuOTkgMTAzLjY1IDQxLjUxIDEwNC41MyA0OS4zMSAxMDUuNjMgNjMuMzQgMTA0LjcgNjMuMjQgMTA0LjYgNTYuODggMTAzLjUzIi8+PGcgY2xhc3M9ImNscy0xNCI+PHJlY3QgY2xhc3M9ImNscy00IiB4PSIzOC43NSIgeT0iNjcuMDQiIHdpZHRoPSI0LjMiIGhlaWdodD0iNDMuNyIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTQ5LjY5IDUxLjg5KSByb3RhdGUoLTQzLjA4KSIvPjwvZz48cGF0aCBjbGFzcz0iY2xzLTE2IiBkPSJNODAuMzQsMTY5LjQybC4zNS4xOGMuMjQuMTMuNDcuMjUuNzEuMzguOTMuNDgsMS44OC45NCwyLjg0LDEuMzguMjYuMTIuNTIuMjQuNzguMzVsLjMxLjE0Yy43Mi4zMiwxLjQ1LjYzLDIuMTguOTMsMCwwLC43Ny4zMiwxLjA1LjQyLDEuMS40MywyLjExLjgsMy4xMSwxLjE0LjE2LjA1LjcyLjIzLjcyLjIzLjg5LjI5LDEuNzguNTcsMi42OC44My4zMS4wOS42My4xOC45NC4yNywxLjI4LjM1LDIuMzUuNjMsMy4zOC44NiwxLjExLjI1LDIuMzIuNDksMy43Ljc0LjI5LjA1LjU5LjEuODkuMTVsLjI0LjA0Yy45MS4xNSwxLjgxLjI4LDIuNzIuNCwwLDAsLjg3LjExLDEuMTYuMTUsMS4zNi4xNSwyLjU2LjI2LDMuNjguMzRsLjUxLjAyYzEuMDguMDcsMi4xNS4xMSwzLjIzLjEzLjQsMCwuOCwwLDEuMi4wMWguMTRjLjgzLDAsMS42Ny0uMDEsMi41LS4wNGguMjljLjM1LS4wMi43MS0uMDMsMS4wNi0uMDQsMS4zMi0uMDYsMi40OS0uMTQsMy42LS4yNC4yOC0uMDMuNTUtLjA2LjgzLS4wOWwxLjU3LS4xOWMxNy4wMy0yLjI3LDMzLTEwLjExLDQ0Ljk4LTIyLjEuNTYtLjU2LDEuMTItMS4xMywxLjY2LTEuNzEsNy4zOS03Ljg4LDEzLjE1LTE3LjMsMTYuNzQtMjcuMzFsLTIuMDItMi4wOWMtMy40OSwxMC4yOC05LjIxLDE5LjY5LTE2LjY0LDI3LjYxLTExLjg5LDEyLjY3LTI4LjAyLDIwLjc0LTQ1LjA4LDIzLjAxLS4zNC4wNC0uNjkuMDktMS4wMy4xMy0uMDUsMC0uMS4wMS0uMTUuMDItLjM4LjA0LS43Ni4wOS0xLjE0LjEzLS45My4wOS0xLjg2LjE0LTIuNzkuMTktLjIyLjAxLS40NS4wNC0uNjcuMDQtLjQzLjAyLS44Ny4wMy0xLjMuMDQtLjM2LjAxLS43Mi4wMS0xLjA4LjAyLS40NSwwLS44OS4wMi0xLjM0LjAyLS40MywwLS44NywwLTEuMywwLS42My0uMDEtMS4yNy0uMDUtMS45LS4wOC0uNDEtLjAyLS44MS0uMDItMS4yMi0uMDUtLjE2LDAtLjMyLS4wMS0uNDktLjAyLTEuMTktLjA4LTIuMzctLjE5LTMuNTYtLjMzLS4zNy0uMDQtLjc1LS4wOS0xLjEyLS4xNC0uODgtLjExLTEuNzYtLjI0LTIuNjMtLjM4LS4zNi0uMDYtLjczLS4xMi0xLjA5LS4xOC0xLjItLjIxLTIuMzktLjQ1LTMuNTgtLjcxLTEuMjEtLjI3LTIuNDEtLjU5LTMuNi0uOTMtLjE5LS4wNS0uMzgtLjExLS41Ny0uMTYtLjMyLS4wOS0uNjQtLjItLjk3LS4zLS44NS0uMjYtMS43LS41Mi0yLjUzLS44MS0uNS0uMTctLjk5LS4zNi0xLjQ4LS41NC0uNzMtLjI3LTEuNDYtLjU0LTIuMTktLjg0LS4wNC0uMDItLjA4LS4wMy0uMTMtLjA1LS40OS0uMi0uOTgtLjQxLTEuNDctLjYzLS43MS0uMy0xLjQxLS42Mi0yLjEtLjk0LS41Mi0uMjQtMS4wMy0uNDktMS41NC0uNzUtLjY3LS4zMy0xLjMzLS42Ny0xLjk5LTEuMDMtLjU4LS4zMS0xLjE2LS42My0xLjczLS45Ni0uNDMtLjI1LS44Ni0uNS0xLjI4LS43NS0uODYtLjUxLTEuNzEtMS4wNC0yLjU1LTEuNTgtLjQzLS4yOC0uODYtLjU2LTEuMjgtLjg1LS41MS0uMzUtMS4wMi0uNjktMS41Mi0xLjA1LS43NS0uNTQtMS40OC0xLjA4LTIuMjEtMS42NS0uNDQtLjM0LS44OS0uNy0xLjMzLTEuMDUtLjU1LS40NS0xLjEtLjktMS42NC0xLjM3LS41LS40My0xLS44Ny0xLjQ5LTEuMzEtLjU5LS41My0xLjE3LTEuMDctMS43NC0xLjYxLS4zMy0uMzEtLjY1LS42Mi0uOTctLjk0LS43NS0uNzUtMS40OS0xLjUtMi4yMS0yLjI4LS4yNi0uMjgtLjUxLS41Ni0uNzYtLjg0LS42NS0uNzMtMS4zLTEuNDctMS45Mi0yLjIyLS4xNC0uMTctLjI5LS4zNC0uNDMtLjUxLS43My0uOS0xLjQ0LTEuODItMi4xMy0yLjc1LS4xOS0uMjUtLjM4LS41MS0uNTYtLjc2LS42OC0uOTQtMS4zNS0xLjktMS45OC0yLjg3LS4xNC0uMjEtLjI3LS40Mi0uNC0uNjMtMS40MS0yLjItMi43Mi00LjQ3LTMuODktNi44Mi00LjIyLTguNDQtNi44Ni0xNy42Ni03LjY3LTI3LjA2LS4wOC0uODctLjEzLTEuNzMtLjE4LTIuNmwxNS40OC0uODgtMzAuNTItMzEuMTktLjA2LjA3LDI2LjMzLDMwLjIyLTE0LjMxLDEuMjVjLjA4LDEuNDEuMTcsMi43NS4yMSwzLjE2LjkyLDkuNTYsMy42NiwxOC45Niw3Ljk5LDI3LjU4LDEuMzcsMi43MywyLjkyLDUuMzYsNC41OSw3LjksMCwuMDItLjAyLjA0LS4wMi4wNSw3LjI0LDExLjIsMTcuMjcsMjAuNDIsMjkuMTIsMjYuNzMiLz48cGF0aCBjbGFzcz0iY2xzLTE1IiBkPSJNMTYyLjUyLDQ4LjczYzI5LjAxLDI1LDMyLjI3LDY4Ljc4LDcuMjgsOTcuNzktMjUsMjkuMDEtNjguNzgsMzIuMjctOTcuNzksNy4yNy0yOS4wMS0yNS0zMi4yNy02OC43OC03LjI3LTk3Ljc5LDI1LTI5LjAxLDY4Ljc4LTMyLjI3LDk3Ljc5LTcuMjciLz48cGF0aCBjbGFzcz0iY2xzLTIwIiBkPSJNMTYyLjYyLDQ5LjAxYzI5LjAxLDI1LDMyLjI3LDY4Ljc4LDcuMjgsOTcuNzktMjUsMjkuMDEtNjguNzgsMzIuMjctOTcuNzksNy4yNy0yOS4wMS0yNS0zMi4yNy02OC43OC03LjI3LTk3Ljc5LDI1LTI5LjAxLDY4Ljc4LTMyLjI3LDk3Ljc5LTcuMjciLz48cGF0aCBjbGFzcz0iY2xzLTIiIGQ9Ik0xNjIuNTIsNDguNzNjMjkuMDEsMjUsMzIuMjcsNjguNzgsNy4yOCw5Ny43OS0yNSwyOS4wMS02OC43OCwzMi4yNy05Ny43OSw3LjI3LTI5LjAxLTI1LTMyLjI3LTY4Ljc4LTcuMjctOTcuNzksMjUtMjkuMDEsNjguNzgtMzIuMjcsOTcuNzktNy4yN1oiLz48cG9seWdvbiBjbGFzcz0iY2xzLTE1IiBwb2ludHM9IjE2My41NyAxMjAuODYgMTM1LjQ1IDEyMC44NiAxMzUuNDUgMTQ4Ljg5IDk4LjkzIDE0OC44OSA5OC45MyAxMjAuODYgNzEuMiAxMjAuODYgNzEuMiA4Mi4yOCA5OC45MyA4Mi4yOCA5OC45MyA1NC40NyAxMzUuNDUgNTQuNDcgMTM1LjQ1IDgyLjI4IDE2My41NyA4Mi4yOCAxNjMuNTcgMTIwLjg2Ii8+PGc+PHBhdGggY2xhc3M9ImNscy0xNSIgZD0iTTUwLjE4LDM3LjYyYy0uNDItLjEtLjc5LjAyLTEuMS4zNy0uMjQuMjctLjM3LjU1LS4zNy44NCwwLC4yOS4xNC42NC40MiwxLjA0LjI5LjQxLjcyLjksMS4zMSwxLjQ3LjU5LjU4LDEuMzUsMS4yOCwyLjI4LDIuMTEuOTMuODMsMS43MSwxLjUxLDIuMzQsMi4wMy42NC41MiwxLjE3LjkxLDEuNjEsMS4xNC40NC4yNC44LjM0LDEuMDguMzEuMjktLjAzLjU1LS4xOS43OS0uNDYuMi0uMjIuMy0uNDUuMzItLjY5LjAyLS4yNC0uMDctLjUxLS4yNi0uODItLjE5LS4zMS0uNDgtLjY3LS44OS0xLjA5LS40LS40Mi0uOTMtLjkyLTEuNTktMS41MWwzLjEyLTMuNDgsMS4wMi45MmMuOTcuODcsMS42NCwxLjcxLDIuMDMsMi41Mi4zOS44MS41NywxLjU5LjU0LDIuMzMtLjAzLjc0LS4yMywxLjQ0LS41OSwyLjEtLjM3LjY2LS44MSwxLjI4LTEuMzMsMS44Ni0uOSwxLjAxLTEuNzYsMS43Mi0yLjU5LDIuMTQtLjgyLjQzLTEuNjguNTYtMi41OC40MS0uOS0uMTUtMS44Ni0uNTctMi44OS0xLjI1LTEuMDMtLjY4LTIuMTktMS42LTMuNDgtMi43NS0xLjMxLTEuMTgtMi4zNi0yLjI2LTMuMTMtMy4yNC0uNzctLjk4LTEuMjctMS45Mi0xLjQ5LTIuODItLjIyLS45LS4xNy0xLjc3LjE0LTIuNjMuMzEtLjg2Ljg5LTEuNzUsMS43Mi0yLjY4LjczLS44MSwxLjQ1LTEuNDEsMi4xNi0xLjc5LjcxLS4zOCwxLjQyLS41OCwyLjEyLS41OS43LS4wMSwxLjM5LjE0LDIuMDcuNDYuNjguMzIsMS4zNS43OCwyLjAyLDEuMzhsLjg3Ljc4LTMuMTIsMy40OC0uNzctLjY5Yy0uNzktLjctMS4zOS0xLjExLTEuODEtMS4yMVoiLz48cGF0aCBjbGFzcz0iY2xzLTE1IiBkPSJNNTcuODYsMjUuNjRsNC4yMSw1LjM0LDIuMzMtMS44My00LjIxLTUuMzQsMy43OS0yLjk5LDExLjQ3LDE0LjU2LTMuNzksMi45OS00LjcyLTYtMi4zMywxLjgzLDQuNzIsNi0zLjc5LDIuOTktMTEuNDctMTQuNTYsMy43OS0yLjk5WiIvPjxwYXRoIGNsYXNzPSJjbHMtMTUiIGQ9Ik03Ni4wOCwxMy45MmwxMi42OSwxNC4yNS00LjU0LDIuNDEtMS45Ni0yLjYzLTMuMzksMS44LDEuMDksMy4xLTQuNDcsMi4zOC00Ljc4LTE4LjQ1LDUuMzYtMi44NVpNNzUuMTUsMTguN2wyLjUyLDcuNTcsMi4zOC0xLjI3LTQuODYtNi4zMy0uMDUuMDJaIi8+PHBhdGggY2xhc3M9ImNscy0xNSIgZD0iTTkwLjQxLDguMjljLjg3LS4yOCwxLjY2LS40LDIuMzUtLjM3LjY5LjAzLDEuMy4yLDEuODIuNDkuNTIuMy45Ni43MSwxLjMyLDEuMjMuMzYuNTIuNjQsMS4xMi44NiwxLjguMzgsMS4xOS40NSwyLjIyLjIsMy4xLS4yNS44OC0uODcsMS41Ny0xLjg3LDIuMDdsLjAyLjA1YzEuMTQtLjI1LDIuMDItLjExLDIuNjUuNDMuNjMuNTQsMS4xMywxLjQxLDEuNTEsMi42bC40OCwxLjUxYy4wNy4yMy4xNS40Ny4yMy43Mi4wOC4yNS4xNi40OC4yNS43LjA5LjIyLjE4LjQxLjI3LjU4LjA5LjE3LjE4LjMuMjYuMzguMS4wOC4xOS4xNS4yOS4yMi4wOS4wNy4yMy4xMi40LjE2bC4wOC4yNS00LjksMS41N2MtLjE5LS4xOS0uMzYtLjQ0LS41Mi0uNzMtLjE2LS4yOS0uMy0uNTktLjQyLS45LS4xMi0uMzEtLjI0LS42LS4zNC0uODktLjEtLjI5LS4xOC0uNTItLjI0LS43bC0uMzgtMS4xOWMtLjE2LS40OS0uMzEtLjktLjQ3LTEuMjEtLjE1LS4zMS0uMzItLjU1LS41MS0uNy0uMTgtLjE1LS4zOC0uMjMtLjYtLjI1LS4yMS0uMDEtLjQ2LjAyLS43NC4xMWwtMS4yMS4zOSwyLjI2LDcuMDctNC42LDEuNDctNS42NS0xNy42Niw3LjItMi4zWk05MS4xMSwxNi4zYy42Ni0uMjEsMS4wOC0uNTYsMS4yNy0xLjA1LjE5LS40OS4xOC0xLjA0LS4wMi0xLjY3LS4yNC0uNzQtLjU2LTEuMjItLjk2LTEuNDQtLjQxLS4yMi0uOTUtLjIxLTEuNjUsMGwtLjg5LjI4LDEuMzMsNC4xNi45Mi0uMjlaIi8+PHBhdGggY2xhc3M9ImNscy0xNSIgZD0iTTExMy40LDEyLjQ5bDEuMzEsOS45OS0zLjI0LjQzLS4zMi0xLjYxaC0uMDVjLS4xLjQyLS4yOC43OC0uNTMsMS4wNy0uMjUuMjktLjU0LjUzLS44OC43LS4zNC4xNy0uNy4zMS0xLjEuNDItLjQuMS0uOC4xOC0xLjIxLjI0LTEuMjIuMTYtMi4yMS4wOC0yLjk2LS4yMy0uNzYtLjMxLTEuMzctLjg1LTEuODMtMS42MS0uNDctLjc2LS44Mi0xLjczLTEuMDctMi45LS4yNS0xLjE3LS40OC0yLjUyLS42OC00LjA1LS4yLTEuNTQtLjI5LTIuOTItLjI3LTQuMTMuMDItMS4yMS4yNC0yLjI1LjY0LTMuMTIuNC0uODcsMS4wMi0xLjU4LDEuODYtMi4xMi44NC0uNTQsMS45Ni0uOSwzLjM3LTEuMDguODQtLjExLDEuNjMtLjEsMi4zNy4wMy43NC4xMywxLjQuNDEsMS45OC44NC41OC40MywxLjA3LDEuMDIsMS40NiwxLjc2LjM5Ljc0LjY2LDEuNjcuODEsMi43OWwtNC42My42MWMtLjEzLS45OC0uMzEtMS42OC0uNTQtMi4xLS4yNC0uNTEtLjY1LS43My0xLjIxLS42NS0uMzkuMDUtLjcuMTktLjkuNDEtLjIxLjIyLS4zMy41OC0uMzgsMS4wNy0uMDUuNS0uMDQsMS4xNS4wNCwxLjk3LjA3LjgyLjE5LDEuODUuMzUsMy4wOC4xNiwxLjI0LjMxLDIuMjYuNDYsMy4wNy4xNC44MS4zLDEuNDUuNDcsMS45Mi4xNy40Ny4zOC43OC42Mi45NC4yNC4xNi41NC4yMi45LjE3LjI2LS4wMy40OC0uMTIuNjYtLjI0LjE4LS4xMy4zMy0uMzQuNDMtLjY1LjEtLjMuMTYtLjcxLjE3LTEuMjMuMDEtLjUyLS4wNC0xLjE3LS4xNC0xLjk2bC0xLjcuMjItLjQzLTMuMjQsNi4xOC0uODFaIi8+PHBhdGggY2xhc3M9ImNscy0xNSIgZD0iTTEyNy42Myw0LjM4bC0uMTQsMy45NC02LjE1LS4yMy0uMTIsMy4xNyw1Ljc2LjIxLS4xNCwzLjc5LTUuNzYtLjIxLS4xNCwzLjY4LDYuMzguMjMtLjE0LDMuOTQtMTEuMjEtLjQxLjY4LTE4LjUzLDEwLjk4LjRaIi8+PHBhdGggY2xhc3M9ImNscy0xNSIgZD0iTTEzOS4zMyw2LjRjMS42OS4zNiwyLjg2LDEuMDMsMy40OSwyLjAyLjYzLjk5LjgsMi4xNy41MSwzLjU0LS4xLjQ3LS4yNS45Mi0uNDYsMS4zNS0uMjEuNDMtLjQ2LjgtLjc3LDEuMTEtLjMxLjMyLS42Ni41Ni0xLjA3Ljc0cy0uODguMjctMS40MS4yNnYuMDVjLjU3LjE4LDEuMDUuNDQsMS40MS43OS4zNy4zNS42NS43NS44NCwxLjIuMTkuNDUuMy45Mi4zMywxLjQxLjAzLjQ5LDAsLjk4LS4xMSwxLjQ1LS4xNi43OC0uNDIsMS40OC0uNzYsMi4xLS4zNC42Mi0uNzgsMS4xMi0xLjMxLDEuNS0uNTMuMzgtMS4xNy42My0xLjkyLjc1LS43NS4xMi0xLjYyLjA3LTIuNi0uMTRsLTcuMTQtMS41MSwzLjgzLTE4LjE0LDcuMTQsMS41MVpNMTM1LjEzLDIwLjkxYy40NC4wOS44NywwLDEuMjgtLjMuNDItLjI5LjctLjgyLjg2LTEuNTguMTUtLjcxLjEtMS4yOS0uMTYtMS43My0uMjYtLjQ0LS42MS0uNzEtMS4wNS0uODFsLTEuMzItLjI4LS45Myw0LjQyLDEuMzIuMjhaTTEzNi41NiwxMy4yNWMuNDkuMS45LDAsMS4yMy0uMzEuMzMtLjMxLjU1LS43MS42NS0xLjIuMTEtLjUxLjA3LS45OC0uMS0xLjQtLjE4LS40My0uNTEtLjY5LTEtLjc5bC0xLjE0LS4yNC0uNzgsMy43MSwxLjE0LjI0WiIvPjxwYXRoIGNsYXNzPSJjbHMtMTUiIGQ9Ik0xNTcuNDcsMTIuMzlsLTIuODgsMTguODYtNC43NS0xLjk2Ljc4LTMuMTktMy41NS0xLjQ2LTEuNjksMi44MS00LjY4LTEuOTMsMTEuMTYtMTUuNDUsNS42MiwyLjMxWk0xNTMuMTksMTQuNzNsLTQuMjIsNi43NywyLjUsMS4wMywxLjc3LTcuNzgtLjA1LS4wMloiLz48cGF0aCBjbGFzcz0iY2xzLTE1IiBkPSJNMTY4LjY0LDIyLjU0Yy4wMy0uNDMtLjE1LS43Ny0uNTUtMS4wMy0uMzEtLjItLjYtLjI3LS44OS0uMjMtLjI5LjA0LS42MS4yNC0uOTYuNTktLjM2LjM1LS43Ny44Ni0xLjI0LDEuNTMtLjQ3LjY3LTEuMDQsMS41NC0xLjcxLDIuNTktLjY3LDEuMDUtMS4yMSwxLjkzLTEuNjMsMi42NC0uNDEuNzEtLjcsMS4zLS44NywxLjc3LS4xNy40Ny0uMjEuODQtLjEzLDEuMTIuMDguMjguMjcuNTEuNTguNzEuMjUuMTYuNDkuMjMuNzMuMjEuMjQtLjAyLjUtLjE1Ljc3LS4zOS4yNy0uMjQuNTgtLjU5LjkzLTEuMDUuMzUtLjQ3Ljc2LTEuMDcsMS4yNC0xLjgxbDMuOTQsMi41Mi0uNzQsMS4xNmMtLjcsMS4wOS0xLjQyLDEuOS0yLjE2LDIuNDEtLjc0LjUxLTEuNDguODItMi4yMS45MS0uNzQuMDktMS40Ni4wMS0yLjE3LS4yNS0uNzEtLjI2LTEuMzktLjYtMi4wNS0xLjAxLTEuMTQtLjczLTEuOTgtMS40Ni0yLjU0LTIuMi0uNTUtLjc0LS44My0xLjU3LS44Mi0yLjQ4LDAtLjkxLjI2LTEuOTMuNzYtMy4wNS41LTEuMTMsMS4yMi0yLjQyLDIuMTUtMy44OC45NS0xLjQ5LDEuODUtMi42OSwyLjY5LTMuNjEuODQtLjkyLDEuNjktMS41NiwyLjU0LTEuOTIuODUtLjM2LDEuNzItLjQ2LDIuNjItLjI5LjkuMTcsMS44Ny41OSwyLjkyLDEuMjYuOTIuNTksMS42MiwxLjIsMi4xMiwxLjg1LjQ5LjY0LjgsMS4zMS45MywxLjk5LjEzLjY5LjA5LDEuMzktLjEyLDIuMTEtLjIuNzItLjU1LDEuNDYtMS4wMywyLjIybC0uNjMuOTgtMy45NC0yLjUyLjU2LS44OGMuNTctLjg5Ljg3LTEuNTUuOS0xLjk4WiIvPjxwYXRoIGNsYXNzPSJjbHMtMTUiIGQ9Ik0xODEuNTksMjguMTNsLTQuODIsNS4yMy4wNC4wNCw3LjQ2LTIuOCwzLjc4LDMuNDktOC45MywyLjc5LTMuMjIsMTEuMjMtNC4wNS0zLjczLDIuMy02LjY3LTEuOC40Ni0zLjMzLDMuNjEtMy41NS0zLjI3LDEyLjU3LTEzLjYzLDMuNTUsMy4yN1oiLz48cGF0aCBjbGFzcz0iY2xzLTE1IiBkPSJNMTkzLjI5LDQwLjY3bC01LjQ0LDQuMDksMS43OCwyLjM3LDUuNDQtNC4wOSwyLjksMy44Ni0xNC44MiwxMS4xNC0yLjktMy44Niw2LjEtNC41OS0xLjc4LTIuMzctNi4xLDQuNTktMi45LTMuODYsMTQuODItMTEuMTQsMi45LDMuODZaIi8+PHBhdGggY2xhc3M9ImNscy0xNSIgZD0iTTIwNS4zOSw2MC43OGwtMy41MiwxLjc5LTIuNzktNS40OS0yLjgyLDEuNDMsMi42MSw1LjE0LTMuMzgsMS43Mi0yLjYxLTUuMTQtMy4yOSwxLjY3LDIuODksNS43LTMuNTIsMS43OS01LjA4LTEwLDE2LjUzLTguMzksNC45Nyw5Ljc5WiIvPjxwYXRoIGNsYXNzPSJjbHMtMTUiIGQ9Ik0yMDguNDMsNjkuMjlsLTEzLjg4LDQuNSwxLjgzLDUuNjYtMy43NSwxLjIyLTMuMzItMTAuMjUsMTcuNjQtNS43MiwxLjQ5LDQuNTlaIi8+PHBhdGggY2xhc3M9ImNscy0xNSIgZD0iTTIxMi4xNSw4NS4zN2MuMTQuOTEuMTIsMS43Mi0uMDcsMi40My0uMTkuNzEtLjUsMS4zMy0uOTQsMS44NC0uNDQuNTEtLjk4LjkzLTEuNjQsMS4yNC0uNjUuMzEtMS4zOC41My0yLjE5LjY1LTEuOS4yOS0zLjQsMC00LjUxLS44Ny0xLjExLS44Ny0xLjgxLTIuMjktMi4xMS00LjI2bC0uMjYtMS42Ny02Ljk4LDEuMDctLjc0LTQuNzcsMTguMzItMi44MiwxLjEsNy4xNlpNMjA0LjAyLDg1LjFjLjA5LjYuMzQsMS4wMy43NSwxLjI5LjQxLjI2LDEsLjMzLDEuNzcuMjEsMS40OS0uMjMsMi4xNC0uOTYsMS45NS0yLjE5bC0uMTQtLjktNC40Ny42OS4xNC45WiIvPjwvZz48Zz48cGF0aCBjbGFzcz0iY2xzLTE1IiBkPSJNMTgzLjk0LDE2NC42Yy40Mi4xLjc5LS4wMiwxLjEtLjM3LjI0LS4yNy4zNy0uNTUuMzctLjg0LDAtLjI5LS4xNC0uNjQtLjQyLTEuMDQtLjI5LS40MS0uNzItLjktMS4zMS0xLjQ3LS41OS0uNTgtMS4zNS0xLjI4LTIuMjgtMi4xMS0uOTMtLjgzLTEuNzEtMS41MS0yLjM0LTIuMDMtLjY0LS41Mi0xLjE3LS45MS0xLjYxLTEuMTQtLjQ0LS4yNC0uOC0uMzQtMS4wOC0uMzEtLjI5LjAzLS41NS4xOS0uNzkuNDYtLjIuMjItLjMuNDUtLjMyLjY5LS4wMi4yNC4wNy41MS4yNi44Mi4xOS4zMS40OC42Ny44OSwxLjA5LjQuNDIuOTMuOTIsMS41OSwxLjUxbC0zLjEyLDMuNDgtMS4wMi0uOTJjLS45Ny0uODctMS42NC0xLjcxLTIuMDMtMi41Mi0uMzktLjgxLS41Ny0xLjU5LS41NC0yLjMzLjAzLS43NC4yMy0xLjQ0LjU5LTIuMS4zNy0uNjYuODEtMS4yOCwxLjMzLTEuODYuOS0xLjAxLDEuNzYtMS43MiwyLjU5LTIuMTQuODItLjQzLDEuNjgtLjU2LDIuNTgtLjQxLjkuMTUsMS44Ni41NywyLjg5LDEuMjVzMi4xOSwxLjYsMy40OCwyLjc1YzEuMzEsMS4xOCwyLjM2LDIuMjYsMy4xMywzLjI0Ljc3Ljk4LDEuMjcsMS45MiwxLjQ5LDIuODIuMjIuOS4xNywxLjc3LS4xNCwyLjYzLS4zMS44Ni0uODksMS43NS0xLjcyLDIuNjgtLjczLjgxLTEuNDUsMS40MS0yLjE2LDEuNzktLjcxLjM4LTEuNDIuNTgtMi4xMi41OS0uNy4wMS0xLjM5LS4xNC0yLjA3LS40Ni0uNjgtLjMyLTEuMzUtLjc4LTIuMDItMS4zOGwtLjg3LS43OCwzLjEyLTMuNDguNzcuNjljLjc5LjcsMS4zOSwxLjExLDEuODEsMS4yMVoiLz48cGF0aCBjbGFzcz0iY2xzLTE1IiBkPSJNMTc2LjI2LDE3Ni41OWwtNC4yMS01LjM0LTIuMzMsMS44Myw0LjIxLDUuMzQtMy43OSwyLjk5LTExLjQ3LTE0LjU2LDMuNzktMi45OSw0LjcyLDYsMi4zMy0xLjgzLTQuNzItNiwzLjc5LTIuOTksMTEuNDcsMTQuNTYtMy43OSwyLjk5WiIvPjxwYXRoIGNsYXNzPSJjbHMtMTUiIGQ9Ik0xNTguMDUsMTg4LjMxbC0xMi42OS0xNC4yNSw0LjU0LTIuNDEsMS45NiwyLjYzLDMuMzktMS44LTEuMDktMy4xLDQuNDctMi4zOCw0Ljc4LDE4LjQ1LTUuMzYsMi44NVpNMTU4Ljk3LDE4My41MmwtMi41Mi03LjU3LTIuMzgsMS4yNyw0Ljg2LDYuMzMuMDUtLjAyWiIvPjxwYXRoIGNsYXNzPSJjbHMtMTUiIGQ9Ik0xNDMuNzIsMTkzLjkzYy0uODcuMjgtMS42Ni40LTIuMzUuMzctLjY5LS4wMy0xLjMtLjItMS44Mi0uNDktLjUyLS4zLS45Ni0uNzEtMS4zMi0xLjIzLS4zNi0uNTItLjY0LTEuMTItLjg2LTEuOC0uMzgtMS4xOS0uNDUtMi4yMi0uMi0zLjEuMjUtLjg4Ljg3LTEuNTcsMS44Ny0yLjA3bC0uMDItLjA1Yy0xLjE0LjI1LTIuMDIuMTEtMi42NS0uNDMtLjYzLS41NC0xLjEzLTEuNDEtMS41MS0yLjZsLS40OC0xLjUxYy0uMDctLjIzLS4xNS0uNDctLjIzLS43Mi0uMDgtLjI1LS4xNi0uNDgtLjI1LS43LS4wOS0uMjItLjE4LS40MS0uMjctLjU4LS4wOS0uMTctLjE4LS4zLS4yNi0uMzgtLjEtLjA4LS4xOS0uMTUtLjI5LS4yMi0uMDktLjA3LS4yMy0uMTItLjQtLjE2bC0uMDgtLjI1LDQuOS0xLjU3Yy4xOS4xOS4zNi40NC41Mi43My4xNi4yOS4zLjU5LjQyLjkuMTIuMzEuMjQuNi4zNC44OS4xLjI5LjE4LjUyLjI0LjdsLjM4LDEuMTljLjE2LjQ5LjMxLjkuNDcsMS4yMS4xNS4zMS4zMi41NS41MS43LjE4LjE1LjM4LjIzLjYuMjUuMjEuMDEuNDYtLjAyLjc0LS4xMWwxLjIxLS4zOS0yLjI2LTcuMDcsNC42LTEuNDcsNS42NSwxNy42Ni03LjIsMi4zWk0xNDMuMDEsMTg1LjkzYy0uNjYuMjEtMS4wOC41Ni0xLjI3LDEuMDUtLjE5LjQ5LS4xOCwxLjA0LjAyLDEuNjcuMjQuNzQuNTYsMS4yMi45NiwxLjQ0LjQxLjIyLjk1LjIxLDEuNjUsMGwuODktLjI4LTEuMzMtNC4xNi0uOTIuMjlaIi8+PHBhdGggY2xhc3M9ImNscy0xNSIgZD0iTTEyMC43MiwxODkuNzRsLTEuMzEtOS45OSwzLjI0LS40My4zMiwxLjYxaC4wNWMuMS0uNDIuMjgtLjc4LjUzLTEuMDcuMjUtLjI5LjU0LS41My44OC0uNy4zNC0uMTcuNy0uMzEsMS4xLS40Mi40LS4xLjgtLjE4LDEuMjEtLjI0LDEuMjItLjE2LDIuMjEtLjA4LDIuOTYuMjMuNzYuMzEsMS4zNy44NSwxLjgzLDEuNjEuNDcuNzYuODIsMS43MiwxLjA3LDIuOS4yNSwxLjE3LjQ4LDIuNTIuNjgsNC4wNS4yLDEuNTQuMjksMi45Mi4yNyw0LjEzLS4wMiwxLjIxLS4yNCwyLjI1LS42NCwzLjEyLS40Ljg3LTEuMDIsMS41OC0xLjg2LDIuMTItLjg0LjU0LTEuOTYuOS0zLjM3LDEuMDgtLjg0LjExLTEuNjMuMS0yLjM3LS4wMy0uNzQtLjEzLTEuNC0uNDEtMS45OC0uODQtLjU4LS40My0xLjA3LTEuMDItMS40Ni0xLjc2LS4zOS0uNzQtLjY2LTEuNjctLjgxLTIuNzlsNC42My0uNjFjLjEzLjk4LjMxLDEuNjguNTQsMi4xLjI0LjUxLjY1LjczLDEuMjEuNjUuMzktLjA1LjctLjE5LjktLjQxLjIxLS4yMi4zMy0uNTguMzgtMS4wNy4wNS0uNS4wNC0xLjE1LS4wNC0xLjk3LS4wNy0uODItLjE5LTEuODUtLjM1LTMuMDgtLjE2LTEuMjQtLjMxLTIuMjYtLjQ2LTMuMDctLjE0LS44MS0uMy0xLjQ1LS40Ny0xLjkyLS4xNy0uNDctLjM4LS43OC0uNjItLjk0LS4yNC0uMTYtLjU0LS4yMi0uOS0uMTctLjI2LjAzLS40OC4xMi0uNjYuMjQtLjE4LjEzLS4zMy4zNC0uNDMuNjUtLjEuMy0uMTYuNzEtLjE3LDEuMjMtLjAxLjUyLjA0LDEuMTcuMTQsMS45NmwxLjctLjIyLjQzLDMuMjQtNi4xOC44MVoiLz48cGF0aCBjbGFzcz0iY2xzLTE1IiBkPSJNMTA2LjUsMTk3Ljg0bC4xNC0zLjk0LDYuMTUuMjMuMTItMy4xNy01Ljc2LS4yMS4xNC0zLjc5LDUuNzYuMjEuMTQtMy42OC02LjM4LS4yMy4xNC0zLjk0LDExLjIxLjQxLS42OCwxOC41My0xMC45OC0uNFoiLz48cGF0aCBjbGFzcz0iY2xzLTE1IiBkPSJNOTQuOCwxOTUuODJjLTEuNjktLjM2LTIuODYtMS4wMy0zLjQ5LTIuMDItLjYzLS45OS0uOC0yLjE3LS41MS0zLjU0LjEtLjQ3LjI1LS45Mi40Ni0xLjM1LjIxLS40My40Ni0uOC43Ny0xLjExLjMxLS4zMi42Ni0uNTYsMS4wNy0uNzQuNDEtLjE4Ljg4LS4yNywxLjQxLS4yNnYtLjA1Yy0uNTctLjE4LTEuMDUtLjQ0LTEuNDEtLjc5LS4zNy0uMzUtLjY1LS43NS0uODQtMS4yLS4xOS0uNDUtLjMtLjkyLS4zMy0xLjQxLS4wMy0uNDksMC0uOTguMTEtMS40NS4xNi0uNzguNDItMS40OC43Ni0yLjEuMzQtLjYyLjc4LTEuMTIsMS4zMS0xLjUuNTMtLjM4LDEuMTctLjYzLDEuOTItLjc1Ljc1LS4xMiwxLjYyLS4wNywyLjYuMTRsNy4xNCwxLjUxLTMuODMsMTguMTQtNy4xNC0xLjUxWk05OSwxODEuMzJjLS40NC0uMDktLjg3LDAtMS4yOC4zLS40Mi4yOS0uNy44Mi0uODYsMS41OC0uMTUuNzEtLjEsMS4yOS4xNiwxLjczLjI2LjQ0LjYxLjcxLDEuMDUuODFsMS4zMi4yOC45My00LjQyLTEuMzItLjI4Wk05Ny41NywxODguOThjLS40OS0uMS0uOSwwLTEuMjMuMzEtLjMzLjMxLS41NS43MS0uNjUsMS4yLS4xMS41MS0uMDcuOTguMSwxLjQuMTguNDMuNTEuNjksMSwuNzlsMS4xNC4yNC43OC0zLjcxLTEuMTQtLjI0WiIvPjxwYXRoIGNsYXNzPSJjbHMtMTUiIGQ9Ik03Ni42NSwxODkuODNsMi44OC0xOC44Niw0Ljc1LDEuOTYtLjc4LDMuMTksMy41NSwxLjQ2LDEuNjktMi44MSw0LjY4LDEuOTMtMTEuMTYsMTUuNDUtNS42Mi0yLjMxWk04MC45MywxODcuNDlsNC4yMi02Ljc3LTIuNS0xLjAzLTEuNzcsNy43OC4wNS4wMloiLz48cGF0aCBjbGFzcz0iY2xzLTE1IiBkPSJNNjUuNDksMTc5LjY5Yy0uMDMuNDMuMTUuNzcuNTUsMS4wMy4zMS4yLjYuMjcuODkuMjMuMjktLjA0LjYxLS4yNC45Ni0uNTkuMzYtLjM1Ljc3LS44NiwxLjI0LTEuNTMuNDctLjY3LDEuMDQtMS41NCwxLjcxLTIuNTkuNjctMS4wNSwxLjIxLTEuOTMsMS42My0yLjY0LjQxLS43MS43LTEuMy44Ny0xLjc3LjE3LS40Ny4yMS0uODQuMTMtMS4xMi0uMDgtLjI4LS4yNy0uNTEtLjU4LS43MS0uMjUtLjE2LS40OS0uMjMtLjczLS4yMS0uMjQuMDItLjUuMTUtLjc3LjM5LS4yNy4yNC0uNTguNTktLjkzLDEuMDUtLjM1LjQ3LS43NiwxLjA3LTEuMjQsMS44MWwtMy45NC0yLjUyLjc0LTEuMTZjLjctMS4wOSwxLjQyLTEuOSwyLjE2LTIuNDEuNzQtLjUxLDEuNDgtLjgyLDIuMjEtLjkxLjc0LS4wOSwxLjQ2LS4wMSwyLjE3LjI1LjcxLjI2LDEuMzkuNiwyLjA1LDEuMDEsMS4xNC43MywxLjk4LDEuNDYsMi41NCwyLjIuNTUuNzQuODMsMS41Ny44MiwyLjQ4LDAsLjkxLS4yNiwxLjkzLS43NiwzLjA1LS41LDEuMTMtMS4yMiwyLjQyLTIuMTUsMy44OC0uOTUsMS40OS0xLjg1LDIuNjktMi42OSwzLjYxLS44NC45Mi0xLjY5LDEuNTYtMi41NCwxLjkyLS44NS4zNi0xLjcyLjQ2LTIuNjIuMjktLjktLjE3LTEuODctLjU5LTIuOTItMS4yNi0uOTItLjU5LTEuNjItMS4yLTIuMTItMS44NS0uNDktLjY0LS44LTEuMzEtLjkzLTEuOTktLjEzLS42OS0uMDktMS4zOS4xMi0yLjExLjItLjcyLjU1LTEuNDYsMS4wMy0yLjIybC42My0uOTgsMy45NCwyLjUyLS41Ni44OGMtLjU3Ljg5LS44NywxLjU1LS45LDEuOThaIi8+PHBhdGggY2xhc3M9ImNscy0xNSIgZD0iTTUyLjUzLDE3NC4xbDQuODItNS4yMy0uMDQtLjA0LTcuNDYsMi44LTMuNzgtMy40OSw4LjkzLTIuNzksMy4yMi0xMS4yMyw0LjA1LDMuNzMtMi4zLDYuNjcsMS44LS40NiwzLjMzLTMuNjEsMy41NSwzLjI3LTEyLjU3LDEzLjYzLTMuNTUtMy4yN1oiLz48cGF0aCBjbGFzcz0iY2xzLTE1IiBkPSJNNDAuODQsMTYxLjU2bDUuNDQtNC4wOS0xLjc4LTIuMzctNS40NCw0LjA5LTIuOS0zLjg2LDE0LjgyLTExLjE0LDIuOSwzLjg2LTYuMSw0LjU5LDEuNzgsMi4zNyw2LjEtNC41OSwyLjksMy44Ni0xNC44MiwxMS4xNC0yLjktMy44NloiLz48cGF0aCBjbGFzcz0iY2xzLTE1IiBkPSJNMjguNzMsMTQxLjQ0bDMuNTItMS43OSwyLjc5LDUuNDksMi44Mi0xLjQzLTIuNjEtNS4xNCwzLjM4LTEuNzIsMi42MSw1LjE0LDMuMjktMS42Ny0yLjg5LTUuNywzLjUyLTEuNzksNS4wOCwxMC0xNi41Myw4LjM5LTQuOTctOS43OVoiLz48cGF0aCBjbGFzcz0iY2xzLTE1IiBkPSJNMjUuNjksMTMyLjkzbDEzLjg4LTQuNS0xLjgzLTUuNjYsMy43NS0xLjIyLDMuMzIsMTAuMjUtMTcuNjQsNS43Mi0xLjQ5LTQuNTlaIi8+PHBhdGggY2xhc3M9ImNscy0xNSIgZD0iTTIxLjk3LDExNi44NmMtLjE0LS45MS0uMTItMS43Mi4wNy0yLjQzLjE5LS43MS41LTEuMzMuOTQtMS44NC40NC0uNTEuOTgtLjkzLDEuNjQtMS4yNC42NS0uMzEsMS4zOC0uNTMsMi4xOS0uNjUsMS45LS4yOSwzLjQsMCw0LjUxLjg3LDEuMTEuODcsMS44MSwyLjI5LDIuMTEsNC4yNmwuMjYsMS42Nyw2Ljk4LTEuMDcuNzQsNC43Ny0xOC4zMiwyLjgyLTEuMS03LjE2Wk0zMC4xMSwxMTcuMTNjLS4wOS0uNi0uMzQtMS4wMy0uNzUtMS4yOS0uNDEtLjI2LTEtLjMzLTEuNzctLjIxLTEuNDkuMjMtMi4xNC45Ni0xLjk1LDIuMTlsLjE0LjksNC40Ny0uNjktLjE0LS45WiIvPjwvZz48L2c+PC9nPjwvc3ZnPg==" alt="ChargebackHelp Guide" loading="eager" decoding="async"></span><span class="cbh-topbar-title">ChargebackHelp Guide</span></a><div class="cbh-topbar-actions"><a class="cbh-topbar-link" href="https://www.chargebackhelp.com" target="_blank" rel="noopener"><svg class="cbh-ico cbh-ico-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg><span>Back to Home</span></a><a class="cbh-topbar-link" href="index.html"><svg class="cbh-ico cbh-ico-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" x2="15.42" y1="13.51" y2="17.49"/><line x1="15.41" x2="8.59" y1="6.51" y2="10.49"/></svg><span>All Parts</span></a></div></div></header><div class="cbh-art-layout"><nav class="cbh-sidebar" aria-label="Guide contents"><div class="cbh-sidebar-inner"><a class="cbh-sidebar-brand" href="index.html">ChargebackHelp Guide</a><div class="cbh-side-group cbh-accent-blue"><div class="cbh-side-track">Beginner</div><a class="cbh-side-link" href="part-1-what-is-a-chargeback.html"><span class="cbh-side-part">Part 1</span><span class="cbh-side-title">What Is a Chargeback?</span></a><a class="cbh-side-link" href="part-2-parties-in-a-chargeback.html"><span class="cbh-side-part">Part 2</span><span class="cbh-side-title">Who Are the Parties in a Chargeback?</span></a><a class="cbh-side-link" href="part-3-how-the-chargeback-process-works.html"><span class="cbh-side-part">Part 3</span><span class="cbh-side-title">How the Chargeback Process Works</span></a><a class="cbh-side-link" href="part-4-where-disputes-end-and-chargebacks-begin.html"><span class="cbh-side-part">Part 4</span><span class="cbh-side-title">Where Disputes End and Chargebacks Begin</span></a><a class="cbh-side-link" href="part-5-chargeback-timelines-and-deadlines.html"><span class="cbh-side-part">Part 5</span><span class="cbh-side-title">Chargeback Timelines and Deadlines</span></a><a class="cbh-side-link" href="part-6-why-merchants-receive-chargebacks.html"><span class="cbh-side-part">Part 6</span><span class="cbh-side-title">Why Merchants Receive Chargebacks</span></a><a class="cbh-side-link" href="part-7-what-a-chargeback-costs-a-merchant.html"><span class="cbh-side-part">Part 7</span><span class="cbh-side-title">What a Chargeback Costs a Merchant</span></a><a class="cbh-side-link" href="part-8-chargeback-ratios-explained.html"><span class="cbh-side-part">Part 8</span><span class="cbh-side-title">Chargeback Ratios Explained</span></a><a class="cbh-side-link" href="part-9-what-happens-if-you-ignore-chargebacks.html"><span class="cbh-side-part">Part 9</span><span class="cbh-side-title">What Happens If You Ignore Chargebacks</span></a></div><div class="cbh-side-group cbh-accent-orange"><div class="cbh-side-track">Intermediate</div><a class="cbh-side-link" href="part-10-chargeback-reason-codes-overview.html"><span class="cbh-side-part">Part 10</span><span class="cbh-side-title">Chargeback Reason Codes Overview</span></a><a class="cbh-side-link" href="part-11-visa-chargeback-reason-codes-explained.html"><span class="cbh-side-part">Part 11</span><span class="cbh-side-title">Visa Chargeback Reason Codes Explained</span></a><a class="cbh-side-link is-active" href="part-12-mastercard-chargeback-reason-codes.html"><span class="cbh-side-part">Part 12</span><span class="cbh-side-title">Mastercard Chargeback Reason Codes Explained</span></a><a class="cbh-side-link" href="part-13-what-is-friendly-fraud.html"><span class="cbh-side-part">Part 13</span><span class="cbh-side-title">What Is Friendly Fraud?</span></a><a class="cbh-side-link" href="part-14-what-is-first-party-fraud.html"><span class="cbh-side-part">Part 14</span><span class="cbh-side-title">What Is First-Party Fraud?</span></a><a class="cbh-side-link" href="part-15-chargeback-alerts-explained.html"><span class="cbh-side-part">Part 15</span><span class="cbh-side-title">Chargeback Alerts Explained</span></a><a class="cbh-side-link" href="part-16-ethoca-alerts.html"><span class="cbh-side-part">Part 16</span><span class="cbh-side-title">Ethoca Alerts</span></a><a class="cbh-side-link" href="part-17-verifi-cdrn.html"><span class="cbh-side-part">Part 17</span><span class="cbh-side-title">Verifi CDRN</span></a><a class="cbh-side-link" href="part-18-visa-rdr.html"><span class="cbh-side-part">Part 18</span><span class="cbh-side-title">Visa RDR</span></a><a class="cbh-side-link" href="part-19-chargeback-prevention-strategies.html"><span class="cbh-side-part">Part 19</span><span class="cbh-side-title">Chargeback Prevention Strategies</span></a><a class="cbh-side-link" href="part-20-billing-descriptors-and-prevention.html"><span class="cbh-side-part">Part 20</span><span class="cbh-side-title">Billing Descriptors and Chargeback Prevention</span></a><a class="cbh-side-link" href="part-21-fraud-screening-and-prevention.html"><span class="cbh-side-part">Part 21</span><span class="cbh-side-title">Fraud Screening and Chargeback Prevention</span></a><a class="cbh-side-link" href="part-22-what-is-chargeback-representment.html"><span class="cbh-side-part">Part 22</span><span class="cbh-side-title">What Is Chargeback Representment?</span></a><a class="cbh-side-link" href="part-23-build-a-strong-representment-case.html"><span class="cbh-side-part">Part 23</span><span class="cbh-side-title">How to Build a Strong Representment Case</span></a><a class="cbh-side-link" href="part-24-compelling-evidence-3-0.html"><span class="cbh-side-part">Part 24</span><span class="cbh-side-title">Compelling Evidence 3.0 (CE3.0) Explained</span></a><a class="cbh-side-link" href="part-25-mastercard-first-party-trust.html"><span class="cbh-side-part">Part 25</span><span class="cbh-side-title">Mastercard First-Party Trust Explained</span></a><a class="cbh-side-link" href="part-26-high-risk-industries-and-exposure.html"><span class="cbh-side-part">Part 26</span><span class="cbh-side-title">High-Risk Industries and Chargeback Exposure</span></a><a class="cbh-side-link" href="part-27-subscription-saas-chargeback-challenges.html"><span class="cbh-side-part">Part 27</span><span class="cbh-side-title">Subscription and SaaS Chargeback Challenges</span></a></div><div class="cbh-side-group cbh-accent-green"><div class="cbh-side-track">Advanced</div><a class="cbh-side-link" href="part-28-visa-vamp-explained.html"><span class="cbh-side-part">Part 28</span><span class="cbh-side-title">Visa VAMP Explained</span></a><a class="cbh-side-link" href="part-29-mastercard-ecms-explained.html"><span class="cbh-side-part">Part 29</span><span class="cbh-side-title">Mastercard ECMS Explained</span></a><a class="cbh-side-link" href="part-30-fraud-liability-shift-and-3ds.html"><span class="cbh-side-part">Part 30</span><span class="cbh-side-title">The Fraud Liability Shift and 3-D Secure</span></a><a class="cbh-side-link" href="part-31-automating-chargeback-alerts.html"><span class="cbh-side-part">Part 31</span><span class="cbh-side-title">Automating Chargeback Alerts</span></a><a class="cbh-side-link" href="part-32-automating-representment.html"><span class="cbh-side-part">Part 32</span><span class="cbh-side-title">Automating Representment</span></a><a class="cbh-side-link" href="part-33-transaction-data-as-defense.html"><span class="cbh-side-part">Part 33</span><span class="cbh-side-title">Transaction Data as a Chargeback Defense</span></a><a class="cbh-side-link" href="part-34-chargeback-management-framework.html"><span class="cbh-side-part">Part 34</span><span class="cbh-side-title">Building a Chargeback Management Framework</span></a><a class="cbh-side-link" href="part-35-chargeback-management-msps-isos.html"><span class="cbh-side-part">Part 35</span><span class="cbh-side-title">Chargeback Management for MSPs and ISOs</span></a><a class="cbh-side-link" href="part-36-the-future-of-dispute-resolution.html"><span class="cbh-side-part">Part 36</span><span class="cbh-side-title">The Future of Dispute Resolution</span></a></div></div></nav><main class="entry-content cbh-article-main"><nav class="cbh-crumb"><a href="index.html">ChargebackHelp Chargeback Guide</a><span class="cbh-crumb-sep">/</span><span>Intermediate</span><span class="cbh-crumb-sep">/</span><span>Part 12 of 36</span></nav><div class="cbh-arthead"><h1 class="cbh-arttitle">Mastercard Chargeback Reason Codes Explained</h1><p class="cbh-artmeta">4 min read &middot; Part 12 of 36</p></div><aside class="cbh-definition"><div class="cbh-def-label">Definition</div><div class="cbh-def-body">A chargeback is a forced reversal of a payment transaction, initiated by a cardholder's issuing bank on the cardholder's behalf. Unlike a standard refund, which is processed voluntarily by the merchant, a chargeback bypasses the merchant entirely and returns funds directly to the cardholder through the card network. Chargebacks exist as a consumer protection mechanism and are governed by the rules of the card networks, primarily Visa and Mastercard.</div></aside><h2 id="how-a-chargeback-differs-from-a-refund">How a Chargeback Differs From a Refund</h2><p>The distinction between a chargeback and a refund is not merely procedural. It has meaningful consequences for the merchant.</p><p>A refund is a merchant-initiated transaction. When a customer contacts a merchant directly to report a problem, and the merchant agrees to return the funds, that refund is processed through normal payment channels. The merchant retains control over the decision, the timing, and the amount. No third party is involved.</p><p>A chargeback follows a different path entirely. The cardholder contacts their issuing bank rather than the merchant. The issuing bank reviews the claim and, if it meets the applicable criteria, initiates a reversal of the original transaction. The merchant is notified after the fact and given the opportunity to respond, but the funds are typically held or returned to the cardholder while the dispute is under review.</p><p>The financial impact of a chargeback extends beyond the transaction amount. Merchants are assessed a chargeback fee by their acquiring bank each time a chargeback is filed, regardless of the outcome. That fee is not recovered if the merchant wins the dispute. Additionally, chargebacks are recorded against the merchant's account and factor into chargeback ratio calculations, which card networks monitor closely.</p><p>So while a refund and a chargeback may produce the same result from the cardholder's perspective, they are fundamentally different events from the merchant's.</p><h2 id="why-chargebacks-exist">Why Chargebacks Exist</h2><p>Chargebacks were introduced as a consumer protection measure. The underlying rationale is straightforward: cardholders need a mechanism to recover funds when a transaction goes wrong and the merchant either cannot or will not resolve the issue directly.</p><p>The most common scenarios that chargebacks were designed to address include unauthorized use of a payment card, merchants who fail to deliver goods or services as described, and processing errors that result in incorrect charges. In these cases, the chargeback process provides cardholders with a formal recourse path that does not require them to resolve the issue through the merchant.</p><p>This protection is a condition of card network participation. Merchants who accept Visa or Mastercard agree to the networks' dispute rules as part of their merchant agreements. That includes the chargeback process and all associated obligations.</p><h2 id="the-difference-between-a-dispute-and-a-chargeback">The Difference Between a Dispute and a Chargeback</h2><p>These two terms are often used interchangeably, but they refer to different stages in the same process.</p><p>A dispute is the initial claim filed by a cardholder. When a cardholder contacts their issuing bank to report a problem with a transaction, that action creates a dispute. At this stage, the issue has not yet become a formal chargeback. Depending on the card network and the nature of the claim, there may be an opportunity for the dispute to be resolved before it progresses further.</p><p>A chargeback occurs when the dispute is not resolved at the earlier stage and the issuing bank proceeds with a formal reversal. At that point, the transaction is officially classified as a chargeback, fees are assessed, and the event is recorded against the merchant's account.</p><p>The distinction matters operationally. Merchants and service providers who can identify and act on disputes before they become chargebacks have more options available to them, and fewer consequences to manage. Much of modern chargeback management strategy is built around this gap between the dispute stage and the chargeback stage.</p><aside class="cbh-cta"><h3 class="cbh-cta-title">Is your chargeback ratio putting you at risk?</h3><p class="cbh-cta-body">ChargebackHelp monitors your dispute activity and helps you respond before ratios escalate. Talk to our team.</p><a class="cbh-cta-link" href="https://www.chargebackhelp.com" target="_blank" rel="noopener">Talk to an expert<svg class="cbh-ico cbh-ico-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a></aside><h2 id="when-chargebacks-are-legitimate">When Chargebacks Are Legitimate</h2><p>Not all chargebacks represent wrongful behavior by the cardholder. Many are the result of genuine problems: a package that never arrived, a charge that did not match the authorized amount, a subscription that was cancelled but continued to bill, or a card that was used without the cardholder's knowledge.</p><p>In these cases, the chargeback process functions as intended. The cardholder has a legitimate grievance and uses the available channel to recover their funds. Merchants who experience chargebacks of this type are often better served by addressing the underlying operational issue than by challenging the individual transaction.</p><h2 id="when-chargebacks-are-not-legitimate">When Chargebacks Are Not Legitimate</h2><p>Chargebacks are not always filed in good faith. A cardholder may dispute a transaction they authorized and received in full, either because they do not recognize the charge, have forgotten the purchase, or are attempting to retain both the goods and the refund. This category of chargeback is commonly referred to as friendly fraud or first-party fraud, and it represents a growing share of overall dispute activity across many merchant categories.</p><p>From the card network's perspective, these cases are indistinguishable from legitimate disputes at the point of filing. The burden falls on the merchant to provide evidence that the transaction was authorized and fulfilled as described.</p><h2 id="the-scope-of-chargeback-liability">The Scope of Chargeback Liability</h2><p>Merchants bear significant financial and operational exposure from chargebacks. Beyond the individual transaction amount and the associated fee, chargebacks accumulate over time and are measured as a ratio against total transaction volume. Card networks set thresholds for acceptable chargeback ratios. Merchants who exceed those thresholds can be placed into monitoring programs, face increased fees and restrictions, or in serious cases, lose the ability to accept card payments altogether.</p><p>This is why chargeback management is not simply a billing or customer service function. It is a risk management discipline that touches fraud prevention, operational processes, dispute response, and network compliance.</p><h2 id="chargebacks-across-card-networks">Chargebacks Across Card Networks</h2><p>The chargeback process exists across all major card networks, but the specific rules, timelines, reason code structures, and thresholds differ between Visa and Mastercard. American Express and Discover operate their own dispute frameworks as well, though Visa and Mastercard account for the majority of card payment volume and are the primary focus of most chargeback management programs.</p><p>Understanding which network governs a given transaction is relevant because it determines which rules apply, what evidence is required, and what deadlines must be met.</p><section class="cbh-related"><h3 class="cbh-mini-label">Related Entries in This Guide</h3><ul class="cbh-related-list"><li><a href="part-2-parties-in-a-chargeback.html"><svg class="cbh-ico cbh-ico-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg><span>Part 2: Who Are the Parties in a Chargeback?</span></a></li><li><a href="part-3-how-the-chargeback-process-works.html"><svg class="cbh-ico cbh-ico-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg><span>Part 3: How the Chargeback Process Works</span></a></li><li><a href="part-4-where-disputes-end-and-chargebacks-begin.html"><svg class="cbh-ico cbh-ico-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg><span>Part 4: Where Disputes End and Chargebacks Begin</span></a></li><li><a href="part-8-chargeback-ratios-explained.html"><svg class="cbh-ico cbh-ico-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg><span>Part 8: Chargeback Ratios Explained</span></a></li></ul></section><section class="cbh-further"><h3 class="cbh-mini-label cbh-further-label">Further Reading</h3><ul class="cbh-further-list"><li><a href="https://www.chargebackhelp.com">&rarr; <span>The Complete Chargeback Process Explained</span></a></li><li><a href="https://www.chargebackhelp.com">&rarr; <span>What Is Friendly Fraud?</span></a></li><li><a href="https://www.chargebackhelp.com">&rarr; <span>What Is First-Party Fraud?</span></a></li></ul><div class="cbh-further-note">If you would like help managing chargebacks within your operation, <a href="https://www.chargebackhelp.com">contact our team at chargebackhelp.com</a>.</div></section><nav class="cbh-prevnext"><a class="cbh-pn cbh-pn-prev" href="part-11-visa-chargeback-reason-codes-explained.html"><span class="cbh-pn-label"><svg class="cbh-ico cbh-ico-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>Previous</span><span class="cbh-pn-title">Part 11 &mdash; Visa Chargeback Reason Codes Explained</span></a><a class="cbh-pn cbh-pn-next" href="part-13-what-is-friendly-fraud.html"><span class="cbh-pn-label">Next<svg class="cbh-ico cbh-ico-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span><span class="cbh-pn-title">Part 13 &mdash; What Is Friendly Fraud?</span></a></nav></main></div><footer class="cbh-footer"><div class="cbh-wrap cbh-footer-inner"><p class="cbh-copy">&copy; 2026 ChargebackHelp. All rights reserved.</p><div class="cbh-social"><a class="cbh-share" href="https://www.chargebackhelp.com" target="_blank" rel="noopener"><svg class="cbh-ico cbh-ico-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" x2="15.42" y1="13.51" y2="17.49"/><line x1="15.41" x2="8.59" y1="6.51" y2="10.49"/></svg>Share this guide</a><span class="cbh-foot-div"></span><a class="cbh-soc" href="https://www.linkedin.com/company/chargebackhelp" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg class="cbh-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg></a><a class="cbh-soc" href="https://www.instagram.com/chargebackhelp" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg class="cbh-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg></a><a class="cbh-soc" href="https://www.facebook.com/chargebackhelp" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><svg class="cbh-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a></div></div></footer></body></html>
